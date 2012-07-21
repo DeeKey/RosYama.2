@@ -1,10 +1,10 @@
 <?php 
 $bd=array(
 			'class'=>'CDbConnection',
-			'connectionString' => 'mysql:host=localhost;dbname=rosyama',
+			'connectionString' => 'mysql:host=localhost;dbname=rosyamadb',
 			'emulatePrepare' => false,
-			'username' => 'root',
-			'password' => 'qwe1024',
+			'username' => 'rosuser',
+			'password' => 'qwe123',
 			'charset' => 'utf8',
 			'tablePrefix'=>'yii_',
 			'schemaCachingDuration'=>3600,

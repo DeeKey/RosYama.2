@@ -51,13 +51,13 @@ $this->pageTitle=Yii::app()->name . ' :: Мои ямы';
 <div class="head">
 		<div class="container">
 		<div class="lCol">
-					<a href="/" class="logo" title="На главную"><img src="/images/logo.png"  alt="РосЯма" /></a>
+					<a href="/" class="logo" title="На главную"><img src="/images/logo.png"  alt="РосДоступ" /></a>
 			</div>
 			<div class="rCol">
 	<div class="h">
 		<div class="info">
-			<h1><span class="date">Сохраненный список ям от <?php echo CHtml::encode(Y::dateFromTimeShort($list->date_created)); ?></span></h1>
-			<p>Отдел ГИБДД: "<?php echo $list->gibdd->gibdd_name; ?>"</p>
+			<h1><span class="date">Сохраненный список дефектов от <?php echo CHtml::encode(Y::dateFromTimeShort($list->date_created)); ?></span></h1>
+			<p>Гос. учреждение: "<?php echo $list->gibdd->gibdd_name; ?>"</p>
 			<p><?php echo CHtml::link('изменить', '#', Array('onclick'=>'$("#change_gibdd").show("slow"); $(this).hide("slow"); return false;')); ?></p>
 			<div id="change_gibdd" style="display:none;">
 			<form method="post">
@@ -123,7 +123,7 @@ $this->pageTitle=Yii::app()->name . ' :: Мои ямы';
 )); ?>			
 			<?php echo $form->dropDownList($model, 'TYPE_ID', CHtml::listData( HoleTypes::model()->findAll(Array('condition'=>'published=1', 'order'=>'ordering')), 'id','name'), array('prompt'=>'Тип дефекта')); ?>
 			<?php echo $form->dropDownList($model, 'STATE', $model->Allstates, array('prompt'=>'Статус дефекта')); ?>
-			<?php echo $form->dropDownList($model, 'showUserHoles', Array('3'=>'Все ямы', 1=>'Мои ямы', 2=>'Чужие, на которые я отправил заявление')); ?>
+			<?php echo $form->dropDownList($model, 'showUserHoles', Array('3'=>'Все дефекты', 1=>'Найденные мной дефекты', 2=>'Дефекты, найденные другими, на которые я отправил заявление')); ?>
 			<?php echo CHtml::submitButton('Найти'); ?><br/>
 			
 	<?php $this->endWidget(); ?>		
