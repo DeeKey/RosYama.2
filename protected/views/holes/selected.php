@@ -123,7 +123,7 @@ $this->pageTitle=Yii::app()->name . ' :: Мои ямы';
 )); ?>			
 			<?php echo $form->dropDownList($model, 'TYPE_ID', CHtml::listData( HoleTypes::model()->findAll(Array('condition'=>'published=1', 'order'=>'ordering')), 'id','name'), array('prompt'=>'Тип дефекта')); ?>
 			<?php echo $form->dropDownList($model, 'STATE', $model->Allstates, array('prompt'=>'Статус дефекта')); ?>
-			<?php echo $form->dropDownList($model, 'showUserHoles', Array('3'=>'Все дефекты', 1=>'Найденные мной дефекты', 2=>'Дефекты, найденные другими, на которые я отправил заявление')); ?>
+			<?php echo $form->dropDownList($model, 'showUserHoles', Array('3'=>'Все дефекты', 1=>'Мои дефекты', 2=>'Чужие дефекты, на которые я отправил заявления')); ?>
 			<?php echo CHtml::submitButton('Найти'); ?><br/>
 			
 	<?php $this->endWidget(); ?>		

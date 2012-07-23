@@ -11,7 +11,7 @@
 		<?php $this->widget('zii.widgets.CMenu', array(
 				'items'=>Array(
 						array('label'=>'Добавить дефект', 'url'=>array('/holes/add'), 'linkOptions'=>array('class'=>'profileBtn')),
-						array('label'=>'Дефекты, найденные мной', 'url'=>array('/holes/personal'), 'linkOptions'=>array('class'=>'profileBtn')),
+						array('label'=>'Мои дефекты', 'url'=>array('/holes/personal'), 'linkOptions'=>array('class'=>'profileBtn')),
 						array('label'=>'Мой участок', 'url'=>array('/holes/myarea'), 'linkOptions'=>array('class'=>'profileBtn')),
 						array('label'=>'Изменить личные данные', 'url'=>array('/profile/update'), 'linkOptions'=>array('class'=>'profileBtn')),
 						
