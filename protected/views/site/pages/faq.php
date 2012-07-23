@@ -57,7 +57,7 @@ $this->layout='//layouts/header_default_without_add';
 			</td>
 
 		</tr>		
-	</table>	
+	</table>
 
 	<!--<table class="faq-item">
 		<tr>

@@ -121,7 +121,6 @@
 			<?php $this->endCache(); } ?>
 		</div>
 		<div class="right_footer">
-			Разработка прототипа и дизайна - <a href="http://greensight.ru">Greensight</a>
 		</div>
 
 		</div>
