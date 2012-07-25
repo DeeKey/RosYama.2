@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="language" content="ru" />
-<meta name="copyright" content="rosyama" />
+<meta name="copyright" content="rosdostup" />
 <meta name="robots" content="index, follow" />
 <title><?php echo CHtml::encode($this->pageTitle); ?></title>
 <link rel="icon" href="/favicon.ico" type="image/x-icon" />
@@ -129,7 +129,7 @@
 	<script type="text/javascript">
                 var reformalOptions = {
                         project_id: 43983,
-                        project_host: "rosyama.reformal.ru",
+                        project_host: "rosdostup.reformal.ru",
                         force_new_window: false,
                         tab_alignment: "left",
                         tab_top: "316",
