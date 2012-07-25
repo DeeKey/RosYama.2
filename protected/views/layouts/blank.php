@@ -4,7 +4,7 @@
 <title><?php echo CHtml::encode($this->pageTitle); ?></title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="language" content="ru" />
-<meta name="copyright" content="rosyama" />
+<meta name="copyright" content="rosdostup" />
 <meta name="robots" content="index, follow" />
 <link rel="icon" href="/favicon.ico" type="image/x-icon" />
 

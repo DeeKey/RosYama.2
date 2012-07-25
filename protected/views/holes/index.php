@@ -242,9 +242,9 @@ EOD
 <table style="background-color: rgb(241, 109, 126)"> 
   <tbody> 
     <tr><td style="padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px"> <b> 
-      <p>Сбор средств на развитие РосЯмы:</p>
-        <p>Яндекс-деньги: 41001550415485</p>
-        <p><a href="/page/donations/">Подробнее</a></p>
+      <p>Сбор средств на развитие РосДоступа:</p>
+<!--        <p>Яндекс-деньги: 41001550415485</p>
+        <p><a href="/page/donations/">Подробнее</a></p>-->
       </b>
     </td></tr>
   </tbody>
