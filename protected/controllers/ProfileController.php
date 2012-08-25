@@ -235,7 +235,7 @@ class ProfileController extends Controller
 						'touser'=>$model,
 						'model'=>$contactModel,
 						),true);
-				mail($model->email,'РосЯма: личное сообщение - '.$contactModel->subject,$mailbody,$headers);
+				mail($model->email,'РосДоступ: личное сообщение - '.$contactModel->subject,$mailbody,$headers);
 				Yii::app()->user->setFlash('contact','Сообщение успешно отправлено');
 				$this->refresh();
 			}

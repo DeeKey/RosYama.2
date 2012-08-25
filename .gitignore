@@ -9,3 +9,6 @@ bugs
 protected/runtime/*
 
 protected/runtime/application.log
+/nbproject/private/
+nbproject
+/protected\config/appConfig.php

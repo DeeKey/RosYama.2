@@ -16,27 +16,27 @@ $this->layout='//layouts/header_default_without_add';
 		<tr>
 			<th>A:</th>
 			<td>
-			<p>Почта: <a href="mailto:rossyama.gmail.com">rossyama@gmail.com</a></p>
+<!--			<p>Почта: <a href="mailto:rossyama.gmail.com">rossyama@gmail.com</a></p>
                         <p>Форум: <a href="http://forum.rosyama.ru">http://forum.rosyama.ru</a></p>
                         <p>Твиттер: <a href="https://twitter.com/#!/fezeev">https://twitter.com/#!/fezeev</a></p>
                         <p>LiveJournal: <a href="http://fezeev.livejournal.com/">http://fezeev.livejournal.com/</a></p>
-                        </td>
+                        </td>-->
 		</tr>		
 	</table>	
 
 	<table class="faq-item">
 		<tr>
 			<th>Q:</th>
-			<td class="question">Где я могу скачать мобильные приложения для РосЯмы под IPhone или Android?</td>
+			<td class="question">Где я могу скачать мобильные приложения для РосДоступа под IPhone или Android?</td>
 		</tr>		
 		<tr>
 			<th>A:</th>
-			<td><p>Приложение для IPhone: <a href="http://itunes.apple.com/ru/app/id456229487?mt=8">http://itunes.apple.com/ru/app/id456229487?mt=8</a></p>
+			<td><!--<p>Приложение для IPhone: <a href="http://itunes.apple.com/ru/app/id456229487?mt=8">http://itunes.apple.com/ru/app/id456229487?mt=8</a></p>
 			    <p>Приложение для Android от UnrealMojo: <a href="https://market.android.com/details?id=ru.rosyama.android">https://market.android.com/details?id=ru.rosyama.android</a></p>
 			    <p>Приложение для Android от RedSolution: <a href="https://market.android.com/details?id=ru.redsolution.rosyama">https://market.android.com/details?id=ru.redsolution.rosyama</a></p>
 			    <p>Приложение для Samsung Bada: <a href="http://www.samsungapps.com/topApps/topAppsDetail.as?productId=G00004062550">http://www.samsungapps.com/topApps/topAppsDetail.as?productId=G00004062550</a></p>
 			    <p>Приложение для Windows Phone: <a href="http://www.windowsphone.com/ru-RU/apps/783e000f-c9ac-4c11-af17-f5e465cd881b">http://www.windowsphone.com/ru-RU/apps/783e000f-c9ac-4c11-af17-f5e465cd881b</a></p>
-			    <p>Ещё одно приложение для Windows Phone: <a href="http://www.windowsphone.com/ru-RU/apps/8994aa3e-3685-4d8e-8489-d1913591b7c3">http://www.windowsphone.com/ru-RU/apps/8994aa3e-3685-4d8e-8489-d1913591b7c3</a></p>
+			    <p>Ещё одно приложение для Windows Phone: <a href="http://www.windowsphone.com/ru-RU/apps/8994aa3e-3685-4d8e-8489-d1913591b7c3">http://www.windowsphone.com/ru-RU/apps/8994aa3e-3685-4d8e-8489-d1913591b7c3</a></p>-->
 			</td>
 
 		</tr>		
@@ -45,21 +45,21 @@ $this->layout='//layouts/header_default_without_add';
 	<table class="faq-item">
 		<tr>
 			<th>Q:</th>
-			<td class="question">Что делать, если на дороге настолько много ям, что впору снимать видео, а не фото?</td>
+			<td class="question"><!--Что делать, если на дороге настолько много ям, что впору снимать видео, а не фото?--></td>
 		</tr>		
 		<tr>
 			<th>A:</th>
 			<td>
-			<p>Сфотографируйте одну яму, на ваш выбор. поставьте точку на РосЯме, получите текст заявления. 
+			<!--<p>Сфотографируйте одну яму, на ваш выбор. поставьте точку на РосЯме, получите текст заявления. 
 			Полученный текст немного поправьте, напишите не "обнаружена яма по адресу", а "обнаружены множественные 
 			повреждения дорожного покрытия на всём протяжении автодороги [название автодороги] от [пункт А] до [пункт Б]".</p>
-			<p>А дальше всё то же самое.</p>
+			<p>А дальше всё то же самое.</p>-->
 			</td>
 
 		</tr>		
-	</table>	
+	</table>
 
-	<table class="faq-item">
+	<!--<table class="faq-item">
 		<tr>
 			<th>Q:</th>
 			<td class="question">Почему бы не создать такой же сайт по другой проблемной тематике (жкх, помойки, наркотики, выборы, и т. д.)</td>
@@ -75,8 +75,8 @@ $this->layout='//layouts/header_default_without_add';
 <br />
 В последнее время в сети возникает много сайтов, объединяющих людей по волнующим их проблемам. Например <a class="txttohtmllink" href="http://domdvordorogi.ru/">http://domdvordorogi.ru/</a> - по проблемам ЖКХ.</td>
 		</tr>		
-	</table>	
-	<table class="faq-item">
+	</table>-->	
+	<!--<table class="faq-item">
 		<tr>
 			<th>Q:</th>
 			<td class="question">Поясните область распространения ГОСТа, на сайте непонятно</td>
@@ -94,7 +94,7 @@ $this->layout='//layouts/header_default_without_add';
 Любая дорога состоит не только из проезжей части. Есть ещё всякие обочины, тротуары, разделительные полосы и трамвайные пути.<br />
 ГОСТ Р 50597-93 распространяется на проезжую часть любой дороги: от федеральной до местной.</td>
 		</tr>		
-	</table>	
+	</table>
 	<table class="faq-item">
 		<tr>
 			<th>Q:</th>
@@ -115,5 +115,5 @@ $this->layout='//layouts/header_default_without_add';
 			<th>A:</th>
 			<td>Пришлите на <a class="txttohtmllink" href="mailto:rossyama@gmail.com" title="Написать письмо">rossyama@gmail.com</a> фотографию исправленного участка, желательно с того же ракурса, что и раньше. Укажите номер дефекта на сайте. Мы отметим факт исправления дефекта вручную.</td>
 		</tr>		
-	</table>	
+	</table>-->	
 </div>

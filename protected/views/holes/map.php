@@ -1,11 +1,11 @@
 <?
 $this->pageTitle=Yii::app()->name . ' :: Карта дефектов';
 ?>
-<div id="addmess" style="display:none; color:#0C0"><p><b>Выберите место на карте и кликните по нему два раза, чтобы отметить расположение ямы.</b></p></div>
+<div id="addmess" style="display:none; color:#0C0"><p><b>Выберите место на карте и кликните по нему два раза, чтобы отметить расположение дефекта.</b></p></div>
   <div class="head">
 		<div class="container">
 <div class="lCol">
-												<a href="/" class="logo" title="На главную"><img src="/images/logo.png"  alt="РосЯма" /></a>
+												<a href="/" class="logo" title="На главную"><img src="/images/logo.png"  alt="РосДоступ" /></a>
 											</div>
 						<div class="rCol">
 <h1>Карта дефектов<?php if ($usermodel) echo ' в зоне наблюдения <br /> пользователя '.CHtml::link(CHtml::encode($usermodel->fullname), Array('profile/view', 'id'=>$usermodel->id)); ?></h1>
@@ -43,7 +43,7 @@ $this->pageTitle=Yii::app()->name . ' :: Карта дефектов';
 <?php if (!Yii::app()->user->isGuest && Yii::app()->user->userModel->hole_area) : ?>
 <label><span class="myarea_check"><input id="myarea_check_inp" name="myarea_check_inp" type="checkbox" /></span><ins>Показать мою зону наблюдения</ins></label>
 <?php endif; ?>
-<label style="padding-left:10px;"><span class="gibdd_check"><input id="ibdd_check_inp" name="ibdd_check_inp" type="checkbox" /></span><ins>Показывать границы наблюдения подразделений ГИБДД</ins></label>
+<label style="padding-left:10px;"><span class="gibdd_check"><input id="ibdd_check_inp" name="ibdd_check_inp" type="checkbox" /></span><ins>Показывать границы наблюдения подразделений гос. учреждений</ins></label>
 </div>
 </div>
 <?php $this->endWidget(); ?>			</div>
@@ -51,7 +51,7 @@ $this->pageTitle=Yii::app()->name . ' :: Карта дефектов';
 	</div>
 	<div class="mainCols">
 			
-<div id="addmess" style="display:none; color:#0C0"><p><b>Выберите место на карте и кликните по нему два раза, чтобы отметить расположение ямы.</b></p></div>
+<div id="addmess" style="display:none; color:#0C0"><p><b>Выберите место на карте и кликните по нему два раза, чтобы отметить расположение дефекта.</b></p></div>
 
 <div class="bx-yandex-search-layout">
 	<div class="bx-yandex-search-form">

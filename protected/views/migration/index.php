@@ -1,7 +1,7 @@
 <div class="head">
 		<div class="container">
 			<div class="lCol">
-												<a href="/" class="logo" title="На главную"><img src="/images/logo.png"  alt="РосЯма" /></a>
+												<a href="/" class="logo" title="На главную"><img src="/images/logo.png"  alt="РосДоступ" /></a>
 											</div>
 			
 <h1><?php echo $this->title; ?></h1>
@@ -38,7 +38,7 @@
                                 )); ?>
     <div id="importusers_result"></div>   
     
-    <?php echo CHtml::ajaxLink('Импорт ям из старой базы > ',$this->createUrl('importHoles'), array(                                    
+    <?php echo CHtml::ajaxLink('Импорт дефектов из старой базы > ',$this->createUrl('importHoles'), array(                                    
                                     'update'=>'#importholes_result',
                                     'beforeSend' => 'function(){
                                         $("#importholes_result").addClass("loading");
