@@ -56,10 +56,10 @@
 			var startSearchWidth=$('.search').width();
 			var startSearchInputWidth=$('.search .textInput').width();
 			var time=200;
-			
+
 							var searchWidth=230;
 				var	searchInputWidth=searchWidth-30;
-				
+
 										searchInputWidth-=47;
 				searchWidth-=47;
 							if ($.browser.msie && $.browser.version == 9) {
@@ -75,7 +75,7 @@
 					$('.search .textInput').animate({width:searchInputWidth},time);
 				})
 				$('.search .textInput').blur(function(){
-					
+
 					if ($(this).val()=='')
 					{
 						$(this).val('Поиск по адресу').addClass('inactive');
@@ -101,12 +101,12 @@
 						{
 							width: 150px !important;
 						}
-						
+
 					</style>
-					
+
 			</div>
 		</div>
-	</div>	
+	</div>
 		<?php echo $content; ?>
 
 	<div class="footer">
@@ -117,7 +117,7 @@
 		</div>
 		<div class="center_footer">
 			<?php if($this->beginCache('countHoles', array('duration'=>3600))) { ?>
-			<?php $this->widget('application.widgets.collection.collectionWidget'); ?>			
+			<?php $this->widget('application.widgets.collection.collectionWidget'); ?>
 			<?php $this->endCache(); } ?>
 		</div>
 		<div class="right_footer">
@@ -125,7 +125,7 @@
 
 		</div>
 	</div>
-	
+
 	<script type="text/javascript">
                 var reformalOptions = {
                         //project_id: 43983,
@@ -144,43 +144,43 @@
                         document.getElementsByTagName('head')[0].appendChild(script);
                 })();
         </script>
-               	
-	
+
+
 	<script type="text/javascript">
 	  var _gaq = _gaq || [];
 	  _gaq.push(['_setAccount', 'UA-21943923-3']);
 	  _gaq.push(['_trackPageview']);
-	
+
 	  (function() {
 		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
 		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
 		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 	  })();
-	
+
 	</script>
 	<? if (!$this->user->isGuest && $flash=$this->user->getFlash('user')):?>
 		<div id="addDiv">
 			<div id="fon">
 			</div>
 			<div id="popupdiv">
-			<?php echo ($flash); ?>			
+			<?php echo ($flash); ?>
 				 <span class="filterBtn close">
 					<i class="text">Продолжить</i>
 				 </span>
 			</div>
 		</div>
-		
+
 		<script type="text/javascript">
-		$(document).ready(function(){				
+		$(document).ready(function(){
 			$('.close').click(function(){
 				$('#popupdiv').fadeOut(400);
 				$('#fon').fadeOut(600);
 				$('#addDiv').fadeOut(800);
 			})
 		})
-	
+
 		</script>
 	<?endif?>
-	
+
 	</body>
 	</html>
