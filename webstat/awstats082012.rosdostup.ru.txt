@@ -1,0 +1,299 @@
+AWSTATS DATA FILE 6.95 (build 1.943)
+# If you remove this file, all statistics for date 201208 will be lost/reset.
+# Last config file used to build this data file was /etc/awstats/awstats.rosdostup.ru.conf.
+
+# Position (offset in bytes) in this file for beginning of each section for
+# direct I/O access. If you made changes somewhere in this file, you should
+# also remove completely the MAP section (AWStats will rewrite it at next
+# update).
+BEGIN_MAP 27
+POS_GENERAL 1958                
+POS_TIME 2617                
+POS_VISITOR 6131                
+POS_DAY 6669                
+POS_DOMAIN 3300                
+POS_LOGIN 3532                
+POS_ROBOT 3727                
+POS_WORMS 3893                
+POS_EMAILSENDER 4024                
+POS_EMAILRECEIVER 4167                
+POS_SESSION 7017                
+POS_SIDER 7223                
+POS_FILETYPES 4302                
+POS_OS 4503                
+POS_BROWSER 4575                
+POS_SCREENSIZE 4823                
+POS_UNKNOWNREFERER 4897                
+POS_UNKNOWNREFERERBROWSER 4984                
+POS_ORIGIN 5066                
+POS_SEREFERRALS 5203                
+POS_PAGEREFS 5347                
+POS_SEARCHWORDS 5495                
+POS_KEYWORDS 5647                
+POS_MISC 2280                
+POS_ERRORS 5706                
+POS_CLUSTER 3388                
+POS_SIDER_404 5822                
+END_MAP
+
+# LastLine    = Date of last record processed - Last record line number in last log - Last record offset in last log - Last record signature value
+# FirstTime   = Date of first visit for history file
+# LastTime    = Date of last visit for history file
+# LastUpdate  = Date of last update - Nb of parsed records - Nb of parsed old records - Nb of parsed new records - Nb of parsed corrupted - Nb of parsed dropped
+# TotalVisits = Number of visits
+# TotalUnique = Number of unique visitors
+# MonthHostsKnown   = Number of hosts known
+# MonthHostsUnKnown = Number of hosts unknown
+BEGIN_GENERAL 8
+LastLine 20120901045535 1 0 7437795079265
+FirstTime 0
+LastTime 20120831120531
+LastUpdate 20120902000118 1 0 0 0 0
+TotalVisits 30                  
+TotalUnique 11                  
+MonthHostsKnown 0                   
+MonthHostsUnknown 11                  
+END_GENERAL
+
+# Misc ID - Pages - Hits - Bandwidth
+BEGIN_MISC 10
+QuickTimeSupport 0 0 0
+JavaEnabled 0 0 0
+JavascriptDisabled 0 0 0
+PDFSupport 0 0 0
+WindowsMediaPlayerSupport 0 0 0
+AddToFavourites 0 47 0
+RealPlayerSupport 0 0 0
+TotalMisc 0 0 0
+DirectorSupport 0 0 0
+FlashSupport 0 0 0
+END_MISC
+
+# Hour - Pages - Hits - Bandwidth - Not viewed Pages - Not viewed Hits - Not viewed Bandwidth
+BEGIN_TIME 24
+0 3 16 342638 6 9 41509
+1 22 105 1963908 17 21 192511
+2 0 0 0 2 2 1492
+3 0 0 0 2 2 1264
+4 0 0 0 29 29 21634
+5 0 0 0 2 2 1492
+6 0 0 0 0 0 0
+7 24 72 374756 48 48 21942
+8 1 1 459 7 8 47823
+9 4 4 21244 3 4 38334
+10 28 83 695166 5 9 77189
+11 1 25 611971 6 11 6680
+12 73 247 2333259 22 27 237347
+13 67 124 276788 7 7 3685
+14 37 116 1381745 8 14 80496
+15 2 27 689465 4 7 40353
+16 24 101 661359 5 9 77192
+17 26 194 1446612 33 38 176070
+18 25 107 1395979 23 26 150537
+19 0 0 0 1 2 1134
+20 0 0 0 2 3 1899
+21 1 25 611913 2 3 33956
+22 0 0 0 4 4 2870
+23 0 0 0 3 5 2897
+END_TIME
+
+# Domain - Pages - Hits - Bandwidth
+# The 10 first Pages must be first (order not required for others)
+BEGIN_DOMAIN 1
+ip 338 1247 12807262
+END_DOMAIN
+
+# Cluster ID - Pages - Hits - Bandwidth
+BEGIN_CLUSTER 0
+END_CLUSTER
+
+# Login - Pages - Hits - Bandwidth - Last visit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_LOGIN 1
+tester 338 1234 12469671 20120831120531
+END_LOGIN
+
+# Robot ID - Hits - Bandwidth - Last visit - Hits on robots.txt
+# The 10 first Hits must be first (order not required for others)
+BEGIN_ROBOT 1
+facebook 2 66150 20120823181935 0
+END_ROBOT
+
+# Worm ID - Hits - Bandwidth - Last visit
+# The 5 first Hits must be first (order not required for others)
+BEGIN_WORMS 0
+END_WORMS
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first Hits must be first (order not required for others)
+BEGIN_EMAILSENDER 0
+END_EMAILSENDER
+
+# EMail - Hits - Bandwidth - Last visit
+# The 20 first hits must be first (order not required for others)
+BEGIN_EMAILRECEIVER 0
+END_EMAILRECEIVER
+
+# Files type - Hits - Bandwidth - Bandwidth without compression - Bandwidth after compression
+BEGIN_FILETYPES 8
+css 267 996520 0 0
+php 28 149407 0 0
+png 109 1090852 0 0
+html 304 783434 0 0
+js 175 9045366 0 0
+jpg 109 670288 0 0
+Unknown 6 22267 0 0
+gif 249 49128 0 0
+END_FILETYPES
+
+# OS ID - Hits
+BEGIN_OS 3
+macosx 100
+linux 665
+win2008 482
+END_OS
+
+# Browser ID - Hits
+BEGIN_BROWSER 10
+msie8.0 25
+chrome21.0.1180.60 198
+firefox14.0.1 665
+chrome21.0.1180.79 30
+chrome21.0.1180.83 89
+chrome21.0.1180.77 41
+chrome21.0.1180.57 50
+chrome20.0.1132.57 54
+chrome21.0.1180.82 50
+opera9.80 45
+END_BROWSER
+
+# Screen size - Hits
+BEGIN_SCREENSIZE 0
+END_SCREENSIZE
+
+# Unknown referer OS - Last visit date
+BEGIN_UNKNOWNREFERER 0
+END_UNKNOWNREFERER
+
+# Unknown referer Browser - Last visit date
+BEGIN_UNKNOWNREFERERBROWSER 0
+END_UNKNOWNREFERERBROWSER
+
+# Origin - Pages - Hits 
+BEGIN_ORIGIN 6
+From0 40 40
+From1 0 0
+From2 0 0
+From3 0 0
+From4 298 1207
+From5 0 0
+END_ORIGIN
+
+# Search engine referers ID - Pages - Hits
+BEGIN_SEREFERRALS 0
+END_SEREFERRALS
+
+# External page referers - Pages - Hits
+# The 10 first Pages must be first (order not required for others)
+BEGIN_PAGEREFS 0
+END_PAGEREFS
+
+# Search keyphrases - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_SEARCHWORDS 0
+END_SEARCHWORDS
+
+# Search keywords - Number of search
+# The 10 first number of search must be first (order not required for others)
+BEGIN_KEYWORDS 0
+END_KEYWORDS
+
+# Errors - Hits - Bandwidth
+BEGIN_ERRORS 3
+401 113 75968
+302 75 36902
+500 53 267274
+END_ERRORS
+
+# URL with 404 errors - Hits - Last URL referer
+BEGIN_SIDER_404 0
+END_SIDER_404
+
+# Host - Pages - Hits - Bandwidth - Last visit date - [Start date of last visit] - [Last page of last visit]
+# [Start date of last visit] and [Last page of last visit] are saved only if session is not finished
+# The 10 first Hits must be first (order not required for others)
+BEGIN_VISITOR 11
+82.142.158.202 204 432 3291233 20120830164755
+46.138.153.230 69 305 3471580 20120823165843
+46.138.140.241 43 191 352401 20120823182703
+79.139.214.32 11 111 1364857 20120824180643
+46.138.154.189 4 33 649952 20120831120531
+81.211.7.162 2 50 617558 20120827132650
+95.27.185.169 1 25 611971 20120807111605
+94.143.37.146 1 25 611971 20120807163654
+46.138.149.90 1 25 611913 20120825155224
+87.205.148.138 1 25 611913 20120810214046
+89.73.41.83 1 25 611913 20120806173251
+END_VISITOR
+
+# Date - Pages - Hits - Bandwidth - Visits
+BEGIN_DAY 12
+20120806 25 79 1288339 2
+20120807 112 218 2389256 3
+20120809 25 83 689891 2
+20120810 4 41 954551 2
+20120814 17 76 667795 2
+20120821 5 29 633215 2
+20120823 102 465 2799957 10
+20120824 11 111 1364857 2
+20120825 1 25 611913 1
+20120827 1 25 5587 1
+20120830 31 62 751949 2
+20120831 4 33 649952 1
+END_DAY
+
+# Session range - Number of visits
+BEGIN_SESSION 7
+1h+ 1
+5mn-15mn 4
+0s-30s 18
+2mn-5mn 1
+15mn-30mn 2
+30s-2mn 1
+30mn-1h 3
+END_SESSION
+
+# URL - Pages - Bandwidth - Entry - Exit
+# The 10 first Pages must be first (order not required for others)
+BEGIN_SIDER 30
+/holes/ajaxMap/ 129 59254 1 6
+/ 40 222694 24 13
+/userGroups/ 34 145648 1 1
+/info.php 28 149407 2 1
+/sprav/jsonGibddMap/ 17 7616 0 3
+/map/ 15 62151 1 0
+/sprav/ 12 47100 0 2
+/page/regulations/ 10 35458 0 0
+/page/about/ 8 44111 1 1
+/statics/ 6 20618 0 0
+/holes/add/ 2 10181 0 0
+/holes/personal 3 12923 0 0
+/holes/territorialGibdd 1 392 0 1
+/profile/myarea/ 1 5066 0 0
+/userGroups/user/captcha/v/5035a342e259b/ 1 4144 0 0
+/page/faq/ 4 24694 0 1
+/sprav/26/ 2 6180 0 0
+/sprav/26/add/ 1 5277 0 0
+/sprav/52/ 1 3026 0 0
+/sprav/1/ 2 6014 0 0
+/holes/personal/ 5 21513 0 0
+/userGroups/user/passRequest/ 2 6534 0 0
+/sprav/6/ 1 3000 0 0
+/userGroups/user/register/ 3 14574 0 0
+/sprav/77/ 1 3114 0 0
+/news/ 4 14948 0 1
+/userGroups/user/captcha/v/5020de1dd6ab3/ 1 3480 0 0
+/userGroups 2 8952 0 0
+/userGroups/user/captcha/v/5035a36e713ae/ 1 3815 0 0
+/profile/myareaAddshape/ 1 3224 0 0
+END_SIDER
