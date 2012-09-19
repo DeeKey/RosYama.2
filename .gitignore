@@ -1,24 +1,15 @@
-/assets/*
 *.zip
 *~
 bugs
 /bugs/*
 /protected/runtime/*
-protected/runtime/*
 
-protected/runtime/application.log
+/protected/runtime/application.log
 /nbproject/private/
 nbproject
-<<<<<<< HEAD
 
 /dokuwiki
 /dokuwiki_integrated
 /tmp
-
-upload/main/bc1/*
-/upload/st1234/answers/*
-/upload/st1234/medium/*
-/upload/st1234/original/*
-/upload/st1234/small/*
 
 /webstat
