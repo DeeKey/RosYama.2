@@ -11,8 +11,8 @@ class HoleRequestForm extends CFormModel
 	public $signature;
 	public $html;
 	public $pdf;
-	public $gibdd;
-	public $gibdd_reply;
+//	public $gibdd;
+//	public $gibdd_reply;
 	public $application_data;
 	public $holes=Array();
 	public $printAllPictures=true;
@@ -26,7 +26,7 @@ class HoleRequestForm extends CFormModel
 			// rememberMe needs to be a boolean
 			array('html, pdf, printAllPictures', 'boolean'),
 			// password needs to be authenticated
-			array('form_type, to, from, postaddress, address, comment, signature, application_data, gibdd, gibdd_reply', 'length'),
+			array(/*'form_type, to, from, postaddress, address, comment, signature, application_data, gibdd, gibdd_reply'*/ 'form_type, to, from, postaddress, address, comment, signature, application_data', 'length'),
 			array('holes', 'safe'),
 		);
 	}

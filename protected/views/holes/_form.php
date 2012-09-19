@@ -22,7 +22,7 @@
 			<?php echo $form->dropDownList($model, 'TYPE_ID', CHtml::listData( HoleTypes::model()->findAll(Array('condition'=>'published=1', 'order'=>'ordering')), 'id','name')); ?>
 			<?php echo $form->error($model,'TYPE_ID'); ?>
 		</div>
-		
+
 
 		<!-- адрес -->
 		<div class="f">
@@ -30,22 +30,24 @@
 			<?php echo $form->textField($model,'ADDRESS',array('class'=>'textInput')); ?>
 			<?php echo $form->error($model,'ADDRESS'); ?>
 		</div>
-		
-		<!-- адрес -->
+
+		<!-- ГИБДД -->
+        <!--
 		<div class="f">
-		<?php echo $form->labelEx($model,'gibdd_id'); ?>
-		<?php echo $form->dropDownList($model, 'gibdd_id', CHtml::listData( $model->territorialGibdd, 'id', 'gibdd_name' ));?>
-		<?php echo $form->error($model,'gibdd_id'); ?>
+		<?php // echo $form->labelEx($model,'gibdd_id'); ?>
+		<?php // echo $form->dropDownList($model, 'gibdd_id', CHtml::listData( $model->territorialGibdd, 'id', 'gibdd_name' ));?>
+		<?php //echo $form->error($model,'gibdd_id'); ?>
 		</div>
-		
+		-->
+
 		<!-- фотки -->
 		<div class="f">
 			<?php echo $form->labelEx($model,'upploadedPictures'); ?>
-			<?php $this->widget('CMultiFileUpload',array('accept'=>'gif|jpg|png', 'model'=>$model, 'attribute'=>'upploadedPictures', 'htmlOptions'=>array('class'=>'mf'), 'denied'=>Yii::t('mf','Невозможно загрузить этот файл'),'duplicate'=>Yii::t('mf','Файл уже существует'),'remove'=>Yii::t('mf','удалить'),'selected'=>Yii::t('mf','Файлы: $file'),)); ?>						
+			<?php $this->widget('CMultiFileUpload',array('accept'=>'gif|jpg|png', 'model'=>$model, 'attribute'=>'upploadedPictures', 'htmlOptions'=>array('class'=>'mf'), 'denied'=>Yii::t('mf','Невозможно загрузить этот файл'),'duplicate'=>Yii::t('mf','Файл уже существует'),'remove'=>Yii::t('mf','удалить'),'selected'=>Yii::t('mf','Файлы: $file'),)); ?>
 		</div>
-		
+
 		<!-- камент -->
-		
+
 		<div class="f">
 			<?php echo $form->labelEx($model,'description_size'); ?>
 			<?php echo $form->textArea($model,'description_size',Array('rows'=>5)); ?>
@@ -56,7 +58,7 @@
 			<?php echo $form->textArea($model,'description_locality',Array('rows'=>8)); ?>
 			<?php echo $form->error($model,'description_locality'); ?>
 		</div>
-		
+
 		<div class="f">
 			<?php echo $form->labelEx($model,'COMMENT1'); ?>
 			<?php echo $form->textArea($model,'COMMENT1',Array('class'=>'big')); ?>
@@ -70,21 +72,21 @@
 		</div>
 	</div>
 	<!-- /левая колоночка -->
-	
+
 	<!-- правая колоночка -->
-	<div class="rCol"> 
+	<div class="rCol">
 	<div class="f">
 
 		<div class="bx-yandex-search-layout" style="padding-bottom: 0px;">
-			<div class="bx-yandex-search-form" style="padding-bottom: 0px;">				
+			<div class="bx-yandex-search-form" style="padding-bottom: 0px;">
 					<p>Введите адрес места для быстрого поиска</p>
 					<input type="text" id="address_inp" name="address" class="textInput" value="" style="width: 300px;" />
 					<input type="submit" value="Искать" onclick="jsYandexSearch_MAP_DzDvWLBsil.searchByAddress($('#address_inp').val()); return false;" />
-					<a style="display:none;" id="clear_result_link" href="#" onclick="clearSerchResults('MAP_DzDvWLBsil', JCBXYandexSearch_arSerachresults); document.getElementById('address_inp').value=''; return false;">Очистить</a>				
-			</div>		
+					<a style="display:none;" id="clear_result_link" href="#" onclick="clearSerchResults('MAP_DzDvWLBsil', JCBXYandexSearch_arSerachresults); document.getElementById('address_inp').value=''; return false;">Очистить</a>
+			</div>
 			<div class="bx-yandex-search-results" id="results_MAP_DzDvWLBsil"></div>
-		</div>	
-			
+		</div>
+
 			<p><strong>
 Поставьте метку на карте двойным щелчком мыши
 <span class="required">*</span>
@@ -92,8 +94,8 @@
 </p>
 
 			<span id="recognized_address_str" title="Субъект РФ и населённый пункт"></span>
-			<span id="other_address_str"></span>	
-		
+			<span id="other_address_str"></span>
+
 		<div class="bx-yandex-view-layout">
 			<div class="bx-yandex-view-map">
 		<?php if ($model->isNewRecord) $maptype='addhole'; else $maptype='updatehole'; ?>
@@ -118,7 +120,7 @@ EOD
 								   'label' => 'Тест', //Title for bubble. Used if you are plotting multiple locations of same business
 								   'address' =>  Array(), //Array of AR objects
 								   'width'=>'100%',
-								   'height'=>'400px',						   
+								   'height'=>'400px',
 								   //'notshow'=>true
 							  ));
 							?>
@@ -128,18 +130,18 @@ EOD
 
 	</div>
 		<?
-		if(!$model->isNewRecord && $model->pictures_fresh && $model->STATE!='fixed' && !$model->GIBDD_REPLY_RECEIVED)
+		if(!$model->isNewRecord && $model->pictures_fresh && $model->STATE!='fixed')
 		{
 			?>
 			<div id="overshadow"><span class="command" onclick="document.getElementById('picts').style.display=document.getElementById('picts').style.display=='block'?'none':'block';">Можно удалить загруженные фотографии</span><div class="picts" id="picts"><?
 			foreach($model->pictures_fresh as $i=>$picture)
-			{				
+			{
 				echo '<br>'.$form->checkBox($model,"deletepict[$i]",Array('class'=>'filter_checkbox','value'=>$picture->id)).' ';
 				echo $form->labelEx($model,"deletepict[$i]",Array('label'=>'Удалить фотографию?')).'<br><img src="'.$picture->medium.'"><br><br>';
 			}
 			echo '</div></div>';
 		} ?>
-		
+
 		<?php if($model->COMMENT2) : ?>
 		<!-- камент -->
 		<div class="f">
@@ -151,16 +153,16 @@ EOD
 	</div>
 	<!-- /правая колоночка -->
 	<div class="hiddenfields" <?php if (!$model->TYPE_ID) echo 'style="display:none;"';?> >
-	
+
 		<div class="addSubmit">
 			<div class="container">
-				<p>После нажатия на кнопку «Отправить» вы можете создать обращение о дефекте в виде pdf-документа, которое можно распечатать и отправить в ближайшее отделение ГИБДД</p>
+				<p>После нажатия на кнопку «Отправить» вы можете создать обращение о дефекте в виде pdf-документа, которое можно распечатать и отправить в ближайший орган власти</p>
 				<div class="btn" onclick="$(this).parents('form').submit();">
 					<a class="addFact"><i class="text">Отправить</i><i class="arrow"></i></a>
 				</div>
 			</div>
 		</div>
-	</div>	
+	</div>
 <?php $this->endWidget(); ?>
 
 </div><!-- form -->
