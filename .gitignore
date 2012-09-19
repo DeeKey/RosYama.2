@@ -1,7 +1,5 @@
-/upload/*
 /assets/*
 *.zip
-upload
 *~
 bugs
 /bugs/*
