@@ -49,4 +49,4 @@
 		<!-- Vkontakte like -->
 		<div id="vk_like"></div>
 		<script type="text/javascript">VK.Widgets.Like("vk_like", {type: "button", verb: 1});</script>
-		</div>
+	</div>

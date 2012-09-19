@@ -427,11 +427,13 @@ ul.usermenu li.active .profileBtn{background: #f88100;}
 		}
 		
 		.badroad {background: url(/images/st1234/badroad.png) no-repeat 0 0;}
+
 		.trafficlight {background: url(/images/st1234/trafficlight.png) no-repeat 0 0;}
 		.paving {background: url(/images/st1234/paving.png) no-repeat 0 0;}
 		.pandus {background: url(/images/st1234/pandus.png) no-repeat 0 0;}
 		.door {background: url(/images/st1234/door.png) no-repeat 0 0;}
 		.parking {background: url(/images/st1234/parking.png) no-repeat 0 0;}
+
 		.hatch {background: url(/images/st1234/hatch.png) no-repeat 0 0;}
 		.nomarking {background: url(/images/st1234/nomarking.png) no-repeat 0 0;}
 		.light {background: url(/images/st1234/light.png) no-repeat 3px -2px;}

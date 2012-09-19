@@ -336,6 +336,7 @@ new Ya.share({
 		},
 		serviceSpecific: {
 			twitter: {
+<<<<<<< HEAD
 				title: 'Обнаружен барьер по адресу: <?= CHtml::encode($hole->ADDRESS) ?>'
 			},
 			facebook: {
@@ -346,6 +347,18 @@ new Ya.share({
 			},
 			odnoklassniki: {
 				title: 'Обнаружен барьер по адресу: <?= CHtml::encode($hole->ADDRESS) ?>'
+=======
+				title: 'Обнаружен дефект на дороге по адресу: <?= CHtml::encode($hole->ADDRESS) ?>'
+			},
+			facebook: {
+				title: 'Обнаружен дефект на дороге по адресу: <?= CHtml::encode($hole->ADDRESS) ?>'
+			},
+			moimir: {
+				title: 'Обнаружен дефект на дороге по адресу: <?= CHtml::encode($hole->ADDRESS) ?>'
+			},
+			odnoklassniki: {
+				title: 'Обнаружен дефект на дороге по адресу: <?= CHtml::encode($hole->ADDRESS) ?>'
+>>>>>>> origin/master
 			}
 		}
 });

@@ -15,7 +15,6 @@ return array(
 	//'layout'=>'startpage',
 	'preload'=>array('log'),	
 	
-
 	// autoloading model and component classes
 	'import'=>array(
 		'application.models.*',
@@ -148,7 +147,7 @@ return array(
 		'db'=>$bd,
 		
 		'cache'=>array(
-            //'class'=>'system.caching.CApcCache',          
+            //'class'=>'system.caching.CApcCache',          // we use MemCache for RosDostup
             'class'=>'system.caching.CMemCache',          
             'servers'=>array(
                 array('host'=>'localhost', 'weight'=>60),

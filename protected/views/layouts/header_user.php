@@ -68,4 +68,8 @@
 	<?php echo $content; ?>
 	</div>		
 	
+<<<<<<< HEAD
 <?php $this->endContent(); ?>
+=======
+<?php $this->endContent(); ?>
+>>>>>>> origin/master
