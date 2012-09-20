@@ -25,10 +25,11 @@
  */
 class Holes extends CActiveRecord
 {
-	/**
-	 * Returns the static model of the specified AR class.
-	 * @return Holes the static model class
-	 */
+    /**
+     * Returns the static model of the specified AR class.
+     * @param string $className
+     * @return Holes the static model class
+     */
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
@@ -89,7 +90,7 @@ class Holes extends CActiveRecord
 			array('USER_ID, STATE, DATE_CREATED, DATE_SENT, DATE_STATUS, ADR_SUBJECTRF, DATE_SENT_PROSECUTOR', 'length', 'max'=>10),
 			array('ADR_CITY', 'length', 'max'=>50),
 			array('STR_SUBJECTRF, username, description_locality, description_size', 'length'),
-			array('COMMENT1, COMMENT2, COMMENT_GIBDD_REPLY, deletepict, upploadedPictures, request_gibdd, showUserHoles', 'safe'),
+			array(/*'COMMENT1, COMMENT2, COMMENT_GIBDD_REPLY, deletepict, upploadedPictures, request_gibdd, showUserHoles'*/ 'COMMENT1, COMMENT2, COMMENT_GIBDD_REPLY, deletepict, upploadedPictures, showUserHoles', 'safe'),
 			array('upploadedPictures', 'file', 'types'=>'jpg, jpeg, png, gif','maxFiles'=>10, 'allowEmpty'=>true, 'on' => 'update, import, fix'),
 			array('upploadedPictures', 'file', 'types'=>'jpg, jpeg, png, gif','maxFiles'=>10, 'allowEmpty'=>false, 'on' => 'insert'),
 			array('upploadedPictures', 'required', 'on' => 'insert', 'message' => 'Необходимо загрузить фотографии'),
@@ -283,16 +284,20 @@ class Holes extends CActiveRecord
 				$this->addError('upploadedPictures', Yii::t('errors', 'GREENSIGHT_ERROR_CANNOT_CREATE_DIR'));
 				return false;
 			}
+            if(!is_dir($_SERVER['DOCUMENT_ROOT'].'/upload/st1234/medium/'))
+                mkdir($_SERVER['DOCUMENT_ROOT'].'/upload/st1234/medium/');
 			if(!@mkdir($_SERVER['DOCUMENT_ROOT'].'/upload/st1234/medium/'.$id))
 			{
-				unlink($_SERVER['DOCUMENT_ROOT'].'/upload/st1234/original/'.$id);
+				@unlink($_SERVER['DOCUMENT_ROOT'].'/upload/st1234/original/'.$id);
 				$this->addError('upploadedPictures',Yii::t('errors', 'GREENSIGHT_ERROR_CANNOT_CREATE_DIR'));
 				return false;
 			}
+            if(!is_dir($_SERVER['DOCUMENT_ROOT'].'/upload/st1234/small/'))
+                mkdir($_SERVER['DOCUMENT_ROOT'].'/upload/st1234/small/');
 			if(!@mkdir($_SERVER['DOCUMENT_ROOT'].'/upload/st1234/small/'.$id))
 			{
-				unlink($_SERVER['DOCUMENT_ROOT'].'/upload/st1234/original/'.$id);
-				unlink($_SERVER['DOCUMENT_ROOT'].'/upload/st1234/medium/'.$id);
+				@unlink($_SERVER['DOCUMENT_ROOT'].'/upload/st1234/original/'.$id);
+				@unlink($_SERVER['DOCUMENT_ROOT'].'/upload/st1234/medium/'.$id);
 				$this->addError('upploadedPictures',Yii::t('errors', 'GREENSIGHT_ERROR_CANNOT_CREATE_DIR'));
 				return false;
 			}
