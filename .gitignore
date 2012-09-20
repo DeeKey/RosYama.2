@@ -2,6 +2,7 @@
 /assets/*
 *.zip
 upload
+assets
 *~
 bugs
 /bugs/*
