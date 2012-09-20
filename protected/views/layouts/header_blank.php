@@ -2,7 +2,7 @@
 <div class="head">
 		<div class="container">
 			<div class="lCol">
-												<a href="/" class="logo" title="На главную"><img src="/images/logo.png"  alt="<?=Yii::app()->params['projectNameIp']?>" /></a>
+												<a href="/" class="logo" title="На главную"><img src="/images/logo.png"  alt="<?=Yii::app()->params['name']?>" /></a>
 											</div>
 
 <h1><?php echo $this->title; ?></h1>

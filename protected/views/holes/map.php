@@ -5,7 +5,7 @@ $this->pageTitle=Yii::app()->name . ' :: Карта дефектов';
   <div class="head">
 		<div class="container">
 <div class="lCol">
-												<a href="/" class="logo" title="На главную"><img src="/images/logo.png"  alt="<?=Yii::app()->params['projectNameIp'];?>" /></a>
+												<a href="/" class="logo" title="На главную"><img src="/images/logo.png"  alt="<?=Yii::app()->params['name'];?>" /></a>
 											</div>
 						<div class="rCol">
 <h1>Карта дефектов<?php if ($usermodel) echo ' в зоне наблюдения <br /> пользователя '.CHtml::link(CHtml::encode($usermodel->fullname), Array('profile/view', 'id'=>$usermodel->id)); ?></h1>
@@ -33,7 +33,7 @@ $this->pageTitle=Yii::app()->name . ' :: Карта дефектов';
 <br />
 <div class="chekboxes" style="float:right;">
 <?php echo $form->checkBox($model,"archive",Array('class'=>'filter_checkbox')); ?>
-<?php echo $form->labelEx($model,'archive',Array('label'=>'Показывать ямы из архива', 'class'=>'archive')); ?>
+<?php echo $form->labelEx($model,'archive',Array('label'=>'Показывать дефекты из архива', 'class'=>'archive')); ?>
 
 </div>
 

@@ -13,7 +13,7 @@ $this->widget('application.extensions.fancybox.EFancyBox', array(
 <div class="head">
 		<div class="container">
 		<div class="lCol">
-					<a href="/" class="logo" title="На главную"><img src="/images/logo.png"  alt="<?=Yii::app()->params['projectNameIp'];?>" /></a>
+					<a href="/" class="logo" title="На главную"><img src="/images/logo.png"  alt="<?=Yii::app()->params['name'];?>" /></a>
 			</div>
 			<div class="rCol">
 	<div class="h">
@@ -308,7 +308,7 @@ $this->widget('application.extensions.fancybox.EFancyBox', array(
 			<?php else : ?>
 				<div class="progress">
 
-								<p>		мешает эта яма? <?php  echo CHtml::link('авторизуйся и отправь заявление в органы власти', array('review', 'id'=>$hole->ID),array('class'=>"declarationBtn")); ?>.
+								<p>		мешает этот барьер? <?php  echo CHtml::link('авторизуйся и отправь заявление', array('review','id'=>$hole->ID),array('class'=>"declarationBtn")); ?>.
 								</p>
 
 
@@ -342,7 +342,16 @@ new Ya.share({
 		},
 		serviceSpecific: {
 			twitter: {
-				title: 'Обнаружен дефект на дороге по адресу: <?= CHtml::encode($hole->ADDRESS) ?>'
+				title: 'Обнаружен барьер по адресу: <?= CHtml::encode($hole->ADDRESS) ?>'
+			},
+			facebook: {
+				title: 'Обнаружен барьер по адресу: <?= CHtml::encode($hole->ADDRESS) ?>'
+			},
+			moimir: {
+				title: 'Обнаружен барьер по адресу: <?= CHtml::encode($hole->ADDRESS) ?>'
+			},
+			odnoklassniki: {
+				title: 'Обнаружен барьер по адресу: <?= CHtml::encode($hole->ADDRESS) ?>'
 			},
 			facebook: {
 				title: 'Обнаружен дефект на дороге по адресу: <?= CHtml::encode($hole->ADDRESS) ?>'
@@ -392,10 +401,10 @@ new Ya.share({
 		</div>
 		<div class="bbcode">
 			<p><b>Ссылка на эту страницу:</b></p>
-			<input onfocus="selectAll(this)" type="text" value='<a href="<?=Yii::app()->request->hostInfo?>/<?=Yii::app()->request->pathInfo?>"><?=Yii::app()->params['projectNameIp']?> :: <?= CHtml::encode($hole->ADDRESS) ?></a>'/>
+			<input onfocus="selectAll(this)" type="text" value='<a href="<?=Yii::app()->request->hostInfo?>/<?=Yii::app()->request->pathInfo?>"><?=Yii::app()->params['name']?> :: <?= CHtml::encode($hole->ADDRESS) ?></a>'/>
 			<p><b>BBcode для форума:</b></p>
 			<textarea onfocus="selectAll(this)" rows="3">[url=<?=Yii::app()->request->hostInfo?>/<?=Yii::app()->request->pathInfo?>]<?php if ($hole->pictures_fresh) : ?>[img]<?=Yii::app()->request->hostInfo.'/'.$hole->pictures_fresh[0]->medium?>[/img]<?php endif; ?>[/url][url=<?=Yii::app()->request->hostInfo?>/<?=Yii::app()->request->pathInfo?>]
-			<?=Yii::app()->params['projectNameIp']?> :: <?=CHtml::encode($hole['ADDRESS'])?>[/url]</textarea>
+			<?=Yii::app()->params['name']?> :: <?=CHtml::encode($hole['ADDRESS'])?>[/url]</textarea>
 
 
 		</div>

@@ -8,58 +8,7 @@ $this->layout='//layouts/header_default_without_add';
 </div>
 <div class="rCol">
 <h1>Вопросы и ответы</h1>
-	<table class="faq-item">
-		<tr>
-			<th>Q:</th>
-			<td class="question">Где можно получить больше информации, пообщаться с единомышленниками, и т. д?</td>
-		</tr>
-		<tr>
-			<th>A:</th>
-			<td>
-<!--			<p>Почта: <a href="mailto:rossyama.gmail.com">rossyama@gmail.com</a></p>
-                        <p>Форум: <a href="http://forum.rosyama.ru">http://forum.rosyama.ru</a></p>
-                        <p>Твиттер: <a href="https://twitter.com/#!/fezeev">https://twitter.com/#!/fezeev</a></p>
-                        <p>LiveJournal: <a href="http://fezeev.livejournal.com/">http://fezeev.livejournal.com/</a></p>
-                        </td>-->
-		</tr>
-	</table>
-
-	<table class="faq-item">
-		<tr>
-			<th>Q:</th>
-			<td class="question">Где я могу скачать мобильные приложения для <?=Yii::app()->params['projectNameRp']?> под IPhone или Android?</td>
-		</tr>
-		<tr>
-			<th>A:</th>
-			<td><!--<p>Приложение для IPhone: <a href="http://itunes.apple.com/ru/app/id456229487?mt=8">http://itunes.apple.com/ru/app/id456229487?mt=8</a></p>
-			    <p>Приложение для Android от UnrealMojo: <a href="https://market.android.com/details?id=ru.rosyama.android">https://market.android.com/details?id=ru.rosyama.android</a></p>
-			    <p>Приложение для Android от RedSolution: <a href="https://market.android.com/details?id=ru.redsolution.rosyama">https://market.android.com/details?id=ru.redsolution.rosyama</a></p>
-			    <p>Приложение для Samsung Bada: <a href="http://www.samsungapps.com/topApps/topAppsDetail.as?productId=G00004062550">http://www.samsungapps.com/topApps/topAppsDetail.as?productId=G00004062550</a></p>
-			    <p>Приложение для Windows Phone: <a href="http://www.windowsphone.com/ru-RU/apps/783e000f-c9ac-4c11-af17-f5e465cd881b">http://www.windowsphone.com/ru-RU/apps/783e000f-c9ac-4c11-af17-f5e465cd881b</a></p>
-			    <p>Ещё одно приложение для Windows Phone: <a href="http://www.windowsphone.com/ru-RU/apps/8994aa3e-3685-4d8e-8489-d1913591b7c3">http://www.windowsphone.com/ru-RU/apps/8994aa3e-3685-4d8e-8489-d1913591b7c3</a></p>-->
-			</td>
-
-		</tr>
-	</table>
-
-	<table class="faq-item">
-		<tr>
-			<th>Q:</th>
-			<td class="question"><!--Что делать, если на дороге настолько много ям, что впору снимать видео, а не фото?--></td>
-		</tr>
-		<tr>
-			<th>A:</th>
-			<td>
-			<!--<p>Сфотографируйте одну яму, на ваш выбор. поставьте точку на РосЯме, получите текст заявления.
-			Полученный текст немного поправьте, напишите не "обнаружена яма по адресу", а "обнаружены множественные
-			повреждения дорожного покрытия на всём протяжении автодороги [название автодороги] от [пункт А] до [пункт Б]".</p>
-			<p>А дальше всё то же самое.</p>-->
-			</td>
-
-		</tr>
-	</table>
-
-	<!--<table class="faq-item">
+<iframe height="600" width="990" frameBorder="3" src="http://rosdostup.ru/dokuwiki_integrated/doc.php?id=faq:faq">your browser does not support IFRAMEs</iframe>
 		<tr>
 			<th>Q:</th>
 			<td class="question">Почему бы не создать такой же сайт по другой проблемной тематике (жкх, помойки, наркотики, выборы, и т. д.)</td>

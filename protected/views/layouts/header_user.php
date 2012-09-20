@@ -2,7 +2,7 @@
 <div id="addmess" style="display:none; color:#0C0"><p><b>Выберите место на карте и кликните по нему два раза, чтобы отметить расположение дефекта.</b></p></div>
   <div class="head">
 		<div class="container">
-<div class="lCol"><a href="/" class="logo" title="На главную"><img src="/images/logo.png"  alt="<?=Yii::app()->params['projectNameIp']?>" /></a>
+<div class="lCol"><a href="/" class="logo" title="На главную"><img src="/images/logo.png"  alt="<?=Yii::app()->params['name']?>" /></a>
 </div>
 						<div class="rCol">
 
@@ -41,10 +41,10 @@
 						array('label'=>'Управление комментариями', 'url'=>array('/comments/comment/admin'), 'linkOptions'=>array('class'=>'profileBtn')),
 						array('label'=>'Новости', 'url'=>array('/news/admin'), 'linkOptions'=>array('class'=>'profileBtn'), 'visible'=>$this->user->isAdmin),
 						array('label'=>'Пользователи', 'url'=>array('/userGroups/'), 'linkOptions'=>array('class'=>'profileBtn'), 'visible'=>$this->user->isAdmin),
-						array('label'=>'Ямы', 'url'=>array('/holes/admin'), 'linkOptions'=>array('class'=>'profileBtn'), 'visible'=>$this->user->groupName=='root'),
-						array('label'=>'Типы ям', 'url'=>array('/holeTypes/index'), 'linkOptions'=>array('class'=>'profileBtn'), 'visible'=>$this->user->isAdmin),
+						array('label'=>'Дефекты', 'url'=>array('/holes/admin'), 'linkOptions'=>array('class'=>'profileBtn'), 'visible'=>$this->user->groupName=='root'),
+						array('label'=>'Типы дефектов', 'url'=>array('/holeTypes/index'), 'linkOptions'=>array('class'=>'profileBtn'), 'visible'=>$this->user->isAdmin),
 						array('label'=>'Результаты запроса в ГИБДД (анкета)', 'url'=>array('/holeAnswerResults/index'), 'linkOptions'=>array('class'=>'profileBtn'), 'visible'=>$this->user->isAdmin),
-						array('label'=>'Правила авто-архивации ям', 'url'=>array('/holeArchiveFilters/admin'), 'linkOptions'=>array('class'=>'profileBtn'), 'visible'=>$this->user->isAdmin),
+						array('label'=>'Правила авто-архивации дефектов', 'url'=>array('/holeArchiveFilters/admin'), 'linkOptions'=>array('class'=>'profileBtn'), 'visible'=>$this->user->isAdmin),
 					),
 				'htmlOptions'=>array('class'=>'operations'),
 			));

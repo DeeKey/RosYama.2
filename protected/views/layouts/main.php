@@ -128,7 +128,8 @@
 
 	<script type="text/javascript">
                 var reformalOptions = {
-                        project_id: 43983,
+                        //project_id: 43983,
+                        project_id: 71829,
                         project_host: "rosdostup.reformal.ru",
                         force_new_window: false,
                         tab_alignment: "left",
