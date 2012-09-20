@@ -6,4 +6,4 @@
 
 
 -----<br/>
-<?php echo CHtml::link('РосДоступ', 'http://'.$_SERVER['HTTP_HOST'].'/holes/index');?>
+<?php echo CHtml::link(Yii::app()->params['projectNameIp'], 'http://'.$_SERVER['HTTP_HOST'].'/holes/index');?>

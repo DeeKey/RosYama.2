@@ -2,7 +2,7 @@
 <div class="head">
 		<div class="container">
 			<div class="lCol">
-					<a href="/" class="logo" title="На главную"><img src="/images/logo.png"  alt="РосДоступ" /></a>
+					<a href="/" class="logo" title="На главную"><img src="/images/logo.png"  alt="<?=Yii::app()->params['projectNameIp']?>" /></a>
 			</div>
 
 			<div class="rCol">
@@ -14,10 +14,10 @@
 			</div>
 		</div>
 	</div>
-	
+
 
 	<div class="mainCols">
 	<?php echo $content; ?>
-	</div>		
-	
+	</div>
+
 <?php $this->endContent(); ?>

@@ -2,13 +2,13 @@
 <div class="head">
 		<div class="container">
 			<div class="lCol">
-												<a href="/" class="logo" title="На главную"><img src="/images/logo.png"  alt="РосДоступ" /></a>
+												<a href="/" class="logo" title="На главную"><img src="/images/logo.png"  alt="<?=Yii::app()->params['projectNameIp']?>" /></a>
 											</div>
-			
+
 <h1><?php echo $this->title; ?></h1>
 </div></div>
 <br clear="all">
-	
+
 
 	<div class="mainCols">
 		<?php /* if(isset($this->breadcrumbs)):?>
@@ -17,6 +17,6 @@
 		)); ?><!-- breadcrumbs -->
 	<?php endif; */ ?>
 	<?php echo $content; ?>
-	</div>		
-	
+	</div>
+
 <?php $this->endContent(); ?>

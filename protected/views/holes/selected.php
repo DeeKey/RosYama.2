@@ -1,12 +1,12 @@
 <?
 $this->pageTitle=Yii::app()->name . ' :: Мои ямы';
 ?>
-<?php Yii::app()->clientScript->registerScript('select_holes','			
+<?php Yii::app()->clientScript->registerScript('select_holes','
 			function selectHoles(arr,del){
 				 jQuery.ajax({"type":"POST","beforeSend":function(){
 					$("#holes_select_list").empty();
 					$("#holes_select_list").addClass("loading");
-		
+
 				 },
 				 "complete":function(){
 						$("#holes_select_list").removeClass("loading");
@@ -14,15 +14,15 @@ $this->pageTitle=Yii::app()->name . ' :: Мои ямы';
 				"success":function(html){
 					jQuery("#holes_select_list").html(html);
 					}
-				});				
-			}						
+				});
+			}
 			',
 			CClientScript::POS_HEAD);
 			?>
 <?php Yii::app()->clientScript->registerScript('check_holes','
 
-			checkInList();	
-			
+			checkInList();
+
 			 var scroller = new StickyScroller("#holes_select_list",
 			{
             start: 270,
@@ -31,27 +31,27 @@ $this->pageTitle=Yii::app()->name . ' :: Мои ямы';
             range: 100,
             margin: 50
 			});
-			
+
 			scroller.onNewIndex(function(index)
 			{
 				$("#scrollbox").html("Index " + index);
 			});
-					
+
 			var opacity = .25;
 			var fadeTime = 500;
-			var current;				
-			
+			var current;
+
 			 scroller.onScroll(function(index)
-				{                        
+				{
 					//alert(index);
 				});
 			',
 			CClientScript::POS_READY);
-			?>	
+			?>
 <div class="head">
 		<div class="container">
 		<div class="lCol">
-					<a href="/" class="logo" title="На главную"><img src="/images/logo.png"  alt="РосДоступ" /></a>
+					<a href="/" class="logo" title="На главную"><img src="/images/logo.png"  alt="<?=Yii::app()->params['projectNameIp'];?>" /></a>
 			</div>
 			<div class="rCol">
 	<div class="h">
@@ -67,10 +67,10 @@ $this->pageTitle=Yii::app()->name . ' :: Мои ямы';
 			<?php echo CHtml::submitButton('Изменить'); ?>
 			</form>
 
-			
+
 			</div>
-			
-			<div class="control">			
+
+			<div class="control">
 				<div class="progress">
 							<div class="lc">
 							<?php echo CHtml::link('Распечатать заявление', Array('requestForm','id'=>$list->gibdd_id,'type'=>'gibdd','holes'=>implode(',',CHtml::listData($list->holes,'ID','ID'))), Array('class'=>'show_form')); ?>
@@ -85,21 +85,21 @@ $this->pageTitle=Yii::app()->name . ' :: Мои ямы';
 							<?php echo CHtml::link('Загрузить ответ на '.Y::declOfNum(count($list->sentedHoles),Array('яму','ямы','ям')), Array('gibddreply','holes'=>implode(',',CHtml::listData($list->sentedHoles,'ID','ID'))), Array('class'=>'')); ?><br/>
 							</div>
 							<?php endif; ?>
-							
+
 				</div>
-			</div>	
+			</div>
 		</div>
 	</div>
-</div>		
+</div>
 <!-- CLOSE HEAD CONTAINER -->
 </div>
 <!-- CLOSE HEAD -->
 </div>
-<div class="mainCols" id="col">		
+<div class="mainCols" id="col">
 <div class="lCol">
-	
+
 	<div id="holes_select_list">
-	<?php 
+	<?php
 	$selected=$user->getState('selectedHoles', Array());
 	if ($selected || $user->userModel->selected_holes_lists) : ?>
 		<?php
@@ -120,15 +120,15 @@ $this->pageTitle=Yii::app()->name . ' :: Мои ямы';
 	//'action'=>Yii::app()->createUrl($this->route),
 	//'method'=>'get',
 	'id'=>'holes_selectors',
-)); ?>			
+)); ?>
 			<?php echo $form->dropDownList($model, 'TYPE_ID', CHtml::listData( HoleTypes::model()->findAll(Array('condition'=>'published=1', 'order'=>'ordering')), 'id','name'), array('prompt'=>'Тип дефекта')); ?>
 			<?php echo $form->dropDownList($model, 'STATE', $model->Allstates, array('prompt'=>'Статус дефекта')); ?>
 			<?php echo $form->dropDownList($model, 'showUserHoles', Array('3'=>'Все дефекты', 1=>'Мои дефекты', 2=>'Чужие дефекты, на которые я отправил заявления')); ?>
 			<?php echo CHtml::submitButton('Найти'); ?><br/>
-			
-	<?php $this->endWidget(); ?>		
+
+	<?php $this->endWidget(); ?>
 			</p>
-				
+
 <?php $this->widget('zii.widgets.CListView', array(
 	'id'=>'holes_list',
 	'ajaxUpdate'=>true,
@@ -142,7 +142,7 @@ $this->pageTitle=Yii::app()->name . ' :: Мои ямы';
 	'afterAjaxUpdate'=> 'function(id){
 		checkInList();
 		}',
-	
+
 )); ?>
 
 
@@ -152,7 +152,7 @@ $this->pageTitle=Yii::app()->name . ' :: Мои ямы';
 	<h2><?php echo $state_name; ?> <?php echo CHtml::checkBox('state', false, Array('id'=>'state_'.$state_alias,'class'=>'state_check')); ?><?php echo CHtml::label('Выбрать все', 'state_'.$state_alias); ?></h2>
 	<ul class="holes_list">
 	<?php foreach($holes[$state_alias] as $i=>$item) : ?>
-		<?php 
+		<?php
 		$this->renderPartial('_view',array(
 			'data'=>$item,
 			'index'=>$i,

@@ -13,7 +13,7 @@ $this->widget('application.extensions.fancybox.EFancyBox', array(
 <div class="head">
 		<div class="container">
 		<div class="lCol">
-					<a href="/" class="logo" title="На главную"><img src="/images/logo.png"  alt="РосДоступ" /></a>
+					<a href="/" class="logo" title="На главную"><img src="/images/logo.png"  alt="<?=Yii::app()->params['projectNameIp'];?>" /></a>
 			</div>
 			<div class="rCol">
 	<div class="h">
@@ -392,10 +392,10 @@ new Ya.share({
 		</div>
 		<div class="bbcode">
 			<p><b>Ссылка на эту страницу:</b></p>
-			<input onfocus="selectAll(this)" type="text" value='<a href="<?=Yii::app()->request->hostInfo?>/<?=Yii::app()->request->pathInfo?>">РосДоступ :: <?= CHtml::encode($hole->ADDRESS) ?></a>'/>
+			<input onfocus="selectAll(this)" type="text" value='<a href="<?=Yii::app()->request->hostInfo?>/<?=Yii::app()->request->pathInfo?>"><?=Yii::app()->params['projectNameIp']?> :: <?= CHtml::encode($hole->ADDRESS) ?></a>'/>
 			<p><b>BBcode для форума:</b></p>
 			<textarea onfocus="selectAll(this)" rows="3">[url=<?=Yii::app()->request->hostInfo?>/<?=Yii::app()->request->pathInfo?>]<?php if ($hole->pictures_fresh) : ?>[img]<?=Yii::app()->request->hostInfo.'/'.$hole->pictures_fresh[0]->medium?>[/img]<?php endif; ?>[/url][url=<?=Yii::app()->request->hostInfo?>/<?=Yii::app()->request->pathInfo?>]
-			РосДоступ :: <?=CHtml::encode($hole['ADDRESS'])?>[/url]</textarea>
+			<?=Yii::app()->params['projectNameIp']?> :: <?=CHtml::encode($hole['ADDRESS'])?>[/url]</textarea>
 
 
 		</div>
