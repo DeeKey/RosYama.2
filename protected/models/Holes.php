@@ -25,10 +25,11 @@
  */
 class Holes extends CActiveRecord
 {
-	/**
-	 * Returns the static model of the specified AR class.
-	 * @return Holes the static model class
-	 */
+    /**
+     * Returns the static model of the specified AR class.
+     * @param string $className
+     * @return Holes the static model class
+     */
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
@@ -82,20 +83,20 @@ class Holes extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array(/*'USER_ID, ADDRESS, DATE_CREATED, TYPE_ID, gibdd_id',*/ 'USER_ID, ADDRESS, DATE_CREATED, TYPE_ID', 'required'),
+			array('USER_ID, ADDRESS, DATE_CREATED, TYPE_ID'.(Yii::app()->params['gibddOn'] ? ', gibdd_id' : ''), 'required'),
 			array('LATITUDE, LONGITUDE', 'required', 'message' => 'Поставьте метку на карте двойным щелчком мыши!'),
-			array(/*'GIBDD_REPLY_RECEIVED, PREMODERATED, TYPE_ID, NOT_PREMODERATED, archive'*/ 'PREMODERATED, TYPE_ID, NOT_PREMODERATED, archive', 'numerical', 'integerOnly'=>true),
+			array((Yii::app()->params['gibddOn'] ? 'GIBDD_REPLY_RECEIVED, ' : '').'PREMODERATED, TYPE_ID, NOT_PREMODERATED, archive', 'numerical', 'integerOnly'=>true),
 			array('LATITUDE, LONGITUDE', 'numerical'),
 			array('USER_ID, STATE, DATE_CREATED, DATE_SENT, DATE_STATUS, ADR_SUBJECTRF, DATE_SENT_PROSECUTOR', 'length', 'max'=>10),
 			array('ADR_CITY', 'length', 'max'=>50),
 			array('STR_SUBJECTRF, username, description_locality, description_size', 'length'),
-			array('COMMENT1, COMMENT2, COMMENT_GIBDD_REPLY, deletepict, upploadedPictures, request_gibdd, showUserHoles', 'safe'),
+			array((Yii::app()->params['gibddOn'] ? 'COMMENT1, COMMENT2, COMMENT_GIBDD_REPLY, deletepict, upploadedPictures, request_gibdd, showUserHoles' : 'COMMENT1, COMMENT2, COMMENT_GIBDD_REPLY, deletepict, upploadedPictures, showUserHoles'), 'safe'),
 			array('upploadedPictures', 'file', 'types'=>'jpg, jpeg, png, gif','maxFiles'=>10, 'allowEmpty'=>true, 'on' => 'update, import, fix'),
 			array('upploadedPictures', 'file', 'types'=>'jpg, jpeg, png, gif','maxFiles'=>10, 'allowEmpty'=>false, 'on' => 'insert'),
 			array('upploadedPictures', 'required', 'on' => 'insert', 'message' => 'Необходимо загрузить фотографии'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('ID, USER_ID, LATITUDE, LONGITUDE, ADDRESS, STATE, DATE_CREATED, DATE_SENT, DATE_STATUS, COMMENT1, COMMENT2, TYPE_ID, ADR_SUBJECTRF, ADR_CITY, COMMENT_GIBDD_REPLY, GIBDD_REPLY_RECEIVED, PREMODERATED, DATE_SENT_PROSECUTOR', 'safe', 'on'=>'search'),
+			array((Yii::app()->params['gibddOn'] ? 'ID, USER_ID, LATITUDE, LONGITUDE, ADDRESS, STATE, DATE_CREATED, DATE_SENT, DATE_STATUS, COMMENT1, COMMENT2, TYPE_ID, ADR_SUBJECTRF, ADR_CITY, COMMENT_GIBDD_REPLY, GIBDD_REPLY_RECEIVED, PREMODERATED, DATE_SENT_PROSECUTOR' : 'ID, USER_ID, LATITUDE, LONGITUDE, ADDRESS, STATE, DATE_CREATED, DATE_SENT, DATE_STATUS, COMMENT1, COMMENT2, TYPE_ID, ADR_SUBJECTRF, ADR_CITY, PREMODERATED, DATE_SENT_PROSECUTOR'), 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -106,27 +107,30 @@ class Holes extends CActiveRecord
 	{
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
-		return array(
-			'subject'=>array(self::BELONGS_TO, 'RfSubjects', 'ADR_SUBJECTRF'),
-			'requests'=>array(self::HAS_MANY, 'HoleRequests', 'hole_id'),
-			'pictures'=>array(self::HAS_MANY, 'HolePictures', 'hole_id', 'order'=>'pictures.type, pictures.ordering'),
-			'pictures_fresh'=>array(self::HAS_MANY, 'HolePictures', 'hole_id', 'condition'=>'pictures_fresh.type="fresh"','order'=>'pictures_fresh.ordering'),
-			'pictures_fixed'=>array(self::HAS_MANY, 'HolePictures', 'hole_id', 'condition'=>'pictures_fixed.type="fixed"','order'=>'pictures_fixed.ordering'),
-			'user_pictures_fixed'=>array(self::HAS_MANY, 'HolePictures', 'hole_id', 'condition'=>'user_pictures_fixed.type="fixed" AND user_pictures_fixed.user_id='.Yii::app()->user->id,'order'=>'user_pictures_fixed.ordering'),
-			//'request_gibdd'=>array(self::HAS_ONE, 'HoleRequests', 'hole_id', 'condition'=>'request_gibdd.type="gibdd" AND request_gibdd.user_id='.Yii::app()->user->id),
-			'request_prosecutor'=>array(self::HAS_ONE, 'HoleRequests', 'hole_id', 'condition'=>'request_prosecutor.type="prosecutor" AND user_id='.Yii::app()->user->id),
-			//'requests_gibdd'=>array(self::HAS_MANY, 'HoleRequests', 'hole_id', 'condition'=>'requests_gibdd.type="gibdd"','order'=>'requests_gibdd.date_sent ASC'),
-			'requests_prosecutor'=>array(self::HAS_MANY, 'HoleRequests', 'hole_id', 'condition'=>'requests_prosecutor.type="prosecutor"','order'=>'date_sent ASC'),
-			'fixeds'=>array(self::HAS_MANY, 'HoleFixeds', 'hole_id','order'=>'fixeds.date_fix ASC'),
-			'user_fix'=>array(self::HAS_ONE, 'HoleFixeds', 'hole_id', 'condition'=>'user_fix.user_id='.Yii::app()->user->id),
-			'type'=>array(self::BELONGS_TO, 'HoleTypes', 'TYPE_ID'),
-			'user'=>array(self::BELONGS_TO, 'UserGroupsUser', 'USER_ID'),
-			//'gibdd'=>array(self::BELONGS_TO, 'GibddHeads', 'gibdd_id'),
-			'selected_lists'=>array(self::MANY_MANY, 'UserSelectedLists',
-               '{{user_selected_lists_holes_xref}}(hole_id,list_id)'),
+        $relations = array(
+            'subject'=>array(self::BELONGS_TO, 'RfSubjects', 'ADR_SUBJECTRF'),
+            'requests'=>array(self::HAS_MANY, 'HoleRequests', 'hole_id'),
+            'pictures'=>array(self::HAS_MANY, 'HolePictures', 'hole_id', 'order'=>'pictures.type, pictures.ordering'),
+            'pictures_fresh'=>array(self::HAS_MANY, 'HolePictures', 'hole_id', 'condition'=>'pictures_fresh.type="fresh"','order'=>'pictures_fresh.ordering'),
+            'pictures_fixed'=>array(self::HAS_MANY, 'HolePictures', 'hole_id', 'condition'=>'pictures_fixed.type="fixed"','order'=>'pictures_fixed.ordering'),
+            'user_pictures_fixed'=>array(self::HAS_MANY, 'HolePictures', 'hole_id', 'condition'=>'user_pictures_fixed.type="fixed" AND user_pictures_fixed.user_id='.Yii::app()->user->id,'order'=>'user_pictures_fixed.ordering'),
+            'request_prosecutor'=>array(self::HAS_ONE, 'HoleRequests', 'hole_id', 'condition'=>'request_prosecutor.type="prosecutor" AND user_id='.Yii::app()->user->id),
+            'requests_prosecutor'=>array(self::HAS_MANY, 'HoleRequests', 'hole_id', 'condition'=>'requests_prosecutor.type="prosecutor"','order'=>'date_sent ASC'),
+            'fixeds'=>array(self::HAS_MANY, 'HoleFixeds', 'hole_id','order'=>'fixeds.date_fix ASC'),
+            'user_fix'=>array(self::HAS_ONE, 'HoleFixeds', 'hole_id', 'condition'=>'user_fix.user_id='.Yii::app()->user->id),
+            'type'=>array(self::BELONGS_TO, 'HoleTypes', 'TYPE_ID'),
+            'user'=>array(self::BELONGS_TO, 'UserGroupsUser', 'USER_ID'),
+            'selected_lists'=>array(self::MANY_MANY, 'UserSelectedLists',
+                '{{user_selected_lists_holes_xref}}(hole_id,list_id)'),
             'comments_cnt'=> array(self::STAT, 'Comment', 'owner_id', 'condition'=>'owner_name="Holes" AND status < 2'),
             'comments'=> array(self::HAS_MANY, 'Comment', 'owner_id', 'condition'=>'owner_name="Holes"'),
-		);
+        );
+        if(Yii::app()->params['gibddOn']) {
+            $relations['request_gibdd'] = array(self::HAS_ONE, 'HoleRequests', 'hole_id', 'condition'=>'request_gibdd.type="gibdd" AND request_gibdd.user_id='.Yii::app()->user->id);
+            $relations['requests_gibdd'] = array(self::HAS_MANY, 'HoleRequests', 'hole_id', 'condition'=>'requests_gibdd.type="gibdd"','order'=>'requests_gibdd.date_sent ASC');
+            $relations['gibdd'] = array(self::BELONGS_TO, 'GibddHeads', 'gibdd_id');
+        }
+		return $relations;
 	}
 
 	public function behaviors(){
@@ -136,14 +140,14 @@ class Holes extends CActiveRecord
 
 	public static function getAllstates()
 	{
-	$arr=Array();
-	$arr['fresh']      = 'Добавлен на сайт';
-	$arr['inprogress'] = 'Заявление отправлено в ГИБДД';
-	$arr['fixed']      = 'Исправлен';
-	$arr['achtung']    = 'Просрочен';
-	$arr['gibddre']    = 'Получен ответ из ГИБДД';
-	$arr['prosecutor'] = 'Жалоба отправлена в прокуратуру';
-	return $arr;
+        $arr=Array();
+        $arr['fresh']      = 'Добавлен на сайт';
+        $arr['inprogress'] = 'Заявление отправлено в ГИБДД';
+        $arr['fixed']      = 'Исправлен';
+        $arr['achtung']    = 'Просрочен';
+        $arr['gibddre']    = 'Получен ответ из ГИБДД';
+        $arr['prosecutor'] = 'Жалоба отправлена в прокуратуру';
+        return $arr;
 	}
 
 	public static function getAllstatesShort()
@@ -218,7 +222,7 @@ class Holes extends CActiveRecord
 		$gibdds=GibddHeads::model()->findAll($criteria);
 		if ($this->subject) array_unshift ($gibdds, $this->subject->gibdd);*/
 
-		//$gibdds=GibddHeads::model()->with('areas')->findAll(Array('order'=>'t.level DESC, t.subject_id DESC'));
+		$gibdds=GibddHeads::model()->with('areas')->findAll(Array('order'=>'t.level DESC, t.subject_id DESC'));
 
 		$regionalGibdds=Array();
 		$regkey=0;
@@ -283,16 +287,20 @@ class Holes extends CActiveRecord
 				$this->addError('upploadedPictures', Yii::t('errors', 'GREENSIGHT_ERROR_CANNOT_CREATE_DIR'));
 				return false;
 			}
+            if(!is_dir($_SERVER['DOCUMENT_ROOT'].'/upload/st1234/medium/'))
+                mkdir($_SERVER['DOCUMENT_ROOT'].'/upload/st1234/medium/');
 			if(!@mkdir($_SERVER['DOCUMENT_ROOT'].'/upload/st1234/medium/'.$id))
 			{
-				unlink($_SERVER['DOCUMENT_ROOT'].'/upload/st1234/original/'.$id);
+				@unlink($_SERVER['DOCUMENT_ROOT'].'/upload/st1234/original/'.$id);
 				$this->addError('upploadedPictures',Yii::t('errors', 'GREENSIGHT_ERROR_CANNOT_CREATE_DIR'));
 				return false;
 			}
+            if(!is_dir($_SERVER['DOCUMENT_ROOT'].'/upload/st1234/small/'))
+                mkdir($_SERVER['DOCUMENT_ROOT'].'/upload/st1234/small/');
 			if(!@mkdir($_SERVER['DOCUMENT_ROOT'].'/upload/st1234/small/'.$id))
 			{
-				unlink($_SERVER['DOCUMENT_ROOT'].'/upload/st1234/original/'.$id);
-				unlink($_SERVER['DOCUMENT_ROOT'].'/upload/st1234/medium/'.$id);
+				@unlink($_SERVER['DOCUMENT_ROOT'].'/upload/st1234/original/'.$id);
+				@unlink($_SERVER['DOCUMENT_ROOT'].'/upload/st1234/medium/'.$id);
 				$this->addError('upploadedPictures',Yii::t('errors', 'GREENSIGHT_ERROR_CANNOT_CREATE_DIR'));
 				return false;
 			}
@@ -432,11 +440,11 @@ class Holes extends CActiveRecord
 			$request->attributes=Array(
 							'hole_id'=>$this->ID,
 							'user_id'=>Yii::app()->user->id,
-//							'gibdd_id'=>$this->subject ? $this->subject->gibdd->id : 0,
-							'gibdd_id'=>0,
 							'date_sent'=>time(),
 							'type'=>$type,
 							);
+            if(Yii::app()->params['gibddOn'])
+                $request->attributes['gibdd_id'] = $this->subject ? $this->subject->gibdd->id : 0;
 			if ($request->save()){
 			if ($type=='gibdd') if ($this->updateSetinprogress()) return true;
 			elseif ($type=='prosecutor') if ($this->updateToprosecutor()) return true;
@@ -445,7 +453,6 @@ class Holes extends CActiveRecord
 		elseif ($type=='prosecutor' && $this->STATE=='achtung') $this->updateToprosecutor();
 		return true;
 	}
-
 
 	public function updateSetinprogress()
 	{
@@ -474,7 +481,7 @@ class Holes extends CActiveRecord
 						{
 							$this->STATE = 'achtung';
 						}
-						if($this->GIBDD_REPLY_RECEIVED)
+						if(Yii::app()->params['gibddOn'] && $this->GIBDD_REPLY_RECEIVED)
 						{
 							$this->STATE = 'gibddre';
 						}
@@ -482,7 +489,7 @@ class Holes extends CActiveRecord
 						{
 							$this->STATE = 'prosecutor';
 						}
-						if(!$this->DATE_SENT)
+						if(!$this->DATE_SENT && Yii::app()->params['gibddOn'])
 						{
 							$this->STATE = 'fresh';
 							if ($this->request_gibdd) $this->request_gibdd->delete();
@@ -497,23 +504,21 @@ class Holes extends CActiveRecord
 
 	public function updateRevoke()
 	{
-			if(!$this->request_gibdd || $this->request_gibdd->answer)
-				{
-					return false;
-				}
-				$this->DATE_STATUS = time();
-				$this->request_gibdd->delete();
-				if (!count(HoleRequests::model()->findAll('hole_id='.$this->ID.' AND type="gibdd"'))) {
-					$this->DATE_SENT = null;
-					$this->DATE_STATUS = time();
-					$this->STATE = 'fresh';
-					}
-				else {
-					$this->DATE_SENT = $this->requests_gibdd[0]->date_sent;
-				}
-			$this->archive=0;
-			if ($this->update()) return true;
-			else return false;
+        if(!Yii::app()->params['gibddOn'] || (!$this->request_gibdd || $this->request_gibdd->answer))
+            return false;
+        $this->DATE_STATUS = time();
+        $this->request_gibdd->delete();
+        if (!count(HoleRequests::model()->findAll('hole_id='.$this->ID.' AND type="gibdd"'))) {
+            $this->DATE_SENT = null;
+            $this->DATE_STATUS = time();
+            $this->STATE = 'fresh';
+            }
+        else {
+            $this->DATE_SENT = $this->requests_gibdd[0]->date_sent;
+        }
+        $this->archive=0;
+        if ($this->update()) return true;
+        else return false;
 	}
 
 
@@ -687,7 +692,8 @@ class Holes extends CActiveRecord
 
 		$criteria->compare('t.STATE',$this->STATE,true);
 		$criteria->compare('t.TYPE_ID',$this->TYPE_ID,false);
-//		$criteria->compare('t.gibdd_id',$this->gibdd_id,false);
+        if(Yii::app()->params['gibddOn'])
+		    $criteria->compare('t.gibdd_id', $this->gibdd_id, false);
 		$criteria->compare('type.alias',$this->type_alias,true);
 
 		if (!$user->userModel->relProfile->show_archive_holes) $criteria->compare('t.archive',0,false);
@@ -868,7 +874,8 @@ class Holes extends CActiveRecord
 		$criteria->compare('t.STATE',$this->STATE,true);
 		$criteria->compare('t.TYPE_ID',$this->TYPE_ID,false);
 		$criteria->compare('type.alias',$this->type_alias,true);
-//		$criteria->compare('t.gibdd_id',$this->gibdd_id,false);
+        if(Yii::app()->params['gibddOn'])
+		    $criteria->compare('t.gibdd_id', $this->gibdd_id, false);
 		//$criteria->addCondition('t.USER_ID='.$userid);
 
 		$provider=new CActiveDataProvider($this, array(
@@ -987,7 +994,8 @@ class Holes extends CActiveRecord
 		$criteria->compare('t.TYPE_ID',$this->TYPE_ID,false);
 		$criteria->compare('type.alias',$this->type_alias,true);
 		$criteria->compare('subject.name_full',$this->ADR_SUBJECTRF,true);
-//		$criteria->compare('gibdd.name',$this->gibdd_id,true);
+        if(Yii::app()->params['gibddOn'])
+		    $criteria->compare('gibdd.name', $this->gibdd_id, true);
 		$criteria->compare('t.ADR_CITY',$this->ADR_CITY,true);
 		$criteria->compare('t.COMMENT_GIBDD_REPLY',$this->COMMENT_GIBDD_REPLY,true);
 		$criteria->compare('t.GIBDD_REPLY_RECEIVED',$this->GIBDD_REPLY_RECEIVED);
