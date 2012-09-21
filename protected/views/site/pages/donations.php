@@ -8,7 +8,7 @@ $this->layout='//layouts/header_default_without_add';
 </div>
 
 <div class="rCol">
-<p><b>Деньги в поддержку <?=Yii::app()->params['nameRp']?> можно перечислять сюда:</b></p>
+<p><b>Деньги в поддержку проекта <?=Yii::app()->params['name']?> можно перечислять сюда:</b></p>
 
 <!--<p><b>QIWI</b> - 9161775694</p>
 

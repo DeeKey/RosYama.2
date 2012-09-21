@@ -9,7 +9,6 @@ include ('appConfig.php');
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
 	'name'=>'РосДоступ',
-    'nameRp' => 'РосДоступу',
 	'language'=>'ru',
 	'defaultController'=>'holes',
 	// preloading 'log' component
