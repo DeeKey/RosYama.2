@@ -12,4 +12,15 @@ protected/runtime/*
 protected/runtime/application.log
 /nbproject/private/
 nbproject
+
+/dokuwiki
+/dokuwiki_integrated
+/tmp
+
+/webstat
+
 /protected\config/appConfig.php
+
+.htaccess
+.htpasswd
+php.ini
