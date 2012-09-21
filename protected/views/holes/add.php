@@ -5,7 +5,7 @@ $this->pageTitle=Yii::app()->name . ' :: Добавление дефекта';
 <div id="addmess" style="display:none; color:#0C0"><p><b>Выберите место на карте и кликните по нему два раза, чтобы отметить расположение дефекта.</b></p></div>
   <div class="head">
 		<div class="container">
-<div class="lCol"><a href="/" class="logo" title="На главную"><img src="/images/logo.png"  alt="РосДоступ" /></a>
+<div class="lCol"><a href="/" class="logo" title="На главную"><img src="/images/logo.png"  alt="<?=Yii::app()->params['name'];?>" /></a>
 </div>
 						<div class="rCol">
 							<h1>Добавление дефекта</h1>
@@ -27,7 +27,9 @@ $this->pageTitle=Yii::app()->name . ' :: Добавление дефекта';
 		</div>
 	</div>
 	<div class="mainCols">
-			
+
 <?php echo $this->renderPartial('_form', array('model'=>$model, 'newimage'=>new PictureFiles)); ?>
 
 </div>
+
+

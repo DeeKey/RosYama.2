@@ -158,15 +158,15 @@ class HolesController extends Controller
 			if (Yii::app()->user->level > 50) $model->PREMODERATED=1;
 			else $model->PREMODERATED=0;
 
-//			if ($model->gibdd_id){
-//				$subj=$model->gibdd->subject->id;
-//				if($subj) $model->ADR_SUBJECTRF=$subj;
-//			}
-//			else {
+			if(Yii::app()->params['gibddOn'] && $model->gibdd_id){
+				$subj=$model->gibdd->subject->id;
+				if($subj) $model->ADR_SUBJECTRF=$subj;
+			}
+			else {
 				$subj=RfSubjects::model()->SearchID(trim($model->STR_SUBJECTRF));
 				if($subj) $model->ADR_SUBJECTRF=$subj;
 				else $model->ADR_SUBJECTRF=0;
-//			}
+			}
 
 			if($model->save() && $model->savePictures())
 				$this->redirect(array('view','id'=>$model->ID));
@@ -231,12 +231,11 @@ class HolesController extends Controller
 		{
 			$model->attributes=$_POST['Holes'];
 
-//			if ($model->gibdd_id){
-//				$subj=$model->gibdd->subject->id;
-//				if($subj) $model->ADR_SUBJECTRF=$subj;
-//			}
-//			else
-            if ($model->STR_SUBJECTRF) {
+			if (Yii::app()->params['gibddOn'] && $model->gibdd_id){
+				$subj=$model->gibdd->subject->id;
+				if($subj) $model->ADR_SUBJECTRF=$subj;
+			}
+			else if ($model->STR_SUBJECTRF) {
 				$subj=RfSubjects::model()->SearchID(trim($model->STR_SUBJECTRF));
 				if($subj) $model->ADR_SUBJECTRF=$subj;
 			}

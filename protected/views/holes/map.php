@@ -5,7 +5,7 @@ $this->pageTitle=Yii::app()->name . ' :: Карта дефектов';
   <div class="head">
 		<div class="container">
 <div class="lCol">
-												<a href="/" class="logo" title="На главную"><img src="/images/logo.png"  alt="РосДоступ" /></a>
+												<a href="/" class="logo" title="На главную"><img src="/images/logo.png"  alt="<?=Yii::app()->params['name'];?>" /></a>
 											</div>
 						<div class="rCol">
 <h1>Карта дефектов<?php if ($usermodel) echo ' в зоне наблюдения <br /> пользователя '.CHtml::link(CHtml::encode($usermodel->fullname), Array('profile/view', 'id'=>$usermodel->id)); ?></h1>
@@ -19,7 +19,7 @@ $this->pageTitle=Yii::app()->name . ' :: Карта дефектов';
 <p class="title">Показать дефекты со статусом</p>
 <?php foreach ($model->allstatesMany as $alias=>$name) : ?>
 	<label><span class="<?php echo $alias; ?>"><input id="chn0" name="Holes[STATE][]" type="checkbox"  value="<?php echo $alias; ?>" /></span><ins><?php echo $name; ?></ins></label>
-<?php endforeach; ?>	
+<?php endforeach; ?>
 </div>
 <div class="filterCol filterType">
 <p class="title">Показать тип дефектов</p>
@@ -32,7 +32,7 @@ $this->pageTitle=Yii::app()->name . ' :: Карта дефектов';
 <div class="clear"></div>
 <br />
 <div class="chekboxes" style="float:right;">
-<?php echo $form->checkBox($model,"archive",Array('class'=>'filter_checkbox')); ?>	
+<?php echo $form->checkBox($model,"archive",Array('class'=>'filter_checkbox')); ?>
 <?php echo $form->labelEx($model,'archive',Array('label'=>'Показывать дефекты из архива', 'class'=>'archive')); ?>
 
 </div>
@@ -50,7 +50,7 @@ $this->pageTitle=Yii::app()->name . ' :: Карта дефектов';
 		</div>
 	</div>
 	<div class="mainCols">
-			
+
 <div id="addmess" style="display:none; color:#0C0"><p><b>Выберите место на карте и кликните по нему два раза, чтобы отметить расположение дефекта.</b></p></div>
 
 <div class="bx-yandex-search-layout">
@@ -64,7 +64,7 @@ $this->pageTitle=Yii::app()->name . ' :: Карта дефектов';
 	</div>
 
 	<div class="bx-yandex-search-results" id="results_MAP_DzDvWLBsil"></div>
-		
+
 
 <div class="bx-yandex-view-layout">
 	<div class="bx-yandex-view-map">
@@ -87,7 +87,7 @@ $(document).ready( function(){
 						   'label' => 'Тест', //Title for bubble. Used if you are plotting multiple locations of same business
 						   'address' =>  Array(), //Array of AR objects
 						   'width'=>'100%',
-						   'height'=>'600px',						   
+						   'height'=>'600px',
 						   //'notshow'=>true
 					  ));
 					?>

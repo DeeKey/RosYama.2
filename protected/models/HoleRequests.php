@@ -7,7 +7,7 @@
  * @property integer $id
  * @property integer $hole_id
  * @property integer $user_id
- * @property integer $gibdd_id Deprecated in Rosdostup.ru code while GIBDD is not needed
+ * @property integer $gibdd_id
  * @property integer $date_sent
  * @property string $type
  */
@@ -38,8 +38,8 @@ class HoleRequests extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('hole_id, user_id, /*gibdd_id*/, date_sent, type', 'required'),
-			array('hole_id, user_id, /*gibdd_id*/, date_sent', 'numerical', 'integerOnly'=>true),
+			array((Yii::app()->params['gibddOn'] ? 'hole_id, user_id, gibdd_id, date_sent, type' : 'hole_id, user_id, date_sent, type'), 'required'),
+			array((Yii::app()->params['gibddOn'] ? 'hole_id, user_id, gibdd_id, date_sent' : 'hole_id, user_id, date_sent'), 'numerical', 'integerOnly'=>true),
 			array('type', 'length', 'max'=>30),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
@@ -68,14 +68,16 @@ class HoleRequests extends CActiveRecord
 	 */
 	public function attributeLabels()
 	{
-		return array(
+		$labels = array(
 			'id' => 'ID',
 			'hole_id' => 'Hole',
 			'user_id' => 'User',
-//			'gibdd_id' => 'Gibdd',
 			'date_sent' => 'Date Sent',
 			'type' => 'Type',
 		);
+        if(Yii::app()->params['gibddOn'])
+            $labels['gibdd_id'] = 'Gibdd';
+        return $labels;
 	}
 
 	public function beforeDelete(){
@@ -112,7 +114,8 @@ class HoleRequests extends CActiveRecord
 		$criteria->compare('id',$this->id);
 		$criteria->compare('hole_id',$this->hole_id);
 		$criteria->compare('user_id',$this->user_id);
-//		$criteria->compare('gibdd_id',$this->gibdd_id);
+        if(Yii::app()->params['gibddOn'])
+		    $criteria->compare('gibdd_id',$this->gibdd_id);
 		$criteria->compare('date_sent',$this->date_sent);
 		$criteria->compare('type',$this->type,true);
 

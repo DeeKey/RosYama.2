@@ -16,7 +16,7 @@ class HoleArchiveFilters extends CActiveRecord
 	 * Returns the static model of the specified AR class.
 	 * @return HoleArchiveFilters the static model class
 	 */
-	
+
 	public function getTimeSelector(){
 		return Array(
 			0=>'не выбрано',
@@ -40,8 +40,8 @@ class HoleArchiveFilters extends CActiveRecord
 			60*60*24*365*2=>'2 года',
 			60*60*24*365*3=>'3 года',
 			);
-	}	
-	 
+	}
+
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
@@ -84,12 +84,12 @@ class HoleArchiveFilters extends CActiveRecord
 			'type'=>array(self::BELONGS_TO, 'HoleTypes', 'type_id'),
 		);
 	}
-	
+
 	public function BeforeSave(){
 				parent::beforeSave();
 				if (!$this->type_id) $this->type_id=0;
 				return true;
-	}	
+	}
 
 	/**
 	 * @return array customized attribute labels (name=>label)
