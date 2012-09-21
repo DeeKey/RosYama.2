@@ -8,12 +8,12 @@ $this->layout='//layouts/header_default_without_add';
 </div>
 
 <div class="rCol">
-<p><b>Деньги в поддержку РосДоступа можно перечислять сюда:</b></p>
+<p><b>Деньги в поддержку <?=Yii::app()->params['nameRp']?> можно перечислять сюда:</b></p>
 
 <!--<p><b>QIWI</b> - 9161775694</p>
 
 <p><b>Яндекс.Деньги</b> <a href="http://yaudit.org/yaudit/41001550415485">кошелёк № ХХХХХХХХХХХ</a></p>
- Кнопка Я-Аудита 
+ Кнопка Я-Аудита
 <p><button onclick="window.open('http://yaudit.org/41001550415485','newwindow','toolbar=0')">Посмотреть историю пожертвований</button></p>
 
 <p><b>PayPal</b> ХХХХХХХХ</p>
@@ -24,7 +24,7 @@ $this->layout='//layouts/header_default_without_add';
 <hr />
 <!-- Яндекс-форма по перечислению денег -->
 <!--<table>
-<tr><td><b>Текущий баланс</b></td><td><b>Поддержать РосДоступ</b></td></tr>
+<tr><td><b>Текущий баланс</b></td><td><b>Поддержать <?=Yii::app()->params['name']?></b></td></tr>
 <tr><td>
 <a href="https://money.yandex.ru/embed/?from=sbal" title="Виджеты Яндекс.Денег" style="width: 200px; height: 100px; display: block; margin-bottom: 0.6em; background: url('https://money.yandex.ru/share-balance.xml?id=209719&key=B8394464AE139BE7') 0 0 no-repeat; -background: none; -filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='https://money.yandex.ru/share-balance.xml?id=209719&key=B8394464AE139BE7', sizingMethod = 'crop');"></a>
 </td><td>

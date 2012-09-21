@@ -4,8 +4,8 @@ $this->pageTitle=Yii::app()->name . ' :: Список дефектов';
 <?php
 if(Yii::app()->user->isModer)
 	Yii::app()->clientScript->registerScript('modering',<<<EOD
-    
-    var bAjaxInProgress = false;	
+
+    var bAjaxInProgress = false;
 	function ShowDelForm(obj, id)
 	{
 		var delform = document.getElementById('delform');
@@ -18,11 +18,11 @@ if(Yii::app()->user->isModer)
 		}
 	}
 	function setPM_OK(id)
-	{	
+	{
 		if(bAjaxInProgress)
 		{
 			return false;
-		}		
+		}
 		bAjaxInProgress = true;
 		jQuery.get
 		(
@@ -45,15 +45,15 @@ if(Yii::app()->user->isModer)
 EOD
 ,CClientScript::POS_HEAD);
 	?>
-	
+
 <?php
 if(Yii::app()->user->isModer && $model->NOT_PREMODERATED){
 $all_elements=implode(',',$dataProvider->keys);
 	Yii::app()->clientScript->registerScript('mass_modering',<<<EOD
-    
+
     var bAjaxInProgress2 = false
 	function set_all_right()
-	{	
+	{
 		if(bAjaxInProgress2)
 		{
 			return false
@@ -82,10 +82,10 @@ $all_elements=implode(',',$dataProvider->keys);
 			}
 		)
 	}
-	
+
 	function delete_all()
 	{
-	
+
 		jQuery.post
 		(
 			'/holes/delete/',
@@ -101,8 +101,8 @@ $all_elements=implode(',',$dataProvider->keys);
 			}
 		)
 	}
-	
-	
+
+
 	$(document).ready(function()
 	{
 		$('#all_right').click(
@@ -110,7 +110,7 @@ $all_elements=implode(',',$dataProvider->keys);
 				set_all_right()
 			}
 		)
-		
+
 		$('#all_wrong').click(
 			function(){
 				if(confirm("Удалить все дефекты на текущей странице?")){
@@ -122,13 +122,13 @@ $all_elements=implode(',',$dataProvider->keys);
 
 EOD
 ,CClientScript::POS_HEAD);
-}	
+}
 	?>
-	
+
 <div id="delform">
 		<div align="right"><span onclick="$('#delform').fadeOut()">&times;</span></div>
 		<?php $form=$this->beginWidget('CActiveForm', array(
-		'action'=>Yii::app()->createUrl("holes/delete"),		
+		'action'=>Yii::app()->createUrl("holes/delete"),
 		)); ?>
 			<input type="hidden" name="id" id="del_id_input">
 			<input type="hidden" name="returnUrl" value="/" />
@@ -150,33 +150,33 @@ EOD
 		<p>
 			<?php
  $this->widget('EJuiAutoCompleteFkField', array(
-      'model'=>$model, 
+      'model'=>$model,
       'attribute'=>'ADR_SUBJECTRF', //the FK field (from CJuiInputWidget)
       // controller method to return the autoComplete data (from CJuiAutoComplete)
-      'sourceUrl'=>Yii::app()->createUrl('/holes/findSubject'), 
+      'sourceUrl'=>Yii::app()->createUrl('/holes/findSubject'),
       // defaults to false.  set 'true' to display the FK field with 'readonly' attribute.
       'showFKField'=>false,
        // display size of the FK field.  only matters if not hidden.  defaults to 10
-      'FKFieldSize'=>15, 
+      'FKFieldSize'=>15,
       'relName'=>'subject', // the relation name defined above
       'displayAttr'=>'name_full',  // attribute or pseudo-attribute to display
-      // length of the AutoComplete/display field, defaults to 50  
+      // length of the AutoComplete/display field, defaults to 50
       'autoCompleteLength'=>60,
-      // any attributes of CJuiAutoComplete and jQuery JUI AutoComplete widget may 
+      // any attributes of CJuiAutoComplete and jQuery JUI AutoComplete widget may
       // also be defined.  read the code and docs for all options
       'defaultVal'=>'Субъект РФ',
       'cssClass'=>$model->ADR_SUBJECTRF ? '' : 'disabled',
-      
-      //'scriptFile'=>'jquery.autocomplete.js',      
+
+      //'scriptFile'=>'jquery.autocomplete.js',
       'options'=>array(
-          // number of characters that must be typed before 
+          // number of characters that must be typed before
           // autoCompleter returns a value, defaults to 2
           'minLength'=>1,
-          
+
       ),
  ));
  ?>
-			
+
 			</p>
 			<div id="filter_rf_subject_tip" class="filter_roller"></div>
 			<p>
@@ -188,7 +188,7 @@ EOD
 				'model'=>$model,
 				'attribute'=>'ADR_CITY',
 				'source'=>'js:function(request, response){
-						$.get("'.Yii::app()->createUrl('/holes/findCity').'?"+jQuery("#filter_form").serialize(), {data:""}, function(data){     
+						$.get("'.Yii::app()->createUrl('/holes/findCity').'?"+jQuery("#filter_form").serialize(), {data:""}, function(data){
 						  response($.map(data, function(item) {
 						  return {
 							label: item.label,
@@ -196,7 +196,7 @@ EOD
 						  }
 						  }))
 						}, "json");
-					  }',					  
+					  }',
 				// additional javascript options for the autocomplete plugin
 				'options'=>array(
 					'minLength'=>'1',
@@ -206,11 +206,11 @@ EOD
 					'value'=>$val,
 					'onclick'=>'if ($(this).val()=="'.$defval.'") $(this).val(""); $(this).removeClass("disabled");',
 					'onblur'=>'if ($(this).val()=="") {$(this).val("'.$defval.'"); $(this).addClass("disabled");}',
-					
+
 				),
 			));
 			?>
-					
+
 			</p>
 			<div id="filter_city_tip" class="filter_roller"></div>
 			<p>
@@ -221,12 +221,12 @@ EOD
 			</p>
 				<p>
 				<?php echo $form->labelEx($model,'archive',Array('label'=>'Искать в архиве')); ?>
-				<?php echo $form->checkBox($model,"archive",Array('class'=>'filter_checkbox')); ?>				
+				<?php echo $form->checkBox($model,"archive",Array('class'=>'filter_checkbox')); ?>
 				</p>
 			<?php if(Yii::app()->user->isModer) : ?>
 				<p>
 				<?php echo $form->labelEx($model,'NOT_PREMODERATED'); ?>
-				<?php echo $form->checkBox($model,"NOT_PREMODERATED",Array('class'=>'filter_checkbox')); ?>				
+				<?php echo $form->checkBox($model,"NOT_PREMODERATED",Array('class'=>'filter_checkbox')); ?>
 				</p>
 			<?php endif; ?>
 			<span class="filterBtn" onclick="$(this).parents('form').submit();">
@@ -234,15 +234,15 @@ EOD
 				<i class="arrow"></i>
 			</span>
 			<br>
-			<?php 
-			if(!$model->isEmptyAttribs): ?><span class="reset" onclick="document.location='/';">Сбросить</span><?php endif; ?>	
+			<?php
+			if(!$model->isEmptyAttribs): ?><span class="reset" onclick="document.location='/';">Сбросить</span><?php endif; ?>
 		<?php $this->endWidget(); ?>
 </div>
 
-<table style="background-color: rgb(241, 109, 126)"> 
-  <tbody> 
-    <tr><td style="padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px"> <b> 
-      <p>Сбор средств на развитие РосДоступа:</p>
+<table style="background-color: rgb(241, 109, 126)">
+  <tbody>
+    <tr><td style="padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px"> <b>
+      <p>Сбор средств на развитие <?=Yii::app()->params['nameRp']?>:</p>
 <!--        <p>Яндекс-деньги: 41001550415485</p>
         <p><a href="/page/donations/">Подробнее</a></p>-->
       </b>
@@ -266,7 +266,7 @@ EOD
 	'summaryText'=>false,
 	'emptyText'=>!$model->archive ? 'Ничего не найдено. Может быть попробовать '.CHtml::link('поискать в архиве',$model->archiveSearchLink).'?' : 'Ничего не найдено.',
 	'viewData'=>Array('user'=>Yii::app()->user),
-	
+
 )); ?>
 <?php if (Yii::app()->user->isModer && $model->NOT_PREMODERATED && $dataProvider->totalItemCount > 0) : ?>
 	<input type="button" id="all_right" value="Разрешить все дефекты" />

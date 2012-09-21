@@ -8,14 +8,13 @@ include ('appConfig.php');
 
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
-
 	'name'=>'РосДоступ',
 	'language'=>'ru',
 	'defaultController'=>'xml',
 	// preloading 'log' component
 	//'layout'=>'startpage',
-	'preload'=>array('log'),	
-	
+	'preload'=>array('log'),
+
 
 	// autoloading model and component classes
 	'import'=>array(
@@ -35,11 +34,11 @@ return array(
 		'ext.lightopenid.*',
 		'ext.eauth.services.*',
 			),
-	'modules'=>array(		
-					
+	'modules'=>array(
+
 			'userGroups'=>array(
 				'accessCode'=>'12345',
-				'salt'=>'111',				
+				'salt'=>'111',
 				'profile'=>Array('Profile')
 			),
 			'comments'=>array(
@@ -57,7 +56,7 @@ return array(
 					//super user condition(display comment list in admin view and automoderate comments)
 					'isSuperuser'=>'Yii::app()->user->isModer',
 					//order direction for comments
-					'orderComments'=>'ASC',					
+					'orderComments'=>'ASC',
 				),
 				//the models for commenting
 				'commentableModels'=>array(
@@ -120,7 +119,7 @@ return array(
             // ImageMagick setup path
             'params'=>array('directory'=>'/opt/local/bin'),
         ),
-		
+
 
 		'db'=>$bd,
 
@@ -146,7 +145,7 @@ return array(
                 ),
             ),
         ),
-		
+
 	),
 
 	// application-level parameters that can be accessed

@@ -9,19 +9,21 @@ include ('appConfig.php');
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
 	'name'=>'РосДоступ',
+    'nameRp' => 'РосДоступу',
 	'language'=>'ru',
 	'defaultController'=>'holes',
 	// preloading 'log' component
 	//'layout'=>'startpage',
-	'preload'=>array('log'),	
-	
+	'preload'=>array('log'),
+
+
 	// autoloading model and component classes
 	'import'=>array(
 		'application.models.*',
 		'application.components.*',
 		'application.classes.*',
 		'application.modules.userGroups.*',
-		'application.modules.userGroups.models.*',		
+		'application.modules.userGroups.models.*',
         'application.modules.userGroups.components.*',
         'application.modules.comments.models.*',
 		'application.extensions.nestedset.*',
@@ -34,7 +36,7 @@ return array(
 		'ext.eauth.services.*',
 			),
 	'modules'=>array(
-		
+
 			'gii'=>array(
 				'class'=>'system.gii.GiiModule',
 				'password'=>'root',
@@ -42,10 +44,10 @@ return array(
 				'generatorPaths' => array(
 				'ext.giix-core',
 				),
-			),		
+			),
 			'userGroups'=>array(
 				'accessCode'=>'12345',
-				'salt'=>'111',				
+				'salt'=>'111',
 				'profile'=>Array('Profile')
 			),
 			'comments'=>array(
@@ -63,7 +65,7 @@ return array(
 					//super user condition(display comment list in admin view and automoderate comments)
 					'isSuperuser'=>'Yii::app()->user->isModer',
 					//order direction for comments
-					'orderComments'=>'ASC',					
+					'orderComments'=>'ASC',
 				),
 				//the models for commenting
 				'commentableModels'=>array(
@@ -87,7 +89,7 @@ return array(
 					'nameProperty'=>'fullname',
 					//'emailProperty'=>'email',
 				),
-			),			
+			),
     ),
 	// application components
 	'components'=>array(
@@ -106,7 +108,7 @@ return array(
 			'rules'=>array(
 				  '/'=>'holes/index',
 				  '<id:\d+>'=>'holes/view',
-				  'map/<userid:\d+>/'=>'holes/map',				  
+				  'map/<userid:\d+>/'=>'holes/map',
 				  'map'=>'holes/map',
 				  'page/<view:\w+>/' => 'site/page',
 				  'userGroups'=>'userGroups',
@@ -137,7 +139,7 @@ return array(
 		'loid' => array(
 			'class' => 'application.extensions.lightopenid.loid',
 		),
-		
+
 		 'eauth' => array(
 			'class' => 'ext.eauth.EAuth',
 			'popup' => true, // Use the popup window instead of redirecting.
@@ -145,10 +147,10 @@ return array(
 		),
 
 		'db'=>$bd,
-		
+
 		'cache'=>array(
             //'class'=>'system.caching.CApcCache',          // we use MemCache for RosDostup
-            'class'=>'system.caching.CMemCache',          
+            'class'=>'system.caching.CMemCache',
             'servers'=>array(
                 array('host'=>'localhost', 'weight'=>60),
             ),
@@ -158,7 +160,7 @@ return array(
 		'errorHandler'=>array(
 			// use 'site/error' action to display errors
             'errorAction'=>'site/error',
-        ),			
+        ),
 
 
 		 'widgetFactory'=>array(
@@ -196,7 +198,7 @@ return array(
                     'categories' => 'application.*, exception.*',
                 ),
             ),
-			'enabled'=>isset($_GET['testing'])?true:false,  // enable caching in non-debug mode  
+			'enabled'=>isset($_GET['testing'])?true:false,  // enable caching in non-debug mode
 		),
 	),
 

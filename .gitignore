@@ -1,15 +1,15 @@
+/upload/*
+/assets/*
 *.zip
+upload
+assets
 *~
 bugs
 /bugs/*
 /protected/runtime/*
+protected/runtime/*
 
-/protected/runtime/application.log
+protected/runtime/application.log
 /nbproject/private/
 nbproject
-
-/dokuwiki
-/dokuwiki_integrated
-/tmp
-
-/webstat
+/protected\config/appConfig.php

@@ -23,6 +23,8 @@ div.rCol .h .type_rails { background-image: url("/images/st1234/rails.png"); }
 div.rCol .h .type_light { background-image: url("/images/st1234/light.png"); padding-left: 23px; }
 div.rCol .h .type_fence { background-image: url("/images/st1234/fence.png"); }
 div.rCol .h .type_hatch { background-image: url("/images/st1234/hatch.png"); }
+div.rCol .h .type_nomarking { background-image: url("/images/st1234/nomarking.png"); }
+div.rCol .h .type_policeman { background-image: url("/images/st1234/policeman.png"); }
 div.rCol .h .status {position: relative; padding-left: 19px; }
 div.rCol .h span.bull { font-size: 26px; left: 0; line-height: 12px; position: absolute; top: 0;  }
 div.rCol .h span.fresh { color: #aaa; }

@@ -31,17 +31,17 @@ $('.search-form form').submit(function(){
 	'columns'=>array(
 		'id',
 		'name',
-		array(       
+		array(
             'name'=>'type_id',
             'value'=>'$data->type ? $data->type->name : "-"',
             'filter'=>CHtml::listData( HoleTypes::model()->findAll(Array('order'=>'ordering')), 'id', 'name' ),
         ),
-        array(       
+        array(
             'name'=>'status',
             'value'=>'$data->status ? $data->status : "-"',
             'filter'=>Holes::model()->Allstates,
         ),
-        array(       
+        array(
             'name'=>'time_to',
             'value'=>'$data->time_to ? $data->timeSelector[$data->time_to] : "-"',
             'filter'=>$model->timeSelector,
