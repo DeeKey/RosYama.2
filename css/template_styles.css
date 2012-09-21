@@ -28,11 +28,11 @@ body {
 		width: 990px;
 		position:relative;
 	}
-	
+
 		.menu {
 			float: left;
 		}
-		
+
 		.search {
 			background: #fff;
 			border-color: #d2d2d2 #fff #fff #d2d2d2;
@@ -49,7 +49,7 @@ body {
 		}
 
 		.navigation .social {padding-top:9px}
-		
+
 		.auth {
 			color: #fff;
 			position:absolute;
@@ -58,7 +58,7 @@ body {
 			height: 38px;
 			overflow: hidden;
 		}
-		
+
 			.auth .name {
 				float: right;
 				overflow: hidden;
@@ -67,14 +67,14 @@ body {
 				white-space:nowrap;
 				text-align:right;
 			}
-			
+
 				.auth .name p {
-					
+
 					line-height: 34px;
 					text-align: right;
 					vertical-align: middle;
 				}
-					
+
 						.auth .grad
 						{
 							position:absolute;
@@ -86,18 +86,18 @@ body {
 							display:none;
 							z-index:1;
 						}
-			
+
 			.auth img {
 				float: right;
 				margin-left: 6px;
 				padding-top: 12px;
 				vertical-align: middle;
 			}
-			
+
 			.auth a, .auth a:hover {
 				color: #fff;
 			}
-			
+
 			.auth .profileBtn, .auth .profileBtn:hover {
 				font-size: 0.83em;
 				top: 11px;
@@ -139,7 +139,7 @@ body {
 				display: block;
 				margin: 0 0 0 18px;
 			}
-	
+
 	.head .btn {
 		font-size: 2.6em;
 		margin-top: 15px;
@@ -159,9 +159,9 @@ body {
 			height: 63px;
 			text-decoration: none;
 		}
-	
+
 		.addFact:hover {color:#fff}
-	
+
 			.addFact i {
 				cursor: pointer;
 				float: left;
@@ -170,7 +170,7 @@ body {
 				line-height: 62px;
 				text-align: center;
 			}
-	
+
 			.addFact .text {
 				background: url(/images/add_shadow.gif) no-repeat right top;
 				line-height: 60px;
@@ -179,7 +179,7 @@ body {
 				text-align: left;
 				width: 151px;
 			}
-			
+
 			.head .addFact .text {
 				padding-left: 33px;
 				width: 140px;
@@ -189,54 +189,54 @@ body {
 				background: url(/images/add_arrow.gif) no-repeat center center;
 				width: 40px;
 			}
-	
+
 	.head .lCol {
 		position:relative;
 		text-align: center;
 	}
 	.head .rCol {font-size:1.3em}
-	
+
 		.head #head_user_info {
 			padding-top: 10px;
 		}
-		
+
 		.head #head_user_info .photo {
 			background: #ececec;
 			float: left;
 			height: 93px;
 			width: 93px;
 		}
-		
+
 		.head #head_user_info .photo img {
 			max-height: 93px;
 			max-width: 93px;
 		}
-		
+
 		.head #head_user_info h1 {
 			margin-bottom: 0.25em;
 		}
-		
+
 		.head #head_user_info .info {
 			border-bottom: 1px solid #ececec;
 			margin: 0 0 16px 113px;
 			padding-bottom: 16px;
 		}
-		
+
 		.head #head_user_info .counter {
 			font-size: 1.38em;
 			font-weight: bold;
 			margin-left: 113px;
 		}
-		
+
 		.head #head_user_info .buttons {
 			float: right;
 			padding-top: 4px;
 		}
-		
+
 		.head #head_user_info .profileBtn {
 			margin-right: 6px;
 		}
-	
+
 	.beta {
 		color: #b9b9b9;
 		font: bold 1em "Trebuchet MS", Arial, sans-serif;
@@ -312,7 +312,7 @@ ul.usermenu li.active .profileBtn{background: #f88100;}
 		margin: 0 3% 0 0;
 		width: 29%;
 	}
-	
+
 	.steps .number {
 		background: url(/images/step_ring.png) no-repeat center center;
 		color: #e6660d;
@@ -323,7 +323,7 @@ ul.usermenu li.active .profileBtn{background: #f88100;}
 		text-align: center;
 		width: 27px;
 	}
-	
+
 	.steps em {
 		color: #8d8d8d;
 	}
@@ -355,7 +355,7 @@ ul.usermenu li.active .profileBtn{background: #f88100;}
 		overflow: hidden;
 		width: 21px;
 	}
-	
+
 		.social img {display:block;position:relative;}
 		.social .rss img {left:0}
 		.social .facebook img {left:-21px}
@@ -374,23 +374,23 @@ ul.usermenu li.active .profileBtn{background: #f88100;}
 		height: 26px;
 		width: 50%;
 	}
-	
+
 		.filterStatus span {
 			float: left;
 			padding: 4px;
 		}
-		
+
 		.filterStatus ins {
 			display: table-cell;
 			height: 26px;
 			padding-left: 6px;
 			vertical-align: middle;
 		}
-		
+
 		.filterStatus .fresh { background: #a3a3a8 url(/images/label_grey_bg.gif) repeat-x top;}
-		.filterStatus .achtung { background: #d84528;} 
+		.filterStatus .achtung { background: #d84528;}
 		.filterStatus .inprogress { background: #e5ae2b;}
-		.filterStatus .prosecutor { background: #d84528;} 
+		.filterStatus .prosecutor { background: #d84528;}
 		.filterStatus .gibddre { background: #e5ae2b;}
 		.filterStatus .fixed { background: #590;}
 
@@ -408,12 +408,12 @@ ul.usermenu li.active .profileBtn{background: #f88100;}
 		margin-bottom: 0px;
 		height: 10px;
 	}
-	
+
 	.filterType .col1 {width:112px}
 	.filterType .col2 {width:124px}
 	.filterType .col3 {width:118px}
 	.filterType .col4 {width:133px}
-		
+
 		.filterType span {
 			float: left;
 			padding: 4px;
@@ -425,8 +425,15 @@ ul.usermenu li.active .profileBtn{background: #f88100;}
 			padding: 0 0 0 30px;
 			vertical-align: middle;
 		}
-		
+
 		.badroad {background: url(/images/st1234/badroad.png) no-repeat 0 0;}
+
+		.trafficlight {background: url(/images/st1234/trafficlight.png) no-repeat 0 0;}
+		.paving {background: url(/images/st1234/paving.png) no-repeat 0 0;}
+		.pandus {background: url(/images/st1234/pandus.png) no-repeat 0 0;}
+		.door {background: url(/images/st1234/door.png) no-repeat 0 0;}
+		.parking {background: url(/images/st1234/parking.png) no-repeat 0 0;}
+
 		.hatch {background: url(/images/st1234/hatch.png) no-repeat 0 0;}
 		.nomarking {background: url(/images/st1234/nomarking.png) no-repeat 0 0;}
 		.light {background: url(/images/st1234/light.png) no-repeat 3px -2px;}
@@ -507,16 +514,16 @@ div.submit input {font: normal 1em "Trebuchet MS", Arial, sans-serif; margin-rig
 		text-align: left;
 		vertical-align: top;
 	}
-	
+
 	.profileTable .title {
 		font-style: italic;
 		margin: 0 0 0.31em;
 	}
-	
+
 	.profileTable .textInput {
 		width: 90%;
 	}
-	
+
 	.profileTable em {
 		color: #666;
 		display: block;
@@ -567,29 +574,29 @@ div.submit input {font: normal 1em "Trebuchet MS", Arial, sans-serif; margin-rig
 		width: 25%;
 		display: table-cell;
 	}
-	
+
 		.footer .collection {
 		}
-		
+
 			.footer .collection strong {
 				font-size: 1.5em;
 				line-height: 1em;
 			}
-			
+
 			.footer .collection a {
 				color: #4c4c4c;
 				text-decoration: none;
 			}
-			
+
 			.footer .collection a:hover {
 				text-decoration: underline;
 			}
-			
+
 			.footer .friends {
 				margin-top: 50px;
 				margin-bottom: 30px;
 			}
-			
+
 			.autochmo a {
 				background: url("/images/chmo.gif") no-repeat scroll left center transparent;
 				padding-left: 20px;
@@ -648,7 +655,7 @@ a.news-all
 {
 	float:right;
 	margin-top:5px;
-	
+
 }
 
 p.date {
@@ -687,7 +694,7 @@ p.date {
 	height:100%;
 	z-index:100;
 	padding-bottom:0%;
-	
+
 	}
 
 
@@ -698,9 +705,9 @@ p.date {
 	top:0;
 	left:0;
 	position:absolute;
-	
+
 }
-	
+
 
 #popupdiv
 {
@@ -713,7 +720,7 @@ p.date {
 	margin-right: auto;
 	z-index:500 !important;
 	width:500px;
-	opacity:1;	
+	opacity:1;
 	text-align:center;
 }
 
@@ -745,10 +752,10 @@ p.date {
 		position: relative;
 		z-index: 2;
 	}
-	
+
 	.menu li.selected {z-index:3}
 	.menu li.add {z-index:1}
-	
+
 		.menu a, .menu a:hover {
 			color: #fff;
 			float: left;
@@ -758,20 +765,20 @@ p.date {
 			padding: 0 35px;
 			text-decoration: none;
 		}
-		
+
 		.menu .selected a, .menu .selected a:hover {
 			background: #3a3a3a;
 			color: #666;
 		}
-		
+
 		.menu .first a {
 			padding-left: 12px;
 		}
-		
+
 		.menu .add a {
 			background: #ef7600 url(/images/add_bg.gif) repeat-x bottom;
 		}
-		
+
 		.menu b {
 			background: url(/images/separator.gif) 0 -39px;
 			cursor: pointer;
@@ -783,7 +790,7 @@ p.date {
 			top: 0;
 			width: 22px;
 		}
-		
+
 		.menu .first b {
 			background: #3a3a3a;
 			border-color: #3a3a3a #454545 #454545 #454545;
@@ -798,11 +805,11 @@ p.date {
 			position: absolute;
 			width: 1px;
 		}
-		
+
 		.menu .selected b {
 			display: block !important;
 		}
-		
+
 		.menu i {
 			background: url(/images/separator.gif);
 			cursor: pointer;
@@ -818,7 +825,7 @@ p.date {
 		.menu .last i {
 			background: url(/images/separator.gif) 0 -78px;
 		}
-		
+
 		.menu .add i {
 			background: url(/images/separator.gif) 0 -117px;
 		}
@@ -884,7 +891,7 @@ div.filter_roller span.item span { font-weight: bold; }
 		font: normal 1em "Trebuchet MS", Arial, sans-serif;
 		width: 100%;
 	}
-	
+
 	.filter .filter_checkbox{
 		width: 8%;
 	}
@@ -933,10 +940,10 @@ div.bx-auth span.bx-auth-secure {background-color:#FFFAE3; border:1px solid #DED
 div.bx-auth div.bx-auth-secure-icon {background-image:url(/images/sec.png); background-repeat:no-repeat; background-position:center; width:19px; height:18px;}
 div.bx-auth div.bx-auth-secure-unlock {background-image:url(/images/sec-unlocked.png);}
 
-.head #head_user_info { 
+.head #head_user_info {
 padding-top: 10px;
  }
- 
+
 .faq-item
 {
 	margin-bottom:26px;
@@ -948,7 +955,7 @@ padding-top: 10px;
 
 .faq-item .question, .faq-item th
 {
-	
+
 	font-weight:bold;
 	font-size:120%;
 	line-height:115%;
@@ -957,7 +964,7 @@ padding-top: 10px;
 {
 	margin-bottom:30px;
 }
-font.notetext { 
+font.notetext {
 color: rgb(0, 128, 0);
  }
 
@@ -965,6 +972,6 @@ color: rgb(0, 128, 0);
 	width: 100%;
 	height: 40px;
 	background: transparent url(/images/ajaxload.gif) center center no-repeat;
-	} 
-.clear{clear: both;}	
+	}
+.clear{clear: both;}
 
