@@ -276,11 +276,8 @@ $this->widget('application.extensions.fancybox.EFancyBox', array(
 				?>
 				<div class="pdf_form" id="pdf_form"<?= isset($_GET['show_pdf_form']) ? ' style="display: block;"' : '' ?>>
 				<a href="#" onclick="var c=document.getElementById('pdf_form');if(c){c.style.display=c.style.display=='block'?'none':'block';}return false;" class="close">&times;</a>
-				<?php /* echo CHtml::dropDownList('gibdd_id','',CHtml::listData($hole->territorialGibdd, 'id', 'gibdd_name' ),
-=======
 				<?php echo Yii::app()->params['gibddOn'] ?
                           CHtml::dropDownList('gibdd_id','',CHtml::listData($hole->territorialGibdd, 'id', 'gibdd_name' ),
->>>>>>> Temporary merge branch 2
 									array(
 									'prompt'=>'Выберете отдел ГИБДД',
 									'ajax' => array(
@@ -294,7 +291,8 @@ $this->widget('application.extensions.fancybox.EFancyBox', array(
 									'complete'=>'js:function(){
 														$("#gibdd_form").removeClass("loading");
 													 }',
-									))); */ ?>
+									)))
+                          : '';?>
 				<div id="gibdd_form"></div>
 				<?php
                     if(Yii::app()->params['gibddOn'])
@@ -364,7 +362,6 @@ new Ya.share({
 </div>
 <!-- CLOSE HEAD -->
 </div>
-
 <div class="mainCols" id="col">
     <div class="lCol">
         <div id="ymapcontainer_big"><div align="right"><span class="close" onclick="document.getElementById('ymapcontainer_big').style.display='none';$('#col').css('marginBottom',0)">&times;</span></div><div id="ymapcontainer_big_map"></div></div>
@@ -410,72 +407,72 @@ new Ya.share({
             </div>
             <?php if(Yii::app()->params['gibddOn'] && $hole->requests_gibdd) {
             foreach($hole->requests_gibdd as $request): ?>
-                <?php if($request->answers): ?>
-                    <?php foreach($request->answers as $answer) : ?>
-                        <div class="after">
-                            <?php if($answer->comment): ?>
-                            <div class="comment">
-                                <?php echo $answer->comment ?>
-                            </div>
-                            <? endif; ?>
-                            <h2><?= Yii::t('holes_view', 'HOLE_GIBDDREPLY') ?> пользователю <?php echo $request->user->fullname;?>, от <?php echo date('d.m.Y',$answer->date);?>
-                                <?php if ($request->user_id==Yii::app()->user->id && $hole->STATE =='gibddre') : ?>
-                                    <?php echo CHtml::link('Редактировать', Array('gibddreply','id'=>$hole->ID,'answer'=>$answer->id), Array('class'=>'declarationBtn')); ?><br />
-                                    <?php endif; ?>
-                            </h2>
-                            <?php if ($answer->files_other) : ?>
-                            <? foreach($answer->files_other as $file): ?>
-                                <p>
-                                    <?php echo CHtml::link($file->file_name, $answer->filesFolder.'/'.$file->file_name, Array('class'=>'declarationBtn')); ?>
-                                    <?php if ($request->user_id==Yii::app()->user->id && $hole->STATE =='gibddre') : ?>
-                                    <?php echo CHtml::link('Удалить файл', Array('delanswerfile','id'=>$file->id), Array('class'=>'declarationBtn')); ?><br />
-                                    <?php endif; ?>
-                                </p>
-                                <? endforeach; ?>
-                            <br />
-                            <?php endif; ?>
+			<?php if($request->answers): ?>
+				<?php foreach($request->answers as $answer) : ?>
+				<div class="after">
+					<?php if($answer->comment): ?>
+					<div class="comment">
+						<?php echo $answer->comment ?>
+					</div>
+					<? endif; ?>
+					<h2><?= Yii::t('holes_view', 'HOLE_GIBDDREPLY') ?> пользователю <?php echo $request->user->fullname;?>, от <?php echo date('d.m.Y',$answer->date);?>
+					<?php if ($request->user_id==Yii::app()->user->id && $hole->STATE =='gibddre') : ?>
+							<?php echo CHtml::link('Редактировать', Array('gibddreply','id'=>$hole->ID,'answer'=>$answer->id), Array('class'=>'declarationBtn')); ?><br />
+					<?php endif; ?>
+					</h2>
+					<?php if ($answer->files_other) : ?>
+					<? foreach($answer->files_other as $file): ?>
+					<p>
+						<?php echo CHtml::link($file->file_name, $answer->filesFolder.'/'.$file->file_name, Array('class'=>'declarationBtn')); ?>
+						<?php if ($request->user_id==Yii::app()->user->id && $hole->STATE =='gibddre') : ?>
+							<?php echo CHtml::link('Удалить файл', Array('delanswerfile','id'=>$file->id), Array('class'=>'declarationBtn')); ?><br />
+						<?php endif; ?>
+					</p>
+					<? endforeach; ?>
+					<br />
+					<?php endif; ?>
 
-                            <? foreach($answer->files_img as $img): ?>
-                            <p>
-                                <?php if ($request->user_id==Yii::app()->user->id && $hole->STATE =='gibddre') : ?>
-                                    <?php echo CHtml::link('Удалить это изображение', Array('delanswerfile','id'=>$img->id), Array('class'=>'declarationBtn')); ?></br>
-                                <?php endif; ?>
-                                <?php echo CHtml::link(CHtml::image($answer->filesFolder.'/thumbs/'.$img->file_name), $answer->filesFolder.'/'.$img->file_name,
-                                Array('class'=>'holes_pict','rel'=>'answer_'.$answer->id, 'title'=>'Ответ ГИБДД от '.date('d.m.Y',$answer->date))); ?>
-                            </p>
-                            <? endforeach; ?>
+					<? foreach($answer->files_img as $img): ?>
+					<p>
+						<?php if ($request->user_id==Yii::app()->user->id && $hole->STATE =='gibddre') : ?>
+							<?php echo CHtml::link('Удалить это изображение', Array('delanswerfile','id'=>$img->id), Array('class'=>'declarationBtn')); ?></br>
+						<?php endif; ?>
+						<?php echo CHtml::link(CHtml::image($answer->filesFolder.'/thumbs/'.$img->file_name), $answer->filesFolder.'/'.$img->file_name,
+							Array('class'=>'holes_pict','rel'=>'answer_'.$answer->id, 'title'=>'Ответ ГИБДД от '.date('d.m.Y',$answer->date))); ?>
+					</p>
+					<? endforeach; ?>
 
-                        </div>
-                        <?php endforeach; ?>
-                    <?php endif; ?>
-                <?php
+				</div>
+				<?php endforeach; ?>
+			<?php endif; ?>
+		<?php
             endforeach;
         }?>
-            <?php if($hole['STATE'] == 'fixed'): ?>
-            <div class="after">
-                <? if($hole->pictures_fixed): ?>
-                <h2><?= Yii::t('holes_view', 'HOLE_ITBECAME') ?></h2>
-                <? foreach($hole->pictures_fixed as $i=>$picture): ?>
+		<?php if($hole['STATE'] == 'fixed'): ?>
+			<div class="after">
+				<? if($hole->pictures_fixed): ?>
+					<h2><?= Yii::t('holes_view', 'HOLE_ITBECAME') ?></h2>
+					<? foreach($hole->pictures_fixed as $i=>$picture): ?>
 
-                    <?php if ($picture->user_id==Yii::app()->user->id || Yii::app()->user->level > 80 || $hole->IsUserHole) : ?>
-                            <?php echo CHtml::link('Удалить это изображение', Array('delpicture','id'=>$picture->id), Array('class'=>'declarationBtn')); ?></br>
-                        <?php endif; ?>
+					<?php if ($picture->user_id==Yii::app()->user->id || Yii::app()->user->level > 80 || $hole->IsUserHole) : ?>
+							<?php echo CHtml::link('Удалить это изображение', Array('delpicture','id'=>$picture->id), Array('class'=>'declarationBtn')); ?></br>
+					<?php endif; ?>
 
-                    <?php echo CHtml::link(CHtml::image($picture->medium), $picture->original,
-                        Array('class'=>'holes_pict','rel'=>'hole_fixed', 'title'=>CHtml::encode($hole->ADDRESS).' - исправлено')); ?>
-                    <? endforeach; ?>
-                <? endif; ?>
-                <? if($hole['COMMENT2']): ?>
-                <div class="comment">
-                    <?= $hole['COMMENT2'] ?>
-                </div>
-                <? endif; ?>
-            </div>
-            <? endif; ?>
-            <br/>
-            <?php  $this->widget('comments.widgets.ECommentsListWidget', array(
-            'model' => $hole,
-        ));  ?>
-        </div>
-    </div>
+						<?php echo CHtml::link(CHtml::image($picture->medium), $picture->original,
+					Array('class'=>'holes_pict','rel'=>'hole_fixed', 'title'=>CHtml::encode($hole->ADDRESS).' - исправлено')); ?>
+					<? endforeach; ?>
+				<? endif; ?>
+				<? if($hole['COMMENT2']): ?>
+					<div class="comment">
+						<?= $hole['COMMENT2'] ?>
+					</div>
+				<? endif; ?>
+			</div>
+		<? endif; ?>
+		<br/>
+		<?php  $this->widget('comments.widgets.ECommentsListWidget', array(
+				'model' => $hole,
+			));  ?>
+	</div>
+</div>
 </div>
