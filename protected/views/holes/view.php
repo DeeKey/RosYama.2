@@ -28,9 +28,15 @@ $this->widget('application.extensions.fancybox.EFancyBox', array(
 					<? if($hole->STATE == 'prosecutor' && $hole->DATE_STATUS): ?>
 						<?= CHtml::encode(Y::dateFromTime($hole->DATE_STATUS)).' '.Yii::t('holes_view', 'REQUEST_TO_PROSECUTOR_SENT') ?>
 					<? elseif($hole->DATE_SENT): ?>
+<<<<<<< Temporary merge branch 1
+						<?php if (count($hole->requests_gibdd) == 1) : ?>
+							<?= CHtml::encode(Y::dateFromTime($hole->DATE_SENT))?> отправлен запрос в ГИБДД
+						<? else : ?>
+=======
 						<?php if(Yii::app()->params['gibddOn'] && count($hole->requests_gibdd) == 1) : ?>
 							<?= CHtml::encode(Y::dateFromTime($hole->DATE_SENT))?> отправлен запрос в ГИБДД
 						<? elseif(Yii::app()->params['gibddOn']) : ?>
+>>>>>>> Temporary merge branch 2
 							<?= CHtml::encode(Y::dateFromTime($hole->DATE_SENT))?> был отправлен первый запрос в ГИБДД <br/><a href="#" onclick="$('#requests_gibdd_history').toggle('slow'); return false;">история запросов</a>
 							<div id="requests_gibdd_history" style="display:none;">
 							<ul>
@@ -193,7 +199,11 @@ $this->widget('application.extensions.fancybox.EFancyBox', array(
 					case 'achtung':
 					{
 						?>
+<<<<<<< Temporary merge branch 1
+						<? if($hole->request_gibdd): ?>
+=======
 						<? if(Yii::app()->params['gibddOn'] && $hole->request_gibdd): ?>
+>>>>>>> Temporary merge branch 2
 						<div class="cc" style="width:150px">
 							<p><?php echo CHtml::link(Yii::t('holes_view', 'HOLE_CART_ADMIN_GIBDD_REPLY_RECEIVED'), array('gibddreply', 'id'=>$hole->ID),array('class'=>"declarationBtn")); ?></p>
 							<p><?php echo CHtml::link(Yii::t('holes_view', 'HOLE_CART_ADMIN_TEXT_12'), array('notsent', 'id'=>$hole->ID),array('class'=>"declarationBtn")); ?></p>
@@ -238,7 +248,11 @@ $this->widget('application.extensions.fancybox.EFancyBox', array(
 						<? else : ?>
 
 							<div class="cc" style="width:150px">
+<<<<<<< Temporary merge branch 1
+								<? if($hole->request_gibdd): ?>
+=======
 								<? if(Yii::app()->params['gibddOn'] && $hole->request_gibdd): ?>
+>>>>>>> Temporary merge branch 2
 									<p><?= Yii::t('holes_view', 'HOLE_CART_ADMIN_TEXT_7') ?></p>
 									<?php echo CHtml::link(Yii::t('holes_view', 'HOLE_CART_ADMIN_TEXT_8'), array('fix', 'id'=>$hole->ID),array('class'=>"declarationBtn")); ?>
 								<?php else: ?>
@@ -268,9 +282,15 @@ $this->widget('application.extensions.fancybox.EFancyBox', array(
 							<?
 						}?>
 
+<<<<<<< Temporary merge branch 1
+						<? if($hole->request_gibdd && !$hole->request_gibdd->answers): ?>
+							<p><?php echo CHtml::link(Yii::t('holes_view', 'HOLE_CART_ADMIN_GIBDD_REPLY_RECEIVED'), array('gibddreply', 'id'=>$hole->ID),array('class'=>"declarationBtn")); ?></p>
+						<? elseif($hole->request_gibdd && $hole->request_gibdd->answers): ?>
+=======
 						<? if(Yii::app()->params['gibddOn'] && $hole->request_gibdd && !$hole->request_gibdd->answers): ?>
 							<p><?php echo CHtml::link(Yii::t('holes_view', 'HOLE_CART_ADMIN_GIBDD_REPLY_RECEIVED'), array('gibddreply', 'id'=>$hole->ID),array('class'=>"declarationBtn")); ?></p>
 						<? elseif(Yii::app()->params['gibddOn'] && $hole->request_gibdd && $hole->request_gibdd->answers): ?>
+>>>>>>> Temporary merge branch 2
 							<p><?php echo CHtml::link('Ещё ответ из ГИБДД', array('gibddreply', 'id'=>$hole->ID),array('class'=>"declarationBtn")); ?></p>
 						<? endif; ?>
 
@@ -280,8 +300,12 @@ $this->widget('application.extensions.fancybox.EFancyBox', array(
 				?>
 				<div class="pdf_form" id="pdf_form"<?= isset($_GET['show_pdf_form']) ? ' style="display: block;"' : '' ?>>
 				<a href="#" onclick="var c=document.getElementById('pdf_form');if(c){c.style.display=c.style.display=='block'?'none':'block';}return false;" class="close">&times;</a>
+<<<<<<< Temporary merge branch 1
+				<?php /* echo CHtml::dropDownList('gibdd_id','',CHtml::listData($hole->territorialGibdd, 'id', 'gibdd_name' ),
+=======
 				<?php echo Yii::app()->params['gibddOn'] ?
                           CHtml::dropDownList('gibdd_id','',CHtml::listData($hole->territorialGibdd, 'id', 'gibdd_name' ),
+>>>>>>> Temporary merge branch 2
 									array(
 									'prompt'=>'Выберете отдел ГИБДД',
 									'ajax' => array(
@@ -295,6 +319,11 @@ $this->widget('application.extensions.fancybox.EFancyBox', array(
 									'complete'=>'js:function(){
 														$("#gibdd_form").removeClass("loading");
 													 }',
+<<<<<<< Temporary merge branch 1
+									))); */ ?>
+				<div id="gibdd_form"></div>
+				<?php $this->renderPartial('_form_gibdd', Array('hole'=>$hole /*, 'gibdd'=>$hole->gibdd*/));
+=======
 									)))
                           : '';?>
 				<div id="gibdd_form"></div>
@@ -303,12 +332,13 @@ $this->widget('application.extensions.fancybox.EFancyBox', array(
                         $this->renderPartial('_form_gibdd', Array('hole'=>$hole, 'gibdd'=>$hole->gibdd));
                     else
                         $this->renderPartial('_form_gibdd', Array('hole'=>$hole /*, 'gibdd'=>$hole->gibdd*/));
+>>>>>>> Temporary merge branch 2
 				?>
 				</div>
 			<?php else : ?>
 				<div class="progress">
 
-								<p>		мешает этот барьер? <?php  echo CHtml::link('авторизуйся и отправь заявление', array('review','id'=>$hole->ID),array('class'=>"declarationBtn")); ?>.
+								<p>		мешает эта яма? <?php  echo CHtml::link('авторизуйся и отправь заявление в органы власти', array('review', 'id'=>$hole->ID),array('class'=>"declarationBtn")); ?>.
 								</p>
 
 
@@ -342,16 +372,7 @@ new Ya.share({
 		},
 		serviceSpecific: {
 			twitter: {
-				title: 'Обнаружен барьер по адресу: <?= CHtml::encode($hole->ADDRESS) ?>'
-			},
-			facebook: {
-				title: 'Обнаружен барьер по адресу: <?= CHtml::encode($hole->ADDRESS) ?>'
-			},
-			moimir: {
-				title: 'Обнаружен барьер по адресу: <?= CHtml::encode($hole->ADDRESS) ?>'
-			},
-			odnoklassniki: {
-				title: 'Обнаружен барьер по адресу: <?= CHtml::encode($hole->ADDRESS) ?>'
+				title: 'Обнаружен дефект на дороге по адресу: <?= CHtml::encode($hole->ADDRESS) ?>'
 			},
 			facebook: {
 				title: 'Обнаружен дефект на дороге по адресу: <?= CHtml::encode($hole->ADDRESS) ?>'
@@ -401,10 +422,17 @@ new Ya.share({
 		</div>
 		<div class="bbcode">
 			<p><b>Ссылка на эту страницу:</b></p>
-			<input onfocus="selectAll(this)" type="text" value='<a href="<?=Yii::app()->request->hostInfo?>/<?=Yii::app()->request->pathInfo?>"><?=Yii::app()->params['name']?> :: <?= CHtml::encode($hole->ADDRESS) ?></a>'/>
+<<<<<<< Temporary merge branch 1
+			<input onfocus="selectAll(this)" type="text" value='<a href="<?=Yii::app()->request->hostInfo?>/<?=Yii::app()->request->pathInfo?>">РосДоступ :: <?= CHtml::encode($hole->ADDRESS) ?></a>'/>
 			<p><b>BBcode для форума:</b></p>
 			<textarea onfocus="selectAll(this)" rows="3">[url=<?=Yii::app()->request->hostInfo?>/<?=Yii::app()->request->pathInfo?>]<?php if ($hole->pictures_fresh) : ?>[img]<?=Yii::app()->request->hostInfo.'/'.$hole->pictures_fresh[0]->medium?>[/img]<?php endif; ?>[/url][url=<?=Yii::app()->request->hostInfo?>/<?=Yii::app()->request->pathInfo?>]
-			<?=Yii::app()->params['name']?> :: <?=CHtml::encode($hole['ADDRESS'])?>[/url]</textarea>
+			РосДоступ :: <?=CHtml::encode($hole['ADDRESS'])?>[/url]</textarea>
+=======
+			<input onfocus="selectAll(this)" type="text" value='<a href="<?=Yii::app()->request->hostInfo?>/<?=Yii::app()->request->pathInfo?>"><?=Yii::app()->params['projectNameIp']?> :: <?= CHtml::encode($hole->ADDRESS) ?></a>'/>
+			<p><b>BBcode для форума:</b></p>
+			<textarea onfocus="selectAll(this)" rows="3">[url=<?=Yii::app()->request->hostInfo?>/<?=Yii::app()->request->pathInfo?>]<?php if ($hole->pictures_fresh) : ?>[img]<?=Yii::app()->request->hostInfo.'/'.$hole->pictures_fresh[0]->medium?>[/img]<?php endif; ?>[/url][url=<?=Yii::app()->request->hostInfo?>/<?=Yii::app()->request->pathInfo?>]
+			<?=Yii::app()->params['projectNameIp']?> :: <?=CHtml::encode($hole['ADDRESS'])?>[/url]</textarea>
+>>>>>>> Temporary merge branch 2
 
 
 		</div>
@@ -420,7 +448,11 @@ new Ya.share({
 					Array('class'=>'holes_pict','rel'=>'hole', 'title'=>CHtml::encode($hole->ADDRESS))); ?>
 			<? endforeach; ?>
 		</div>
+<<<<<<< Temporary merge branch 1
+		<?php if( !empty($hole->requests_gibdd) ) {
+=======
 		<?php if(Yii::app()->params['gibddOn'] && $hole->requests_gibdd) {
+>>>>>>> Temporary merge branch 2
             foreach($hole->requests_gibdd as $request): ?>
 			<?php if($request->answers): ?>
 				<?php foreach($request->answers as $answer) : ?>
