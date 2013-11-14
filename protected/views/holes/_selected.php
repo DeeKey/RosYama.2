@@ -4,7 +4,7 @@
 <?php foreach ($gibdds as $gibdd) : ?>
 <?php echo $gibdd->gibdd_name; ?><br/>
 <?php //echo CHtml::link('Напечатать заявление на '.Y::declOfNum(count($gibdd->holes),Array('яму','ямы','ям')), Array('requestForm','id'=>$gibdd->id,'type'=>'gibdd','holes'=>implode(',',CHtml::listData($gibdd->holes,'ID','ID'))), Array('class'=>'show_form')); ?>
-<?php echo CHtml::link('Сохранить список '.Y::declOfNum(count($gibdd->holes),Array('дефект','дефекта','дефектов')), Array('/profile/saveHoles2Selected','id'=>$gibdd->id,'holes'=>implode(',',CHtml::listData($gibdd->holes,'ID','ID'))), Array('class'=>'save_selected')); ?><br/><br/>
+<?php echo CHtml::link('Сохранить список '.Y::declOfNum(count($gibdd->holes),Array('барьер','барьера','барьеров')), Array('/profile/saveHoles2Selected','id'=>$gibdd->id,'holes'=>implode(',',CHtml::listData($gibdd->holes,'ID','ID'))), Array('class'=>'save_selected')); ?><br/><br/>
 <?php endforeach; ?>
 <br/><?php echo CHtml::link('Очистить список','#',Array('class'=>'clear_selected')); ?>
 <br/><br/>

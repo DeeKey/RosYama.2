@@ -8,6 +8,5 @@ $this->layout='//layouts/header_default_without_add';
 </div>
 <div class="rCol">
 <h1>Вопросы и ответы</h1>
-<iframe height="600" width="990" frameBorder="3" src="http://rosdostup.ru/dokuwiki_integrated/doc.php?id=faq:faq">your browser does not support 
-IFRAMEs</iframe>
+<iframe height="1050" width="920" frameBorder="3" src="http://rosdostup.ru/dokuwiki_integrated/doc.php?id=faq:faq">your browser does not support IFRAMEs</iframe>
 </div>

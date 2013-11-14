@@ -29,7 +29,7 @@ class collectionWidget extends CWidget {
         //$archive=$model;  
             $this->registerCoreScripts();
                 $this->render($this->itemview, Array(
-                'all'=>Y::declOfNum($all, array('дефект', 'дефекта', 'дефектов')),
+                'all'=>Y::declOfNum($all, array('барьер', 'барьера', 'барьеров')),
 				'ingibdd'=>$ingibdd,
 				'fixed'=>$fixed,
 				//'archive'=>$archive,

@@ -1,0 +1,122 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Redmine</title>
+<meta name="description" content="Redmine" />
+<meta name="keywords" content="issue,bug,tracker" />
+<meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE" />
+<meta content="authenticity_token" name="csrf-param" />
+<meta content="D4ZGCCZ+8gjV+6hAmBNdDGekVb5we7YtsNrGjjFaq/c=" name="csrf-token" />
+<link rel='shortcut icon' href='/favicon.ico?1340050971' />
+<link href="/stylesheets/application.css?1340050971" media="all" rel="stylesheet" type="text/css" />
+
+<script src="/javascripts/prototype.js?1340050970" type="text/javascript"></script>
+<script src="/javascripts/effects.js?1340050970" type="text/javascript"></script>
+<script src="/javascripts/dragdrop.js?1340050970" type="text/javascript"></script>
+<script src="/javascripts/controls.js?1340050970" type="text/javascript"></script>
+<script src="/javascripts/rails.js?1340050970" type="text/javascript"></script>
+<script src="/javascripts/application.js?1340050970" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+Event.observe(window, 'load', function(){ new WarnLeavingUnsaved('Текущая страница содержит несохранённый текст, который будет потерян, если вы покинете эту страницу.'); });
+//]]>
+</script>
+
+<!--[if IE 6]>
+    <style type="text/css">
+      * html body{ width: expression( document.documentElement.clientWidth < 900 ? '900px' : '100%' ); }
+      body {behavior: url(/stylesheets/csshover.htc?1340050971);}
+    </style>
+<![endif]-->
+
+<!-- page specific tags -->
+</head>
+<body class="controller-account action-login">
+<div id="wrapper">
+<div id="wrapper2">
+<div id="top-menu">
+    <div id="account">
+        <ul><li><a href="/login" class="login">Войти</a></li>
+<li><a href="/account/register" class="register">Регистрация</a></li></ul>    </div>
+    
+    <ul><li><a href="/" class="home">Домашняя страница</a></li>
+<li><a href="/projects" class="projects">Проекты</a></li>
+<li><a href="http://www.redmine.org/guide" class="help">Помощь</a></li></ul></div>
+
+<div id="header">
+    <div id="quick-search">
+        <form accept-charset="UTF-8" action="/search" method="get"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div>
+        
+        <label for='q'>
+          <a href="/search" accesskey="4">Поиск</a>:
+        </label>
+        <input accesskey="f" class="small" id="q" name="q" size="20" type="text" />
+</form>        
+    </div>
+
+    <h1>Redmine</h1>
+
+</div>
+
+<div class="nosidebar" id="main">
+    <div id="sidebar">
+        
+        
+    </div>
+
+    <div id="content">
+        
+        
+<div id="login-form">
+<form accept-charset="UTF-8" action="/login" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="D4ZGCCZ+8gjV+6hAmBNdDGekVb5we7YtsNrGjjFaq/c=" /></div>
+<input name="back_url" type="hidden" value="http%3A%2F%2Fredmine.te-st.ru%2Fattachments%2Fdownload%2F29%2F1.png" />
+<table>
+<tr>
+    <td align="right"><label for="username">Пользователь:</label></td>
+    <td align="left"><input id="username" name="username" tabindex="1" type="text" /></td>
+</tr>
+<tr>
+    <td align="right"><label for="password">Пароль:</label></td>
+    <td align="left"><input id="password" name="password" tabindex="2" type="password" /></td>
+</tr>
+<tr>
+    <td></td>
+    <td align="left">
+    </td>
+</tr>
+<tr>
+    <td align="left">
+            <a href="/account/lost_password">Восстановление пароля</a>
+    </td>
+    <td align="right">
+        <input type="submit" name="login" value="Вход &#187;" tabindex="5"/>
+    </td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+Form.Element.focus('username');
+//]]>
+</script>
+</form></div>
+
+
+        
+        <div style="clear:both;"></div>
+    </div>
+</div>
+
+<div id="ajax-indicator" style="display:none;"><span>Загрузка...</span></div>
+<div id="ajax-modal" style="display:none;"></div>
+
+<div id="footer">
+  <div class="bgl"><div class="bgr">
+    Powered by <a href="http://www.redmine.org/">Redmine</a> &copy; 2006-2012 Jean-Philippe Lang
+  </div></div>
+</div>
+</div>
+</div>
+
+</body>
+</html>

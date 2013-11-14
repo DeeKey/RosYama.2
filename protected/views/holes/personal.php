@@ -1,5 +1,5 @@
 <?
-$this->pageTitle=Yii::app()->name . ' :: Добавленные мной дефекты';
+$this->pageTitle=Yii::app()->name . ' :: Добавленные мной барьеры';
 ?>
 <?php Yii::app()->clientScript->registerScript('select_holes','			
 			function selectHoles(arr,del){
@@ -73,14 +73,14 @@ $this->pageTitle=Yii::app()->name . ' :: Добавленные мной деф�
 	//'method'=>'get',
 	'id'=>'holes_selectors',
 )); ?>			
-			<?php echo $form->dropDownList($model, 'TYPE_ID', CHtml::listData( HoleTypes::model()->findAll(Array('condition'=>'published=1', 'order'=>'ordering')), 'id','name'), array('prompt'=>'Тип дефекта')); ?>
-			<?php echo $form->dropDownList($model, 'STATE', $model->Allstates, array('prompt'=>'Статус дефекта')); ?>
-			<?php echo $form->dropDownList($model, 'showUserHoles', Array(1=>'Добавленные мной дефекты', 2=>'Чужие, на которые я отправил заявление')); ?>
+			<?php echo $form->dropDownList($model, 'TYPE_ID', CHtml::listData( HoleTypes::model()->findAll(Array('condition'=>'published=1', 'order'=>'ordering')), 'id','name'), array('prompt'=>'Тип барьера')); ?>
+			<?php echo $form->dropDownList($model, 'STATE', $model->Allstates, array('prompt'=>'Статус барьера')); ?>
+			<?php echo $form->dropDownList($model, 'showUserHoles', Array(1=>'Добавленные мной барьеры', 2=>'Чужие, на которые я отправил заявление')); ?>
 			<?php echo CHtml::submitButton('Найти'); ?><br/>
 			<div style="text-align:right;">
 			<?php echo CHtml::checkBox('selectAll', false, Array('id'=>'selectAll','class'=>'state_check')); ?><?php echo CHtml::label('Выбрать все', 'selectAll'); ?>
 			</div>
-			<?php if ($model->keys) echo $form->dropDownList($model, 'gibdd_id', CHtml::listData(GibddHeads::model()->with(Array('holes'=>Array('select'=>'ID, gibdd_id')))->findAll(Array('condition'=>'holes.ID IN ('.implode(', ',$model->keys).')','order'=>'t.name')), 'id', 'gibdd_name' ), array('prompt'=>'Все ГИБДД')); ?>
+<!--			--><?php //if ($model->keys) echo $form->dropDownList($model, 'gibdd_id', CHtml::listData(GibddHeads::model()->with(Array('holes'=>Array('select'=>'ID, gibdd_id')))->findAll(Array('condition'=>'holes.ID IN ('.implode(', ',$model->keys).')','order'=>'t.name')), 'id', 'gibdd_name' ), array('prompt'=>'Все ГИБДД')); ?>
 	<?php $this->endWidget(); ?>		
 			</p>
 				

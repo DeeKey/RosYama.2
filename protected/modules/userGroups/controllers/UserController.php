@@ -219,7 +219,7 @@ class UserController extends Controller
 							Yii::app()->user->setFlash('user', 'Аккаунт сервиса '.$serviceModel->name.' успешно добавлен!'.(
 									$userRes ? 
 										'<br /> Поглощено пользователей: '.$userRes['usersCnt'].
-										'<br /> Переназначено дефектов:'.$userRes['holesCnt'].
+										'<br /> Переназначено барьеров:'.$userRes['holesCnt'].
 										'<br /> Переназначено комментариев:'.$userRes['commentsCnt']
 									: ''
 								)

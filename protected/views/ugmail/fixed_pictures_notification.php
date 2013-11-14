@@ -3,13 +3,13 @@
 <p>------------------------------------------</p>
 
 <h2>Здравствуйте, <?php echo $user->fullName; ?></h2>
-<p><strong>Пользователь <?php echo $currentUser->fullName; ?>, загрузил фотографии исправленного дефекта:</strong></p>
+<p><strong>Пользователь <?php echo $currentUser->fullName; ?>, загрузил фотографии исправленного барьера:</strong></p>
 	<?php foreach($pictures as $i=>$picture): ?>
 			<?php echo CHtml::image(Yii::app()->request->baseUrl.$picture->small); ?>
 			<?php endforeach; ?>
-<p><strong>К дефекту:</strong></p>
+<p><strong>К барьеру:</strong></p>
 <?php $this->renderPartial("/holes/_view_in_mail", Array('data'=>$hole, 'index'=>$i, 'user'=>$user)); ?>
-<p><strong>Если фотография соответствует действительности, подтвердите ее на странице дефекта.</strong></p>
+<p><strong>Если фотография соответствует действительности, подтвердите ее на странице барьера.</strong></p>
 
 <br/>
 <hr/>

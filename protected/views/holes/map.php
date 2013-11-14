@@ -1,7 +1,7 @@
 <?
-$this->pageTitle=Yii::app()->name . ' :: Карта дефектов';
+$this->pageTitle=Yii::app()->name . ' :: Карта барьеров';
 ?>
-<div id="addmess" style="display:none; color:#0C0"><p><b>Выберите место на карте и кликните по нему два раза, чтобы отметить расположение дефекта.</b></p></div>
+<div id="addmess" style="display:none; color:#0C0"><p><b>Выберите место на карте и кликните по нему два раза, чтобы отметить расположение барьера.</b></p></div>
   <div class="head">
 		<div class="container">
 <div class="lCol">
@@ -11,7 +11,7 @@ $this->pageTitle=Yii::app()->name . ' :: Карта дефектов';
 												</div>
 											</div>
 						<div class="rCol">
-<h1>Карта дефектов<?php if ($usermodel) echo ' в зоне наблюдения <br /> пользователя '.CHtml::link(CHtml::encode($usermodel->fullname), Array('profile/view', 'id'=>$usermodel->id)); ?></h1>
+<h1>Карта барьеров<?php if ($usermodel) echo ' в зоне наблюдения <br /> пользователя '.CHtml::link(CHtml::encode($usermodel->fullname), Array('profile/view', 'id'=>$usermodel->id)); ?></h1>
 
 <?php $form=$this->beginWidget('CActiveForm',Array(
 	'id'=>'map-form',
@@ -19,13 +19,13 @@ $this->pageTitle=Yii::app()->name . ' :: Карта дефектов';
 )); ?>
 
 <div class="filterCol filterStatus">
-<p class="title">Показать дефекты со статусом</p>
+<p class="title">Показать барьеры со статусом</p>
 <?php foreach ($model->allstatesMany as $alias=>$name) : ?>
 	<label><span class="<?php echo $alias; ?>"><input id="chn0" name="Holes[STATE][]" type="checkbox"  value="<?php echo $alias; ?>" /></span><ins><?php echo $name; ?></ins></label>
 <?php endforeach; ?>	
 </div>
 <div class="filterCol filterType">
-<p class="title">Показать тип дефектов</p>
+<p class="title">Показать тип барьеров</p>
 <?php foreach ($types as $i=>$type) : ?>
 <label class="col2"><span><input id="ch0" name="Holes[type][]" type="checkbox" value="<?php echo $type->id; ?>"   /></span><ins class="<?php echo $type->alias; ?>"><?php echo $type->name; ?></ins></label>
 <?php endforeach; ?>
@@ -36,7 +36,7 @@ $this->pageTitle=Yii::app()->name . ' :: Карта дефектов';
 <br />
 <div class="chekboxes" style="float:right;">
 <?php echo $form->checkBox($model,"archive",Array('class'=>'filter_checkbox')); ?>	
-<?php echo $form->labelEx($model,'archive',Array('label'=>'Показывать дефекты из архива', 'class'=>'archive')); ?>
+<?php echo $form->labelEx($model,'archive',Array('label'=>'Показывать барьеры из архива', 'class'=>'archive')); ?>
 
 </div>
 
@@ -56,7 +56,7 @@ $this->pageTitle=Yii::app()->name . ' :: Карта дефектов';
 	</div>
 	<div class="mainCols">
 			
-<div id="addmess" style="display:none; color:#0C0"><p><b>Выберите место на карте и кликните по нему два раза, чтобы отметить расположение дефекта.</b></p></div>
+<div id="addmess" style="display:none; color:#0C0"><p><b>Выберите место на карте и кликните по нему два раза, чтобы отметить расположение барьера.</b></p></div>
 
 <div class="bx-yandex-search-layout">
 	<div class="bx-yandex-search-form">

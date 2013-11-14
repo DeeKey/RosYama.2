@@ -1,9 +1,9 @@
 <?php 
 $bd=array(
 			'class'=>'CDbConnection',
-			'connectionString' => 'mysql:host=localhost;dbname=rosdostupdb',
+			'connectionString' => 'mysql:host=localhost;dbname=develrosdostup',
 			'emulatePrepare' => false,
-			'username' => 'rosdostupdbuser',
+			'username' => 'develrosdostup',
 			'password' => 'qwer1234',
 			'charset' => 'utf8',
 			'tablePrefix'=>'yii_',
@@ -41,8 +41,8 @@ $socials=array( // You can change the providers and their classes.
 				'vkontakte' => array(
 					// регистрация приложения: http://vkontakte.ru/editapp?act=create&site=1
 					'class' => 'VKontakteOAuthService',
-					'client_id' => '3152801',
-					'client_secret' => 'gVoqbLjKfOARluVT4Afp',
+					'client_id' => '2794711',
+					'client_secret' => 'YghxsVhTwKk5wmKb9WRj',
 				),
 				'mailru' => array(
 					'class' => 'MailruOpenIDService', 
@@ -59,15 +59,15 @@ $socials=array( // You can change the providers and their classes.
 				'moikrug' => array(
 					// регистрация приложения: https://oauth.yandex.ru/client/my
 					'class' => 'MoikrugOAuthService',
-					'client_id' => 'ba9a26e6ccf543a09acfb11a3c60307c',
-					'client_secret' => '9f41be0da0274aa9ac864cb7a281aa53',
+					'client_id' => '...',
+					'client_secret' => '...',
 				),
 				'odnoklassniki' => array(
 					// регистрация приложения: http://www.odnoklassniki.ru/dk?st.cmd=appsInfoMyDevList&st._aid=Apps_Info_MyDev
 					'class' => 'OdnoklassnikiOAuthService',
-					'client_id' => '93167872',
-					'client_public' => 'CBACKOIGABABABABA',
-					'client_secret' => 'F01A9154C4868BFE1B0697F2',
+					'client_id' => '...',
+					'client_public' => '...',
+					'client_secret' => '...',
 					'title' => 'Однокл.',
 				),
 			);	
@@ -89,8 +89,8 @@ $params=array(
 		// For copyright meta in header
 		'copyright' => 'РосДоступ',
 
-                // Google analytics
-                'ganalytics_acc' => 'UA-33583977-6',
+		// Google analytics
+		'ganalytics_acc' => '----',
 
 		// this is used in contact page
 		'adminEmail'=>'admin@rosdostup.ru',
@@ -99,4 +99,5 @@ $params=array(
 		'YMapKey'=>'AKtzDVABAAAAbnnpfAIAZPFgkjAuQV52QNsahNkE7plr4F0AAAAAAAAAAAAyrGSHDyaYbEfL1i8AVZDhjT4VHQ==',
         	'gibddOn' => false, // True, если ГИБДД участвует в форме дефекта; false, если она исключается из формы
 	);		
+
 ?>

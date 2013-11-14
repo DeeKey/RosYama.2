@@ -5,9 +5,9 @@
 			<?php endif; ?>
 			<?php if($user->isModer): ?>
 				<?php if(!$data->PREMODERATED): ?>
-					<div class="premoderate" id="premoderate_<?php echo $data->ID ?>"><img src="/images/st1234/iconpm.gif" onclick="setPM_OK('<?php echo $data->ID ?>');" title="Показывать этот дефект всем"></div>
+					<div class="premoderate" id="premoderate_<?php echo $data->ID ?>"><img src="/images/st1234/iconpm.gif" onclick="setPM_OK('<?php echo $data->ID ?>');" title="Показывать этот барьер всем"></div>
 				<?php endif; ?>
-				<div class="del"><a title="Удалить дефект" href="#" onclick="ShowDelForm(this, '<?php echo $data->ID ?>'); return false;"><img src="/images/st1234/icondel.gif"></a></div>
+				<div class="del"><a title="Удалить барьер" href="#" onclick="ShowDelForm(this, '<?php echo $data->ID ?>'); return false;"><img src="/images/st1234/icondel.gif"></a></div>
 			<?php endif; ?>
 			<div class="properties">
 				<p class="date"><?php echo CHtml::encode(Y::dateFromTime($data->DATE_CREATED)); ?><?php if ($data->comments_cnt) echo CHtml::link('<span class="commentsHot">'.$data->comments_cnt.'</span>', array('view', 'id'=>$data->ID, '#'=>'comments'), Array('title'=>'Комментарии')); ?></p>

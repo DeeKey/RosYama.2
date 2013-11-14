@@ -22,7 +22,7 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Правила автоматической архивации дефектов</h1>
+<h1>Правила автоматической архивации барьеров</h1>
 
 <?php $this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'hole-archive-filters-grid',

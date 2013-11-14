@@ -17,7 +17,7 @@ class pdf1234{
 	
 	/**
 	 *Основная функция. Выводит сгенерированный PDF
-	 *@param string $temp тип дефекта
+	 *@param string $temp тип барьера
 	 *@param array $params массив параметров:
 	 *  $params['chief']      наименование структурного подразделения ГИБДД
 	 *  $params['fio']        Фамилия Имя Отчество заявителя
@@ -53,8 +53,8 @@ class pdf1234{
 					}
 			}
 		}
-		// Обработка и вывод картинок на много дефектов
-		if ($this->models && $printAllPictures)
+		// Обработка и вывод картинок на много барьеров
+		if (count($this->models) > 1 && $printAllPictures)
 			foreach($this->models as $model){
 				$this->pdf->AddPage();
 				pdf1234::getpages(pdf1234::slashN($model->ADDRESS, 100), 5, 20);
@@ -187,7 +187,7 @@ class pdf1234{
 		return $ar;
 	}
 	
-	// заявление на много дефектов
+	// заявление на много барьеров
 	protected function text_manyholes($models){
 		$ar['body0'] = '    '.$this->params['date1.day'].'.'.$this->params['date1.month'].'.'.$this->params['date1.year'].' мною было обнаружено несколько повреждений дорожного покрытия, размеры каждого из которых превышают нормативы, установленные ГОСТ Р 505097-93, и которые могут представлять серьёзную опасность для дорожного движения. Ниже список адресов, описаний и ссылок на фотографии обнаруженных мной повреждений. ';
 		$ar['body1'] = '';
@@ -208,7 +208,7 @@ class pdf1234{
 			else return $matches[1];
 		}	
 
-	//универсальный шаблон для типов дефектов
+	//универсальный шаблон для типов барьеров
 	protected function getTypeTemplate(){
 		$type=$this->temp;
 		$model=$this->models[0];
@@ -316,7 +316,8 @@ class pdf1234{
 		if (!isset($arResult['holes']))
 			pdf1234::getpages(pdf1234::slashN($arResult['body1'], $str_len), 5, 20);
 		else 
-			foreach ($arResult['holes'] as $str) pdf1234::getpages(pdf1234::slashN($str, $str_len), 5, 20);
+			foreach ($arResult['holes'] as $str)
+        pdf1234::getpages(pdf1234::slashN($str, $str_len), 5, 20);
 		$this->pdf->Ln();
 		pdf1234::getpages(pdf1234::slashN($arResult['footerUP0'], $str_len), 5, 20);
 		$this->pdf->Ln();
@@ -362,7 +363,7 @@ class pdf1234{
 	 */
 	private function getEnd($p)
 	{
-		$end2=substr($p, strlen($p)-1, 1);
+		$end2=mb_substr($p, mb_strlen($p)-1, 1)/2;
 		if (2 <= $end2 && $end2 <= 4)
 		{
 			$text= 'и';

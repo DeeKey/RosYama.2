@@ -7,7 +7,7 @@
 					<?php endif; ?>
 			<?php echo CHtml::link(CHtml::image(Yii::app()->request->baseUrl.($data->STATE == 'fixed' && $data->pictures_fixed ? $data->pictures_fixed[0]->small : ($data->pictures_fresh ? $data->pictures_fresh[0]->small:''))), array('view', 'id'=>$data->ID), array('class'=>'photo')); ?>
 			<div class="properties">
-				<p class="date">Дата добавления дефекта: <?php echo CHtml::encode(Y::dateFromTime($data->DATE_CREATED)); ?></p>
+				<p class="date">Дата добавления барьера: <?php echo CHtml::encode(Y::dateFromTime($data->DATE_CREATED)); ?></p>
 				<div class="service"><img src="<?php echo Yii::app()->request->baseUrl; ?>/images/st1234/<?php echo CHtml::encode($data->type->alias); ?>.png" title="<?php echo CHtml::encode($data->type->name); ?>"><?php echo CHtml::encode($data->ADDRESS); ?><i></i></div>
 				<p>Ссылка: <?php echo CHtml::link(CController::createUrl('/holes/view', array('id'=>$data->ID)), Array('/holes/view','id'=>$data->ID),array('class'=>'photo')); ?></p>
 					<?php /*<span class="status_text"><?php echo CHtml::encode($data->StateName); ?></span>

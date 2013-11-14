@@ -38,7 +38,7 @@
                                 )); ?>
     <div id="importusers_result"></div>   
     
-    <?php echo CHtml::ajaxLink('Импорт дефектов из старой базы > ',$this->createUrl('importHoles'), array(                                    
+    <?php echo CHtml::ajaxLink('Импорт барьеров из старой базы > ',$this->createUrl('importHoles'), array(
                                     'update'=>'#importholes_result',
                                     'beforeSend' => 'function(){
                                         $("#importholes_result").addClass("loading");

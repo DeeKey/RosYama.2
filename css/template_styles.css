@@ -34,6 +34,7 @@ body {
 		}
 		
 		.search {
+			display: none;
 			background: #fff;
 			border-color: #d2d2d2 #fff #fff #d2d2d2;
 			border-style: solid;
@@ -173,16 +174,17 @@ body {
 	
 			.addFact .text {
 				background: url(/images/add_shadow.gif) no-repeat right top;
-				line-height: 60px;
-				padding-left: 22px;
+				line-height: 30px;
+				padding: 0 11px 0;
 				position: relative;
-				text-align: left;
-				width: 151px;
+				/*text-align: left;*/
+				width: 150px;
 			}
 			
 			.head .addFact .text {
-				padding-left: 33px;
-				width: 140px;
+                padding-left: 20px;
+                width: 140px;
+                line-height: 60px;
 			}
 
 			.addFact .arrow {
@@ -476,7 +478,7 @@ div.submit input {font: normal 1em "Trebuchet MS", Arial, sans-serif; margin-rig
 
 .aboutProject .about1 {
 	background: url(/images/about_1.jpg) no-repeat center bottom;
-	padding-bottom: 190px;
+	padding-bottom: 176px;
 }
 
 .aboutProject .about2 {
@@ -487,7 +489,7 @@ div.submit input {font: normal 1em "Trebuchet MS", Arial, sans-serif; margin-rig
 .aboutProject .about3 {
 	background: url(/images/about_3.jpg) no-repeat center bottom;
 	margin-right: 0;
-	padding-bottom: 155px;
+	padding-bottom: 163px;
 	width: 200px;
 }
 

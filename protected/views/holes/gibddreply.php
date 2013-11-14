@@ -18,7 +18,7 @@ $this->pageTitle=Yii::app()->name . ' :: Загрузка ответа ГИБД�
 
 	<!-- левая колоночка -->
 	<div class="lCol">
-		<!-- тип дефекта -->
+		<!-- тип барьера -->
 	<?php foreach ($models as $model) : ?>
 		<div class="f">
 			<?php echo $model->type->name; ?><br/>

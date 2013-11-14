@@ -1,5 +1,5 @@
 <?
-$this->pageTitle=Yii::app()->name . ' :: Список дефектов';
+$this->pageTitle=Yii::app()->name . ' :: Список барьеров';
 ?>
 <?php
 if(Yii::app()->user->isModer)
@@ -113,7 +113,7 @@ $all_elements=implode(',',$dataProvider->keys);
 		
 		$('#all_wrong').click(
 			function(){
-				if(confirm("Удалить все дефекты на текущей странице?")){
+				if(confirm("Удалить все барьеры на текущей странице?")){
 					delete_all()
 				}
 			}
@@ -214,10 +214,10 @@ EOD
 			</p>
 			<div id="filter_city_tip" class="filter_roller"></div>
 			<p>
-			<?php echo $form->dropDownList($model, 'TYPE_ID', CHtml::listData( HoleTypes::model()->findAll(Array('condition'=>'published=1', 'order'=>'ordering')), 'id','name'), array('prompt'=>'Тип дефекта')); ?>
+			<?php echo $form->dropDownList($model, 'TYPE_ID', CHtml::listData( HoleTypes::model()->findAll(Array('condition'=>'published=1', 'order'=>'ordering')), 'id','name'), array('prompt'=>'Тип барьера')); ?>
 			</p>
 			<p>
-			<?php echo $form->dropDownList($model, 'STATE', $model->Allstates, array('prompt'=>'Статус дефекта')); ?>
+			<?php echo $form->dropDownList($model, 'STATE', $model->Allstates, array('prompt'=>'Статус барьера')); ?>
 			</p>
 				<p>
 				<?php echo $form->labelEx($model,'archive',Array('label'=>'Искать в архиве')); ?>
@@ -257,9 +257,9 @@ EOD
 <div class="rCol">
 <?php if(Yii::app()->user->isModer) : ?>
 	<?php if($this->action->id!='moderPhotoFix') : ?>
-		<?php echo CHtml::link('Устраненные дефекты с неотмодерированными фото ('.Holes::model()->with('pictures_fixed_not_moderated')->count(Array('condition'=>'t.deleted=0 AND t.PREMODERATED=1 AND t.STATE!="fixed"')).')', Array('/holes/moderPhotoFix/'));?><br /><br />
+		<?php echo CHtml::link('Устраненные барьеры с неотмодерированными фото ('.Holes::model()->with('pictures_fixed_not_moderated')->count(Array('condition'=>'t.deleted=0 AND t.PREMODERATED=1 AND t.STATE!="fixed"')).')', Array('/holes/moderPhotoFix/'));?><br /><br />
 	<?php else : ?>
-	<h2><?php echo 'Устраненные дефекты с неотмодерированными фото ('.Holes::model()->with('pictures_fixed_not_moderated')->count(Array('condition'=>'t.deleted=0 AND t.PREMODERATED=1 AND t.STATE!="fixed"')).')'; ?></h2>
+	<h2><?php echo 'Устраненные барьеры с неотмодерированными фото ('.Holes::model()->with('pictures_fixed_not_moderated')->count(Array('condition'=>'t.deleted=0 AND t.PREMODERATED=1 AND t.STATE!="fixed"')).')'; ?></h2>
 	<?php endif; ?>	
 <?php endif; ?>	
 <?php $this->widget('zii.widgets.CListView', array(
@@ -274,7 +274,7 @@ EOD
 	
 )); ?>
 <?php if (Yii::app()->user->isModer && $model->NOT_PREMODERATED && $dataProvider->totalItemCount > 0) : ?>
-	<input type="button" id="all_right" value="Разрешить все дефекты" />
-	<input type="button" id="all_wrong" value="Удалить все дефекты" />
+	<input type="button" id="all_right" value="Разрешить все барьеры" />
+	<input type="button" id="all_wrong" value="Удалить все барьеры" />
 <?php endif; ?>
 </div>

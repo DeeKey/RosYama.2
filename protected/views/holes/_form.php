@@ -28,7 +28,7 @@
 		</div>
 		<?php endif; ?>
 		
-		<!-- тип дефекта -->
+		<!-- тип барьера -->
 		<div class="f">
 			<?php echo $form->labelEx($model,'TYPE_ID'); ?>
 			<?php echo $form->dropDownList($model, 'TYPE_ID', CHtml::listData( HoleTypes::model()->findAll(Array('condition'=>'published=1', 'order'=>'ordering')), 'id','name')); ?>
@@ -141,7 +141,7 @@
 			<p><strong>
 Поставьте метку на карте двойным щелчком мыши
 <span class="required">*</span></strong><br />
-или <a href="#" id="show_fields">введите координаты дефекта</a>
+или <a href="#" id="show_fields">введите координаты барьера</a>
 
 </p>
 
@@ -220,9 +220,9 @@ EOD
 	
 		<div class="addSubmit">
 			<div class="container">
-				<p>После нажатия на кнопку «Отправить» вы можете создать обращение о дефекте в виде pdf-документа, которое можно распечатать и отправить в местный орган исполнительной власти</p>
+				<p>После нажатия на кнопку «Подготовить заявление» вы можете создать обращение о барьере в виде pdf-документа, которое можно распечатать и отправить в местный орган исполнительной власти</p>
 				<div class="btn" onclick="$(this).parents('form').submit();">
-					<a class="addFact"><i class="text">Отправить</i><i class="arrow"></i></a>
+					<a class="addFact"><i class="text">Подготовить заявление</i><i class="arrow"></i></a>
 				</div>
 			</div>
 		</div>

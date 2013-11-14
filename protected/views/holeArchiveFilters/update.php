@@ -6,7 +6,7 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Список правил архивации дефектов', 'url'=>array('admin')),
+	array('label'=>'Список правил архивации барьеров', 'url'=>array('admin')),
 	array('label'=>'Создать правило', 'url'=>array('create')),
 );
 ?>

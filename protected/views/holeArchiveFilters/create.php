@@ -5,7 +5,7 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'Список правил архивации дефектов', 'url'=>array('admin')),
+	array('label'=>'Список правил архивации барьеров', 'url'=>array('admin')),
 );
 ?>
 

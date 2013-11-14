@@ -248,7 +248,7 @@ class ProfileController extends Controller
 			if($contactModel->validate())
 			{
 				$headers="From: \"".Yii::app()->name."\" <".Yii::app()->params['adminEmail'].">\r\nReply-To: ".Yii::app()->user->email;
-				$headers = "MIME-Version: 1.0\r\nFrom: \"".Yii::app()->name."\" <".Yii::app()->params['adminEmail'].">\r\nReply-To: ".Yii::app()->user->email."\r\nContent-Type: text/html; charset=utf-8";
+				$headers = "MIME-Version: 1.0\r\nFrom: \""."=?UTF-8?B?".base64_encode(Yii::app()->name)."?=".Yii::app()->params['adminEmail'].">\r\nReply-To: ".Yii::app()->user->email."\r\nContent-Type: text/html; charset=utf-8";
 				Yii::app()->request->baseUrl=Yii::app()->request->hostInfo;
 				$mailbody=$this->renderPartial('application.views.ugmail.user2user', Array(
 						'fromuser'=> Yii::app()->user->userModel,

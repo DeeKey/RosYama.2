@@ -127,7 +127,10 @@
 					$("#pdf_form").show();
 					},"url":$(this).attr("href"),"cache":false,
 				"success":function(html){
-					jQuery("#gibdd_form").html(html);
+                    var data = jQuery("#gibdd_form").html(html);
+                    myWindow = window.open("data:text/html," + encodeURIComponent(data),
+                        "_blank");
+                    myWindow.focus();
 					}
 				});				
 				return false;

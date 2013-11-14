@@ -1,19 +1,19 @@
 <?
-$this->pageTitle=Yii::app()->name . ' :: Добавление дефекта';
+$this->pageTitle=Yii::app()->name . ' :: Добавление барьера';
 ?>
 
-<div id="addmess" style="display:none; color:#0C0"><p><b>Выберите место на карте и кликните по нему два раза, чтобы отметить расположение дефекта.</b></p></div>
+<div id="addmess" style="display:none; color:#0C0"><p><b>Выберите место на карте и кликните по нему два раза, чтобы отметить расположение барьера.</b></p></div>
   <div class="head">
 		<div class="container">
 <div class="lCol"><a href="/" class="logo" title="На главную"><img src="<? echo Yii::app()->params['logo_path'] ?>" alt="РосДоступ" /></a>
 
 </div>
 						<div class="rCol">
-							<h1>Добавление дефекта</h1>
+							<h1>Добавление барьера</h1>
 <ul class="steps">
 	<li>
 		<p class="number">1</p>
-		<p>Добавьте фотографию дефекта и&nbsp;введите основные параметры <em>(адрес, фото, описание)</em></p>
+		<p>Добавьте фотографию барьера и&nbsp;введите основные параметры <em>(адрес, фото, описание)</em></p>
 	</li>
 	<li>
 		<p class="number">2</p>
@@ -21,7 +21,7 @@ $this->pageTitle=Yii::app()->name . ' :: Добавление дефекта';
 	</li>
 	<li>
 		<p class="number">3</p>
-		<p>Через 37&nbsp;дней загрузите фото устраненного дефекта или отправьте жалобу в&nbsp;прокуратуру</p>
+		<p>Через 37&nbsp;дней загрузите фото устраненного барьера или отправьте жалобу в&nbsp;прокуратуру</p>
 	</li>
 </ul>
 						</div>

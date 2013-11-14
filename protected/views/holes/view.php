@@ -1,5 +1,5 @@
 <?
-$this->pageTitle=Yii::app()->name . ' :: Карточка дефекта';
+$this->pageTitle=Yii::app()->name . ' :: Карточка барьера';
 ?>
 <?php
 $this->widget('application.extensions.fancybox.EFancyBox', array(
@@ -27,7 +27,7 @@ $this->widget('application.extensions.fancybox.EFancyBox', array(
 	<div class="h">
 		<div class="info">
 			<p><span class="date"><?php echo CHtml::encode(Y::dateFromTime($hole->DATE_CREATED)); ?></span><?php echo CHtml::link(CHtml::encode($hole->user->getParam('showFullname') ? $hole->user->Fullname : $hole->user->username), array('/profile/view', 'id'=>$hole->user->id),array('class'=>""));?>
-			<span class="abuse_lnk" style="float:right;"><?php echo CHtml::link('Пожаловаться на этот дефект', '#', array(
+			<span class="abuse_lnk" style="float:right;"><?php echo CHtml::link('Нажмите, если не согласны с данной информацией', '#', array(
    'onclick'=>'$("#abuseDialog").dialog("open"); return false;',
 )); ?></span>
 			</p>
@@ -62,7 +62,7 @@ $this->widget('application.extensions.fancybox.EFancyBox', array(
                                         echo $request->type=="gibdd" ? "местные органы власти" : "прокуратуру";
                                 ?>
 								<?php if ($hole->STATE == 'fixed' && $fix=$hole->getFixByUser($request->user->id)) : ?> 
-								<br /><?php echo date('d.m.Y',$fix->date_fix);?> <?php echo $userlink; ?> отметил факт исправления дефекта
+								<br /><?php echo date('d.m.Y',$fix->date_fix);?> <?php echo $userlink; ?> отметил факт исправления барьера
 								<?php endif; ?>
 								</li>
 							<?php endif; ?>
@@ -72,7 +72,7 @@ $this->widget('application.extensions.fancybox.EFancyBox', array(
 							</div>
 					<?php endif;?>
 					<? if($hole->STATE == 'fixed' && ($hole->fixeds || $hole->DATE_STATUS)): ?>
-						<br /><?= CHtml::encode(Y::dateFromTime($hole->fixeds ? $hole->fixeds[0]->date_fix : $hole->DATE_STATUS))?> отмечен факт исправления дефекта
+						<br /><?= CHtml::encode(Y::dateFromTime($hole->fixeds ? $hole->fixeds[0]->date_fix : $hole->DATE_STATUS))?> отмечен факт исправления барьера
 					<? endif; ?>
 				</span>
 			</p>
@@ -96,7 +96,7 @@ $this->widget('application.extensions.fancybox.EFancyBox', array(
 			<?php if(!Yii::app()->user->isGuest) : ?>
 				<?php if ($hole->STATE !='fixed' && empty($hole->request_gibdd)) : ?>
 				<div class="form">
-					Дефект устранили? Есть фотографии? <a href="#" onclick="$('#upload_fixeds').toggle('slow'); return false;">Загрузи!</a>
+                    Барьер устранили? Есть фотографии? <a href="#" onclick="$('#upload_fixeds').toggle('slow'); return false;">Загрузи!</a>
 					<?php $form=$this->beginWidget('CActiveForm', array(
 						'id'=>'holes-form',
 						'enableAjaxValidation'=>false,
@@ -132,7 +132,7 @@ $this->widget('application.extensions.fancybox.EFancyBox', array(
 							?>
 					</div>
 					<div class="row buttons" style="">
-						<?php echo CHtml::submitButton('Отправить'); ?>
+						<?php echo CHtml::submitButton('Подготовить заявление'); ?>
 					</div>
 					</div>
 					<?php $this->endWidget(); ?>
@@ -216,7 +216,7 @@ $this->widget('application.extensions.fancybox.EFancyBox', array(
 								<p><?php echo CHtml::link(Yii::t('holes_view', 'HOLE_CART_ADMIN_GIBDD_REPLY_RECEIVED'), array('gibddreply', 'id'=>$hole->ID),array('class'=>"declarationBtn")); ?></p>
 							</div>
 						<? else : ?>	
-						<!--<p>Заявление в ГИБДД уже было отправлено если Вы тоже отправили заявление по этому дефекту, отметте ниже</p>-->
+						<!--<p>Заявление в ГИБДД уже было отправлено если Вы тоже отправили заявление по этому барьеру, отметте ниже</p>-->
 							<div class="cc">
 								<p><a href="#" onclick="var c=document.getElementById('pdf_form');if(c){c.style.display=c.style.display=='block'?'none':'block';}return false;" class="declarationBtn"><?= Yii::t('holes_view', 'HOLE_CART_ADMIN_TEXT_4') ?></a></p>
 								<p><?php echo CHtml::link(Yii::t('holes_view', 'HOLE_CART_ADMIN_TEXT_6'), array('sent', 'id'=>$hole->ID),array('class'=>"declarationBtn")); ?></p>
@@ -239,7 +239,7 @@ $this->widget('application.extensions.fancybox.EFancyBox', array(
 								<p><?=  Yii::t('holes_view', 'HOLE_CART_ADMIN_TEXT_7') ?></p>
 								<p><?php echo CHtml::link(Yii::t('holes_view', 'HOLE_CART_ADMIN_TEXT_8'), array('fix', 'id'=>$hole->ID),array('class'=>"declarationBtn")); ?></p>
 							</div>
-							<div class="cc"><?php echo CHtml::link('Ещё ответ из ГИБДД', array('gibddreply', 'id'=>$hole->ID),array('class'=>"declarationBtn")); ?>							
+							<div class="cc"><?php echo CHtml::link('Ещё ответ из органов власти', array('gibddreply', 'id'=>$hole->ID),array('class'=>"declarationBtn")); ?>
 							</div>
 							<div class="rc" style="width:145px;padding: 24px 0 24px 15px;">
 								<p>Если вас не устраивает ответ <?=Yii::app()->params->gibddOn ? 'ГИБДД' : 'местных органов власти';?>, то можно</p>
@@ -257,7 +257,7 @@ $this->widget('application.extensions.fancybox.EFancyBox', array(
 						<? else : ?>							
 							<div class="lc" style="width:150px">
 							<?php if (empty($hole->request_gibdd)) : ?>
-								<p>Вы тоже можете отправить свой запрос в <?=Yii::app()->params->gibddOn ? 'ГИБДД' : 'местные органы власти';?> по этому дефекту</p>
+								<p>Вы тоже можете отправить свой запрос в <?=Yii::app()->params->gibddOn ? 'ГИБДД' : 'местные органы власти';?> по этому барьеру</p>
 							<?php elseif(empty($hole->request_gibdd->answers)) : ?>
 								<p><?php echo CHtml::link(Yii::t('holes_view', 'HOLE_CART_ADMIN_TEXT_12'), array('notsent', 'id'=>$hole->ID),array('class'=>"declarationBtn")); ?></p>
 							<?php endif; ?>	
@@ -327,7 +327,7 @@ $this->widget('application.extensions.fancybox.EFancyBox', array(
 							<?php if(Yii::app()->params['gibddOn'] && $hole->request_gibdd && !$hole->request_gibdd->answers): ?>
 									<p><?php echo CHtml::link(Yii::t('holes_view', 'HOLE_CART_ADMIN_GIBDD_REPLY_RECEIVED'), array('gibddreply', 'id'=>$hole->ID),array('class'=>"declarationBtn")); ?></p>																		
 								<?php elseif(Yii::app()->params['gibddOn'] && $hole->request_gibdd && $hole->request_gibdd->answers): ?>
-									<p><?php echo CHtml::link('Ещё ответ из ГИБДД', array('gibddreply', 'id'=>$hole->ID),array('class'=>"declarationBtn")); ?></p>									
+									<p><?php echo CHtml::link('Ещё ответ из органов власти', array('gibddreply', 'id'=>$hole->ID),array('class'=>"declarationBtn")); ?></p>
 								<?php endif; ?>	
 						</div>
 						<div class="cc">
@@ -346,7 +346,7 @@ $this->widget('application.extensions.fancybox.EFancyBox', array(
 									<p><?= Yii::t('holes_view', 'HOLE_CART_ADMIN_TEXT_7') ?></p>
 									<?php echo CHtml::link(Yii::t('holes_view', 'HOLE_CART_ADMIN_TEXT_8'), array('fix', 'id'=>$hole->ID),array('class'=>"declarationBtn")); ?>
 								<?php elseif( !empty($hole->request_gibdd) && $hole->request_gibdd->answers ): ?>
-									<p><?php echo CHtml::link('Ещё ответ из ГИБДД', array('gibddreply', 'id'=>$hole->ID),array('class'=>"declarationBtn")); ?></p>									
+									<p><?php echo CHtml::link('Ещё ответ из органов власти', array('gibddreply', 'id'=>$hole->ID),array('class'=>"declarationBtn")); ?></p>
 									<p><?= Yii::t('holes_view', 'HOLE_CART_ADMIN_TEXT_7') ?></p>
 									<?php echo CHtml::link(Yii::t('holes_view', 'HOLE_CART_ADMIN_TEXT_8'), array('fix', 'id'=>$hole->ID),array('class'=>"declarationBtn")); ?>	
 								<?php else: ?>	
@@ -381,7 +381,7 @@ $this->widget('application.extensions.fancybox.EFancyBox', array(
 						<? if(Yii::app()->params['gibddOn'] && $hole->request_gibdd && !$hole->request_gibdd->answers): ?>
 							<p><?php echo CHtml::link(Yii::t('holes_view', 'HOLE_CART_ADMIN_GIBDD_REPLY_RECEIVED'), array('gibddreply', 'id'=>$hole->ID),array('class'=>"declarationBtn")); ?></p>						
 						<? elseif($hole->request_gibdd && $hole->request_gibdd->answers): ?>
-							<p><?php echo CHtml::link('Ещё ответ из ГИБДД', array('gibddreply', 'id'=>$hole->ID),array('class'=>"declarationBtn")); ?></p>						
+							<p><?php echo CHtml::link('Ещё ответ из органов власти', array('gibddreply', 'id'=>$hole->ID),array('class'=>"declarationBtn")); ?></p>
 						<? endif; ?>
 						
 						<?php break;
@@ -415,7 +415,7 @@ $this->widget('application.extensions.fancybox.EFancyBox', array(
 			<?php else : ?>	
 				<div class="progress">
 
-								<p>		мешает этот дефект? <?php  echo CHtml::link('авторизуйся и отправь заявление', array('review','id'=>$hole->ID),array('class'=>"declarationBtn")); ?>.
+								<p>		мешает этот барьер? <?php  echo CHtml::link('авторизуйся и отправь заявление', array('review','id'=>$hole->ID),array('class'=>"declarationBtn")); ?>.
 								</p>
 
 
@@ -449,16 +449,16 @@ new Ya.share({
 		},
 		serviceSpecific: {
 			twitter: {
-				title: 'Обнаружен дефект по адресу: <?= CHtml::encode($hole->ADDRESS) ?>'
+				title: 'Обнаружен барьер по адресу: <?= CHtml::encode($hole->ADDRESS) ?>'
 			},
 			facebook: {
-				title: 'Обнаружен дефект по адресу: <?= CHtml::encode($hole->ADDRESS) ?>'
+				title: 'Обнаружен барьер по адресу: <?= CHtml::encode($hole->ADDRESS) ?>'
 			},
 			moimir: {
-				title: 'Обнаружен дефект по адресу: <?= CHtml::encode($hole->ADDRESS) ?>'
+				title: 'Обнаружен барьер по адресу: <?= CHtml::encode($hole->ADDRESS) ?>'
 			},
 			odnoklassniki: {
-				title: 'Обнаружен дефект по адресу: <?= CHtml::encode($hole->ADDRESS) ?>'
+				title: 'Обнаружен барьер по адресу: <?= CHtml::encode($hole->ADDRESS) ?>'
 			}
 		}
 });
@@ -511,7 +511,7 @@ new Ya.share({
 	<div class="b">
 			<?php if(($hole->IsUserHole || Yii::app()->user->level > 80) && $hole->pictures_fixed_not_moderated) : ?>
 				<div class="before">
-					<h2>Фотографии исправленного дефекта на модерации</h2>
+					<h2>Фотографии исправленного барьера на модерации</h2>
 					<? foreach($hole->pictures_fixed_not_moderated as $i=>$picture): ?>
 					<div class="picture_info">
 					<div style="width:515px;">
@@ -519,7 +519,7 @@ new Ya.share({
 					</div>
 					<div style="text-align:right;">
 					<?php if (Yii::app()->user->level > 80 || $hole->IsUserHole) : ?>
-						<?php echo CHtml::link(CHtml::image('/images/published.png', 'Утвердить изображение и отметить дефект как устраненный', Array('title'=>'Утвердить изображение и отметить дефект как устраненный')), Array('approveFixedPicture','id'=>$hole->ID,'pictid'=>$picture->id), Array('class'=>'declarationBtn')); ?>
+						<?php echo CHtml::link(CHtml::image('/images/published.png', 'Утвердить изображение и отметить барьер как устраненный', Array('title'=>'Утвердить изображение и отметить барьер как устраненный')), Array('approveFixedPicture','id'=>$hole->ID,'pictid'=>$picture->id), Array('class'=>'declarationBtn')); ?>
 					<?php endif; ?>
 					
 					<?php if ($picture->user_id==Yii::app()->user->id || Yii::app()->user->level > 80 || $hole->IsUserHole) : ?>
@@ -615,7 +615,7 @@ new Ya.share({
 				'id'=>'abuseDialog',
 				// additional javascript options for the dialog plugin
 				'options'=>array(
-					'title'=>'Отправить жалобу на дефект',
+					'title'=>'Отправить жалобу на барьер',
 					'autoOpen'=>$abuseModel->errors ? true : false,
 					'width'=>'auto',
 					'height'=>'auto',

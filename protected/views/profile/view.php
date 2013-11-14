@@ -15,7 +15,7 @@
 						</div>
 					</div>
 					<div class="counter">
-						<?php echo Y::declOfNum($model->holes_cnt, array('дефект', 'дефекта', 'дефектов')); ?> / <?php echo Y::declOfNum($model->holes_fixed_cnt, array('отремонтирован', 'отремонтировано', 'отремонтировано')); ?>						
+						<?php echo Y::declOfNum($model->holes_cnt, array('барьер', 'барьера', 'барьеров')); ?> / <?php echo Y::declOfNum($model->holes_fixed_cnt, array('отремонтирован', 'отремонтировано', 'отремонтировано')); ?>
 					</div>	
 				</div>		
 			</div>

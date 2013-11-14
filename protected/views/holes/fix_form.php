@@ -15,7 +15,7 @@
 
 	<!-- левая колоночка -->
 	<div class="lCol">
-		<!-- тип дефекта -->
+		<!-- тип барьера -->
 		<div class="f">
 			<?php echo $model->type->name; ?>
 		</div>

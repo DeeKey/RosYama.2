@@ -1,11 +1,11 @@
 <?php
 $this->breadcrumbs=array(
-	'Типы дефектов'=>array('index'),
+	'Типы барьеров'=>array('index'),
 	'Управление',
 );
 
 $this->menu=array(
-	array('label'=>'Создать тип дефекта', 'url'=>array('create')),
+	array('label'=>'Создать тип барьера', 'url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -22,7 +22,7 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Управление типами дефектов</h1>
+<h1>Управление типами барьеров</h1>
 
 <?php $this->widget('zii.widgets.jui.CJuiSortable', array('items'=>array(), 'options'=>array(),)); ?>
 <?php // sortable script

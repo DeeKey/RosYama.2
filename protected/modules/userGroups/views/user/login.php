@@ -10,11 +10,11 @@
 		<?php unset(Yii::app()->request->cookies['success']);?>
 	</div>
 	<?php endif; ?>
-	<?php if(Yii::app()->user->hasFlash('mail')):?>
-    <div class="info">
-        <?php echo Yii::app()->user->getFlash('mail'); ?>
-    </div>
-	<?php endif; ?>
+<!--	--><?php //if(Yii::app()->user->hasFlash('mail')):?>
+<!--    <div class="info">-->
+<!--        --><?php //echo Yii::app()->user->getFlash('mail'); ?>
+<!--    </div>-->
+<!--	--><?php //endif; ?>
 	<div class="form center">
 	
 	</div><!-- form -->

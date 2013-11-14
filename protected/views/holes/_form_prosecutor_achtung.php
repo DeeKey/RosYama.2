@@ -3,7 +3,7 @@
 										'id'=>'request-form',
 										'enableAjaxValidation'=>false,
 										'action'=>Yii::app()->createUrl("holes/request", array("id"=>$hole->ID)),
-										'htmlOptions'=>Array ('onsubmit'=>"document.getElementById('prosecutor_form2').style.display='none';"),
+										'htmlOptions'=>Array ('onsubmit'=>"document.getElementById('prosecutor_form2').style.display='block';", 'target'=>'_blank'),
 									)); 
 									$model=new HoleRequestForm;
 									$usermodel=Yii::app()->user->userModel;

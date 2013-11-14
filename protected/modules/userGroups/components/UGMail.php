@@ -208,7 +208,7 @@ class UGMailActivation implements UGMailMessage {
 	{
 		$headers = 'MIME-Version: 1.0' . "\n";
 		$headers .= 'Content-type: text/html; charset=utf8' . "\n";
-		$headers .= 'From: '.Yii::app()->name.' <'.$admin_mail.'>';
+		$headers .= 'From: '.'=?UTF-8?B?'.base64_encode(Yii::app()->name).'?= <'.$admin_mail.'>';
 		return $headers;
 	}
 
@@ -236,7 +236,7 @@ class UGMailActivation implements UGMailMessage {
 	 */
 	public function mailSuccess($data)
 	{
-		return Yii::t('UserGroupsModule.general','The activation email was successfully sent to {email}', $data);
+		return Yii::t('','', $data);
 	}
 
 	/**

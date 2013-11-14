@@ -1,8 +1,8 @@
-<h2>Жалоба на дефект</h2>
-<p>Пользователь <?php echo CHtml::link($user->Fullname, array('/profile/view', 'id'=>$user->id));?>, отправил жалобу на дефект.</p>
+<h2>Жалоба на барьер</h2>
+<p>Пользователь <?php echo CHtml::link($user->Fullname, array('/profile/view', 'id'=>$user->id));?>, отправил жалобу на барьер.</p>
 <h3>Текст жалобы:</h3>
 <p><?php echo nl2br(CHtml::encode($abuse->text)); ?></p>
-<p>Информация о дефекте:</p>
+<p>Информация о барьере:</p>
 <?php $this->renderPartial("/holes/_view_in_mail", Array('data'=>$hole, 'index'=>0, 'user'=>$user)); ?>
 
 <br/>

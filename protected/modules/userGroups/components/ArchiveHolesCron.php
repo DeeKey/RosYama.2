@@ -5,7 +5,7 @@ class ArchiveHolesCron extends UGCronJob {
 	 */
 	protected function getDescription()
 	{
-		return 'Архивирование старых дефектов';
+		return 'Архивирование старых барьеров';
 	}
 	
 	/**

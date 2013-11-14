@@ -38,9 +38,11 @@
 			'items'=>array(
 				array('label'=>'О проекте', 'url'=>array('/site/page', 'view'=>'about')),
 				array('label'=>'Карта', 'url'=>array('/holes/map')),
-				array('label'=>'Нормативы', 'url'=>array('/site/page', 'view'=>'regulations')),
-				array('label'=>'Статистика', 'url'=>array('/statics/index')),
+				array('label'=>'Порядок работы', 'url'=> array('/site/page', 'view'=>'workorder')),			
 				array('label'=>'FAQ', 'url'=>array('/site/page', 'view'=>'faq')),
+				/*array('label'=>'Статистика', 'url'=>array('/statics/index')),*/
+				array('label'=>'Нормативы', 'url'=>array('/site/page', 'view'=>'regulations')),
+				array('label'=>'Контакты', 'url'=>array('/site/page', 'view'=>'contacts')),
 //				array('label'=>'Справочники', 'url'=>array('/sprav/index')), // Намеренно убрано для Росдоступа
 				//array('label'=>'Logout ('.$this->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!$this->user->isGuest)
 			),
@@ -109,6 +111,32 @@
 	</div>
 		<?php echo $content; ?>
 
+
+	<? if (!$this->user->isGuest && $flash=$this->user->getFlash('user')):?>
+		<div id="addDiv">
+			<div id="fon">
+			</div>
+			<div id="popupdiv">
+			<?php echo ($flash); ?>
+				 <span class="filterBtn close">
+					<i class="text">Продолжить</i>
+				 </span>
+			</div>
+		</div>
+
+		<script type="text/javascript">
+		$(document).ready(function(){
+			$('.close').click(function(){
+				$('#popupdiv').fadeOut(400);
+				$('#fon').fadeOut(600);
+				$('#addDiv').fadeOut(800);
+			})
+		})
+
+		</script>
+	<?endif?>
+
+
 	<div class="footer">
 
 		<div class="container">
@@ -157,29 +185,7 @@
 	  })();
 
 	</script>
-	<? if (!$this->user->isGuest && $flash=$this->user->getFlash('user')):?>
-		<div id="addDiv">
-			<div id="fon">
-			</div>
-			<div id="popupdiv">
-			<?php echo ($flash); ?>
-				 <span class="filterBtn close">
-					<i class="text">Продолжить</i>
-				 </span>
-			</div>
-		</div>
 
-		<script type="text/javascript">
-		$(document).ready(function(){
-			$('.close').click(function(){
-				$('#popupdiv').fadeOut(400);
-				$('#fon').fadeOut(600);
-				$('#addDiv').fadeOut(800);
-			})
-		})
-
-		</script>
-	<?endif?>
 
 	</body>
 	</html>

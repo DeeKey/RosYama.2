@@ -541,7 +541,7 @@ class Holes extends CActiveRecord
 			$this->WAIT_DAYS = 38 - ceil((time() - $this->DATE_SENT) / 86400);	
 		}
 			
-		//отмечаем дефект если просрочен
+		//отмечаем барьер если просрочен
 		if ($this->WAIT_DAYS < 0 && $this->STATE == 'inprogress') {
 			$this->STATE = 'achtung';
 			$this->update();
@@ -567,7 +567,7 @@ class Holes extends CActiveRecord
 				//Потом все отметки об исправленности
 				foreach ($this->fixeds as $fixed) $fixed->delete();
 				
-				//Потом все комментарии к дефекту
+				//Потом все комментарии к барьеру
 				foreach ($this->comments as $comment) $comment->delete();
 				
 				$this->selected_lists=Array();
@@ -611,7 +611,7 @@ class Holes extends CActiveRecord
 						'comment'=>$comment,
 						'user'=>$this->user,
 						),true);
-			if (mail($this->user->email,"=?utf-8?B?" . base64_encode('Новый комментарий к Вашему дефекту') . "?=",$mailbody,$headers)){
+			if (mail($this->user->email,"=?utf-8?B?" . base64_encode('Новый комментарий к Вашему барьеру') . "?=",$mailbody,$headers)){
 							return true;
 						}		
 			}	
@@ -636,14 +636,14 @@ class Holes extends CActiveRecord
             'USER_ID' => 'Пользователь',
             'LATITUDE' => 'Широта',
             'LONGITUDE' => 'Долгота',
-            'ADDRESS' => 'Адрес дефекта',
+            'ADDRESS' => 'Адрес барьера',
             'STATE' => 'Статус',
             'DATE_CREATED' => 'Дата создания',
             'DATE_SENT' => 'Дата отправки в ГИБДД',
             'DATE_STATUS' => 'Дата изменения',
             'COMMENT1' => 'Комментарии',
             'COMMENT2' => 'Комментарии',
-            'TYPE_ID' => 'Тип дефекта',
+            'TYPE_ID' => 'Тип барьера',
             'ADR_SUBJECTRF' => 'Субъект РФ',
             'ADR_CITY' => 'Город',
             'PREMODERATED' => 'Модер.',
@@ -651,9 +651,9 @@ class Holes extends CActiveRecord
             'DATE_SENT_PROSECUTOR' => 'Date Sent Prosecutor',
             'deletepict'=>'Удалить фотографию?',
             'replуfiles'=>'Необходимо добавить отсканированный ответ из ГИБДД',
-            'upploadedPictures'=>$this->scenario=='fix' ? 'Желательно добавить фотографии исправленного дефекта' : 'Нужно загрузить фотографии (не больше 10 штук)',
-            'description_size'=>'Описание дефекта (размеры и прочая информация)',
-            'description_locality'=>'Подробное описание расположения дефекта на местности',
+            'upploadedPictures'=>$this->scenario=='fix' ? 'Желательно добавить фотографии исправленного барьера' : 'Нужно загрузить фотографии (не больше 10 штук)',
+            'description_size'=>'Описание барьера (размеры и прочая информация)',
+            'description_locality'=>'Подробное описание расположения барьера на местности',
             'archive'=>'Архив',
             'deleted'=>'Удалено'
         );
@@ -766,7 +766,7 @@ class Holes extends CActiveRecord
 	
 		$area=$userModel->hole_area;		
 
-		//Вытаскиваем айдишники дефектов в полигонах		
+		//Вытаскиваем айдишники барьеров в полигонах
 		$polygonHolesIds=Array();
 		foreach ($area as $shape){
 			$polygonCriteria=new CDbCriteria;
@@ -792,7 +792,7 @@ class Holes extends CActiveRecord
 	
 		$area=$userModel->hole_area;		
 		
-		//Вытаскиваем айдишники дефектов не в полигонах		
+		//Вытаскиваем айдишники барьеров не в полигонах
 		$polygonHolesIds=Array();
 		foreach ($area as $i=>$shape){
 			$polygonCriteria=new CDbCriteria;
@@ -819,7 +819,7 @@ class Holes extends CActiveRecord
 	public function findPkeysNotInArea($polygons, $corners)
 	{
 	
-		//Вытаскиваем айдишники дефектов не в полигонах		
+		//Вытаскиваем айдишники барьеров не в полигонах
 		$polygonHolesIds=Array();
 		foreach ($polygons as $i=>$polygon){
 			$polygonCriteria=new CDbCriteria;

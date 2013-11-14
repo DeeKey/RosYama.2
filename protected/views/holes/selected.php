@@ -1,5 +1,5 @@
 <?
-$this->pageTitle=Yii::app()->name . ' :: Добавленные мной дефекты';
+$this->pageTitle=Yii::app()->name . ' :: Добавленные мной барьеры';
 ?>
 <?php Yii::app()->clientScript->registerScript('select_holes','			
 			function selectHoles(arr,del){
@@ -56,7 +56,7 @@ $this->pageTitle=Yii::app()->name . ' :: Добавленные мной деф�
 			<div class="rCol">
 	<div class="h">
 		<div class="info">
-			<h1><span class="date">Сохраненный список дефектов от <?php echo CHtml::encode(Y::dateFromTimeShort($list->date_created)); ?></span></h1>
+			<h1><span class="date">Сохраненный список барьеров от <?php echo CHtml::encode(Y::dateFromTimeShort($list->date_created)); ?></span></h1>
 			<p>Отдел ГИБДД: "<?php echo $list->gibdd->gibdd_name; ?>"</p>
 			<p><?php echo CHtml::link('изменить', '#', Array('onclick'=>'$("#change_gibdd").show("slow"); $(this).hide("slow"); return false;')); ?></p>
 			<div id="change_gibdd" style="display:none;">
@@ -77,12 +77,12 @@ $this->pageTitle=Yii::app()->name . ' :: Добавленные мной деф�
 							</div>
 							<?php if ($list->notSentHoles) : ?>
 							<div class="cc">
-							<?php echo CHtml::link('Пометить как отправленное '.Y::declOfNum(count($list->notSentHoles),Array('дефект','дефекты','дефектов')), Array('sentMany','holes'=>implode(',',CHtml::listData($list->notSentHoles,'ID','ID'))), Array('class'=>'')); ?><br/>
+							<?php echo CHtml::link('Пометить как отправленное '.Y::declOfNum(count($list->notSentHoles),Array('барьер','барьеры','барьеров')), Array('sentMany','holes'=>implode(',',CHtml::listData($list->notSentHoles,'ID','ID'))), Array('class'=>'')); ?><br/>
 							</div>
 							<?php endif; ?>
 							<?php if ($list->sentedHoles) : ?>
 							<div class="rc" style="padding: 24px 15px;">
-							<?php echo CHtml::link('Загрузить ответ на '.Y::declOfNum(count($list->sentedHoles),Array('дефект','дефекты','дефектов')), Array('gibddreply','holes'=>implode(',',CHtml::listData($list->sentedHoles,'ID','ID'))), Array('class'=>'')); ?><br/>
+							<?php echo CHtml::link('Загрузить ответ на '.Y::declOfNum(count($list->sentedHoles),Array('барьер','барьеры','барьеров')), Array('gibddreply','holes'=>implode(',',CHtml::listData($list->sentedHoles,'ID','ID'))), Array('class'=>'')); ?><br/>
 							</div>
 							<?php endif; ?>
 							
@@ -121,9 +121,9 @@ $this->pageTitle=Yii::app()->name . ' :: Добавленные мной деф�
 	//'method'=>'get',
 	'id'=>'holes_selectors',
 )); ?>			
-			<?php echo $form->dropDownList($model, 'TYPE_ID', CHtml::listData( HoleTypes::model()->findAll(Array('condition'=>'published=1', 'order'=>'ordering')), 'id','name'), array('prompt'=>'Тип дефекта')); ?>
-			<?php echo $form->dropDownList($model, 'STATE', $model->Allstates, array('prompt'=>'Статус дефекта')); ?>
-			<?php echo $form->dropDownList($model, 'showUserHoles', Array('3'=>'Все дефекты', 1=>'Добавленные мной дефекты', 2=>'Чужие, на которые я отправил заявление')); ?>
+			<?php echo $form->dropDownList($model, 'TYPE_ID', CHtml::listData( HoleTypes::model()->findAll(Array('condition'=>'published=1', 'order'=>'ordering')), 'id','name'), array('prompt'=>'Тип барьера')); ?>
+			<?php echo $form->dropDownList($model, 'STATE', $model->Allstates, array('prompt'=>'Статус барьера')); ?>
+			<?php echo $form->dropDownList($model, 'showUserHoles', Array('3'=>'Все барьеры', 1=>'Добавленные мной барьеры', 2=>'Чужие, на которые я отправил заявление')); ?>
 			<?php echo CHtml::submitButton('Найти'); ?><br/>
 			
 	<?php $this->endWidget(); ?>		
